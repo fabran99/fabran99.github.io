@@ -1,33 +1,44 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
-import { Calendar, Clock } from 'react-feather'
+import { Calendar, Clock } from "react-feather"
 import Img from "gatsby-image"
-import CategoriesTags from '../../components/CategoriesTags/categoriesTags';
-import {ContainerLayout, WorkPost, Intro, SubTitle, Title, Text, HeaderIntro, SubText, SmallText, UnderLink, ReadMore} from "../../components/common"
+import CategoriesTags from "../../components/CategoriesTags/categoriesTags"
+import {
+  ContainerLayout,
+  WorkPost,
+  Intro,
+  SubTitle,
+  Title,
+  Text,
+  HeaderIntro,
+  SubText,
+  SmallText,
+  UnderLink,
+  ReadMore,
+} from "../../components/common"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
 const Categories = ({ data }) => {
-  const { edges} = data.allMarkdownRemark
+  const { edges } = data.allMarkdownRemark
   // const tagHeader = `${totalCount} post${
   //   totalCount === 1 ? "" : "s"
   // } tagged with "${category}"`
 
   return (
-    <Layout> 
+    <Layout>
       <SEO title="Blog Home Page" />
       <Intro>
         <ContainerLayout>
-
-          <SubTitle>
-            Articles
-          </SubTitle>
+          <SubTitle>Artículos</SubTitle>
           <HeaderIntro>
             <SubText>
-              Articles on front-end design engineering, focused on HTML, CSS, SVG, accessiblity, and everything in between, with practical tips from real projects. Included here are links to articles published on magazines.
+              Artículos sobre desarrollo de software, donde explico mi proceso a
+              la hora de diseñar un sistema, y distintos algoritmos usados
+              durante el desarrollo.
             </SubText>
-            <CategoriesTags /> 
+            <CategoriesTags />
           </HeaderIntro>
 
           <ContainerLayout className="wrapper">
@@ -38,39 +49,66 @@ const Categories = ({ data }) => {
                   <div className="media">
                     <div className="image-wrapper">
                       <Link to={node.fields.slug}>
-                        <Img fluid={node.frontmatter.image.childImageSharp.fluid} title="work title" />
-                      </Link> 
+                        <Img
+                          fluid={node.frontmatter.image.childImageSharp.fluid}
+                          title="work title"
+                        />
+                      </Link>
                     </div>
-                    <SmallText>
-                      Image Credits : 
-                      <UnderLink href={node.frontmatter.imageCredit} target="_blank" title="image credit">
-                        {node.frontmatter.imageCredit}
-                      </UnderLink>
-                    </SmallText>
                   </div>
-                  
+
                   <div className="content">
                     <header>
-                      <SmallText> 
-                        <span className="align-middle">{node.frontmatter.categories.map((item, index) => (
-                          <Link to={`/${item}`} key={index}>
-                            <span className="align-middle text-primary text-underline">#{item}</span>
-                            {node.frontmatter.categories.length !== index + 1 ? <span className="align-middle text-primary"> , </span> : ""}
-                          </Link>
-                        ))} </span>
+                      <SmallText>
+                        <span className="align-middle">
+                          {node.frontmatter.categories.map((item, index) => (
+                            <Link to={`/${item}`} key={index}>
+                              <span className="align-middle text-primary text-underline">
+                                #{item}
+                              </span>
+                              {node.frontmatter.categories.length !==
+                              index + 1 ? (
+                                <span className="align-middle text-primary">
+                                  {" "}
+                                  ,{" "}
+                                </span>
+                              ) : (
+                                ""
+                              )}
+                            </Link>
+                          ))}{" "}
+                        </span>
                       </SmallText>
                       <Title>
-                        <Link className="text-primary" style={{ boxShadow: `none` }} to={node.fields.slug}>
+                        <Link
+                          className="text-primary"
+                          style={{ boxShadow: `none` }}
+                          to={node.fields.slug}
+                        >
                           {title}
                         </Link>
                       </Title>
-                      <SmallText> 
-                        <Calendar className="align-middle text-primary" width="18" height="18" /> 
-                        <span className="align-middle"> date published : {node.frontmatter.date} </span>
+                      <SmallText>
+                        <Calendar
+                          className="align-middle text-primary"
+                          width="18"
+                          height="18"
+                        />
+                        <span className="align-middle">
+                          {" "}
+                          Publicado : {node.frontmatter.date}{" "}
+                        </span>
                       </SmallText>
-                      <SmallText> 
-                        <Clock className="align-middle text-primary" width="18" height="18" /> 
-                        <span className="align-middle"> read time : {node.frontmatter.time} </span>
+                      <SmallText>
+                        <Clock
+                          className="align-middle text-primary"
+                          width="18"
+                          height="18"
+                        />
+                        <span className="align-middle">
+                          {" "}
+                          Tiempo de lectura : {node.frontmatter.time}{" "}
+                        </span>
                       </SmallText>
                     </header>
                     <Text
@@ -79,7 +117,10 @@ const Categories = ({ data }) => {
                       }}
                     />
                     <Link to={node.fields.slug}>
-                      <ReadMore className="lined-link"> read more &#8594; </ReadMore>
+                      <ReadMore className="lined-link">
+                        {" "}
+                        Leer más &#8594;{" "}
+                      </ReadMore>
                     </Link>
                   </div>
                 </WorkPost>
@@ -142,7 +183,6 @@ export const pageQuery = graphql`
               }
             }
             categories
-            imageCredit
             description
           }
         }

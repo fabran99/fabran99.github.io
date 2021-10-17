@@ -1,39 +1,54 @@
 ---
-title: portfolio-work-2
-date: "2015-05-28T22:40:32.169Z"
-category: web design
-tags: ['Front End', 'css', 'js', 'dashboard']
-image: './blog-image.jpg'
-description: "Radio buttons and checkboxes have long been components that cause users confusion. These components are often used in the same context, but look completely different."
+title: Aplicación de análisis de datos para agro 
+tags: ['python','pandas', 'análisis de datos']
+category: Análisis de datos
+image: './img1.png'
+date: "2021-10-16T20:42:03.284Z"
+description: "Aplicación para agro donde se obtienen estadísticas en base a datos geográficos del recorrído de las máquinas."
 ---
 
-Radio buttons and checkboxes have long been components that cause users confusion. These components are often used in the same context, but look completely different. Designers and developers know the difference, but that’s because they learned it through their work. What about users who were never taught the difference?
+![mapa de rendimiento](img1.png)
 
-The fact that users need to be taught the difference shows that these two components are not intuitive. Their appearance alone does not convey their slight differences in functionality. The visual cues themselves—a dot and checkmark—carry no specific meaning to users other than an option selection. Therefore, the existence of both radio buttons and checkboxes violates the UX principle of Consistency.
+La aplicación en cuestión esta siendo desarrollada incrementalmente y nuevas features van a irse agregando, por lo que paso a comentar brevemente en que consiste.
 
-Designers and developers have never questioned their co-existence because it’s the way it’s always been. However, if their co-existence causes users confusion and violates a UX principle, it merits a logical analysis and rethinking.
+El objetivo de la misma es brindar una serie de **estadísticas para productores agrícolas**, la empresa dispone de equipos que relevan información de posición y rendimiento de las cosechadoras y sembradoras.
 
-A Violation of Consistency
---------------------------
+El lenguaje utilizado es **Python**, las librerías Pandas, GeoPandas y Shapely se usan para el analisis de datos, y Django para la API. 
 
-The UX principle of Consistency states that components with similar functionality and same usage should have a uniform appearance. Radio buttons and checkboxes have a similar function and are used in the same context, but there’s nothing uniform about their appearance.
+# Algoritmos principales
+Durante el desarrollo de la aplicación, programé una **serie de algorítmos sobre los que escribí** en [este post](/agro-algorithms/) y pueden resultar interesantes.
 
-Radio buttons represent mutually exclusive selections, while checkboxes represent mutually inclusive ones. Both are commonly used together on forms to select options from a list. However, a radio button is a circle with a dot inside, while a checkbox is a square with a checkmark inside—two different visual cues.
+# Funcionalidades principales que desarrollé
+## Reportes de avance durante la zafra actualizados cada 8 horas
+![reporte por maquina](img2.PNG)
+Estos reportes detallan:
+- Área trabajada por las máquinas
+- Área solapada
+- Porcentaje cosechado en cada chacra
+- Mapa de rendimiento de cada chacra
+- Rendimiento promedio de cada chacra
+- Humedad promedio de cada chacra
+- Detección de zonas de las chacras con bajo rendimiento
+- Detección de errores en los equipos 
+- Máquinas utilizadas en cada chacra
+- Polígono de avance con área cosechada de cada chacra
+- Fecha de inicio y fin de cosecha o siembra de cada chacra
 
-Some might say that their functions are different, so they should look different. But to be precise, their functions are only slightly different, and they both have the same usage, which is not enough to justify a different appearance. Doing so presents an inconsistency that can perplex users.
+Los reportes se guardan en varios formatos según el tipo de información que se brinde, entre ellos Excel, PDF, Docx, ShapeFile.
+![poligonos de avance](img3.png)
 
-Mutual Exclusivity/Inclusivity Is Not a User Concern
-----------------------------------------------------
+## API para uso en frontend
+![frontend1](img4.PNG)
+- Agrupación de información por empresa
+- Detección de eventos que requieran accionar del equipo a campo
+- Gestion de máquinas y de chacras asociadas a cada zafra
+- Detección de chacras a partir de polígonos de avance en siembra
+- Subida de polígonos de chacras a partir de GeoJSON
+- Exportación en todos los formatos mencionados en la funcionalidad anterior
 
-If you ask the typical user what a mutually exclusive or inclusive option is, they probably wouldn’t be able to tell you. That’s because they don’t think about mutual exclusivity or inclusivity when they use an interface. Only designers and developers think about this because they have to design the interface.
 
-Users merely read the labels and select the options they want. They’re focused on what the labels say, not component functionality. Therefore, mutual exclusivity and inclusivity should be indicated in the labels they read, not the components themselves. Designers and developers are imposing their way of thinking onto the user.
+# Comentarios finales
+La aplicación brinda al productor una serie de estadísticas que ayudan a optimizar el uso de los campos, **mejorando la productividad** y permitiendo priorizar aquellos campos con mejor rendimiento.
 
-How Users Know They Can Select One or Multiple
-----------------------------------------------
-
-The label on the components often indicates whether users can select multiple options or just one. When users can select multiple options, the label is worded in plural form. When users can only select one option, the label is worded in the singular form. Make sure you use the correct noun form when you label mutually exclusive and inclusive components. It’s easy to forget about the labels, but they’re what matters most.
-
-Label noun forms are a clearer cue for mutual exclusivity/inclusivity than a checkmark and a dot. A checkmark and a dot do not signify mutual exclusivity/inclusivity other than by convention that’s familiar to only designers, developers, and tech-savvy users. Regular users who see the different components used in the same context will wonder what the visual differences mean. The inconsistency isn’t severe enough to derail their task, but it certainly diverts their attention.
-
+A su vez, los resultados de cada siembra ayudan a ** **, identificando las zonas sembradas, el tipo de cultivo de cada una y las fechas de inicio y fin exactas de cada proceso.
 

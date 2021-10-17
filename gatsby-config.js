@@ -1,7 +1,7 @@
-const data = require('./src/data/data');
-require('dotenv').config({
+const data = require("./src/data/data")
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 module.exports = {
   siteMetadata: {
     title: data.SiteTitle,
@@ -80,8 +80,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-          trackingId: process.env.GATSBY_GOOGLE_ANALYTICS,
-          head: true,
+        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS,
+        head: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

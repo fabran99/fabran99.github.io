@@ -1,10 +1,10 @@
 module.exports = {
-  SiteTitle: 'Abdelali',
-  Sitelogo: '#',
-  SiteLogoText: 'Abdelali',
-  SiteAuthor: 'Abdelali Dahir',
-  SiteDescription: 'Front End Developer',
-  defaultDescription: 'Software engineer!', 
+  SiteTitle: "Fabran99",
+  Sitelogo: "#",
+  SiteLogoText: "Fabran99",
+  SiteAuthor: "Facundo Branbate",
+  SiteDescription: "Full Stack Developer",
+  defaultDescription: "Full Stack Developer",
   githubApiQuery: `query ($number_of_repos: Int!) {
     viewer {
       name
@@ -40,21 +40,19 @@ module.exports = {
   }`,
   githubApiVariables: {
     number_of_repos: 12,
-  }, 
+  },
   SiteSocialLinks: {
-    twitter: 'https://twitter.com/AbdaliDahir',
-    github: 'https://github.com/AbdaliDahir',
-    linkedin: 'https://www.linkedin.com/in/abdelali-dahir-0b5344111/',
+    gmail: "fabran99@gmail.com",
+    github: "https://github.com/fabran99",
   },
   SiteAddress: {
-    city: 'Casablanca',
-    region: 'CurvaSud',
-    country: 'Morocco',
-    zipCode: 'ZipCode',
+    city: "Montevideo",
+    region: "Montevideo",
+    country: "Uruguay",
+    zipCode: "ZipCode",
   },
   SiteContact: {
-    email: 'abdali.dahir@gmail.com',
-    phone: 'phone number',
+    email: "fabran99@gmail.com",
   },
-  SiteCopyright: '2020',
-};
+  SiteCopyright: "2021",
+}
