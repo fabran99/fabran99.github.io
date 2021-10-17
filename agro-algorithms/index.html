@@ -1,0 +1,537 @@
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.81894ad2461fd1ba450a.css" id="gatsby-global-css">@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Algoritmos para agro | Fabran99</title><meta data-react-helmet="true" name="description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><meta data-react-helmet="true" property="og:title" content="Algoritmos para agro"/><meta data-react-helmet="true" property="og:description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Algoritmos para agro"/><meta data-react-helmet="true" name="twitter:description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+@media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
+data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
+.cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:850px){.cvEVjw{grid-template-columns:1fr;text-align:center;width:100%;}}/*!sc*/
+data-styled.g2[id="style__NavbarElement-sc-1kk5mj1-1"]{content:"cvEVjw,"}/*!sc*/
+.cXPKA-D{padding-left:0;display:grid;grid-template-columns:repeat(3,1fr);list-style:none;}/*!sc*/
+.cXPKA-D > li a{font-size:1.2rem;color:#232323;padding:0.5rem 0.2rem;margin:0 1rem;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle;}/*!sc*/
+.cXPKA-D > li a > svg{width:18px;margin-right:5px;}/*!sc*/
+.cXPKA-D > li a span,.cXPKA-D > li a svg{display:block;vertical-align:middle;}/*!sc*/
+@media (max-width:850px){.cXPKA-D > li a{font-size:1rem;}}/*!sc*/
+data-styled.g3[id="style__NavbarList-sc-1kk5mj1-2"]{content:"cXPKA-D,"}/*!sc*/
+.qSPLr{padding-top:1rem;padding-bottom:8rem;z-index:0;position:relative;text-align:left;}/*!sc*/
+@media (min-width:850px){.qSPLr{background:linear-gradient(to top,#efe9e9,transparent 50%);}}/*!sc*/
+@media (max-width:850px){.qSPLr{padding-bottom:2rem;padding-left:0.5rem;padding-right:0.5rem;text-align:center;}}/*!sc*/
+.qSPLr .quote{font-size:4rem;font-family:"GT-Walsheim-Pro-Bold";line-height:1.2;color:#0ec289;}/*!sc*/
+@media (max-width:850px){.qSPLr .quote{font-size:2rem;}}/*!sc*/
+data-styled.g4[id="style__FooterStyle-l15n7d-0"]{content:"qSPLr,"}/*!sc*/
+.rqPHC{text-align:center;font-size:1.1em;}/*!sc*/
+.rqPHC div{margin-bottom:0.5em;}/*!sc*/
+.rqPHC svg{-webkit-transform:translateY(5px);-ms-transform:translateY(5px);transform:translateY(5px);}/*!sc*/
+data-styled.g5[id="style__FooterLinks-l15n7d-1"]{content:"rqPHC,"}/*!sc*/
+.gPWzTY{text-align:center;}/*!sc*/
+data-styled.g8[id="style__FooterBody-l15n7d-4"]{content:"gPWzTY,"}/*!sc*/
+.cgHyiV{cursor:pointer;margin:5% 0%;font-family:"GT-Walsheim-Pro-Medium";font-size:inherit;text-align:center;-webkit-letter-spacing:3px;-moz-letter-spacing:3px;-ms-letter-spacing:3px;letter-spacing:3px;text-transform:uppercase;-webkit-text-decoration:none;text-decoration:none;border:4px solid #0ec289;color:#0ec289;background:#fff;outline:none;position:relative;display:inline-block;padding:15px 10px 14px;cursor:pointer;width:auto;min-width:200px;}/*!sc*/
+.cgHyiV::after{min-width:200px;position:absolute;width:100%;height:100%;border:4px solid #0ec289;background-color:#0ec289;left:4px;top:9px;z-index:-1;content:"";-webkit-transition:all 0.5s;transition:all 0.5s;}/*!sc*/
+.cgHyiV:hover:after{top:0px;left:-4px;}/*!sc*/
+data-styled.g11[id="buttons__ButtonDefault-sc-5x08bx-0"]{content:"cgHyiV,"}/*!sc*/
+.eBKkTK{width:96%;margin-left:auto;margin-right:auto;}/*!sc*/
+.eBKkTK.wrapper{max-width:65rem;margin:auto;}/*!sc*/
+@media only screen and (min-width:60em){.eBKkTK{max-width:75rem;}}/*!sc*/
+data-styled.g14[id="containerLayout__ContainerLayout-sc-25l7nr-0"]{content:"eBKkTK,"}/*!sc*/
+@media(min-width:850px){.szAWD{background:linear-gradient(to bottom,rgb(239 233 233 / 46%),transparent 22%);}}/*!sc*/
+data-styled.g15[id="mainContent__MainContent-gv3d4z-0"]{content:"szAWD,"}/*!sc*/
+.dgAeoZ{padding:3rem 0 4rem 0;text-align:left;}/*!sc*/
+data-styled.g33[id="posts__Intro-sc-4d4syh-0"]{content:"dgAeoZ,"}/*!sc*/
+.bxzDDq{font-size:2rem;text-transform:capitalize;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+data-styled.g34[id="posts__Title-sc-4d4syh-1"]{content:"bxzDDq,"}/*!sc*/
+.bcAOPN{margin-bottom:5rem;padding-bottom:1rem;max-width:60rem;margin:auto;text-align:left;}/*!sc*/
+.bcAOPN img[src$="imgresponsive"]{max-width:80%;}/*!sc*/
+data-styled.g35[id="posts__ArticlePost-sc-4d4syh-2"]{content:"bcAOPN,"}/*!sc*/
+.kzUKQC{font-size:0.89rem;padding-right:10px;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.kzUKQC > span{padding-left:5px;}/*!sc*/
+data-styled.g36[id="posts__SmallText-sc-4d4syh-3"]{content:"kzUKQC,"}/*!sc*/
+.lhbrzX{margin-top:5rem;}/*!sc*/
+.lhbrzX p{font-size:1.1rem;margin:0.5em;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.lhbrzX h1{font-size:3em;}/*!sc*/
+.lhbrzX strong{-webkit-text-decoration:underline;text-decoration:underline;color:#0ec289;}/*!sc*/
+.lhbrzX ul,.lhbrzX ol{text-align:left;font-size:1em;}/*!sc*/
+.lhbrzX a{font-size:1.3em;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g37[id="posts__ArticleBody-sc-4d4syh-4"]{content:"lhbrzX,"}/*!sc*/
+.hHDoRm{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:5rem;grid-row-gap:5rem;list-style:none;padding:0;border-top:4px solid #07ab77;border-bottom:4px solid #07ab77;}/*!sc*/
+data-styled.g38[id="posts__NaviagtionList-sc-4d4syh-5"]{content:"hHDoRm,"}/*!sc*/
+.GBDKS{padding:2rem 0;}/*!sc*/
+.GBDKS:last-child{text-align:right;}/*!sc*/
+.GBDKS a{font-size:1.3rem;font-family:"GT-Walsheim-Pro-Medium";}/*!sc*/
+data-styled.g39[id="posts__NaviagtionLi-sc-4d4syh-6"]{content:"GBDKS,"}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+html{box-sizing:border-box;-ms-overflow-style:scrollbar;line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+html body{font-size:14px;font-family:'GT-Walsheim-Pro-Regular';margin:0;}/*!sc*/
+html main{display:block;}/*!sc*/
+html h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+html hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+html a{background-color:transparent;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+html b,html strong{font-weight:bolder;font-family:'GT-Walsheim-Pro-Bold';}/*!sc*/
+html small{font-size:80%;}/*!sc*/
+html sub,html sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+html sub{bottom:-0.25em;}/*!sc*/
+html sup{top:-0.5em;}/*!sc*/
+html img{border-style:none;}/*!sc*/
+html .center{text-align:center;}/*!sc*/
+html button,html input,html optgroup,html select,html textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+html button,html input{overflow:visible;}/*!sc*/
+html button,html select{text-transform:none;}/*!sc*/
+html button,html [type="button"],html [type="reset"],html [type="submit"]{-webkit-appearance:button;}/*!sc*/
+html button::-moz-focus-inner,html [type="button"]::-moz-focus-inner,html [type="reset"]::-moz-focus-inner,html [type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+html button:-moz-focusring,html [type="button"]:-moz-focusring,html [type="reset"]:-moz-focusring,html [type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+html [hidden]{display:none;}/*!sc*/
+html .text-dark{color:#000;}/*!sc*/
+html .text-primary{color:#0ec289;}/*!sc*/
+html .align-middle{vertical-align:middle;}/*!sc*/
+html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
+.lined-link{display:inline-block;position:relative;padding-top:.5em;padding-bottom:.25em;-webkit-transition:all .2s ease-out;transition:all .2s ease-out;will-change:transform,color;}/*!sc*/
+.lined-link:after{z-index:1;position:absolute;bottom:-1px;left:0;content:"";display:block;width:100%;height:5px;background-color:#0ec289;-webkit-transform:scale(0,1);-ms-transform:scale(0,1);transform:scale(0,1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;will-change:transform;-webkit-transition:-webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.error__emoji{width:30vw;}/*!sc*/
+data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=91c7f04a9bfd3f81212d6747467d28fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link as="script" rel="preload" href="/webpack-runtime-f1e4d05a061cddef1ccb.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-ed7b7b3c234cf1bf4dd6.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"/><link as="fetch" rel="preload" href="/page-data\agro-algorithms\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Algoritmos para agro</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/530fb91f87b79dad7f21c7816bc03d46/4b190/algoritmo.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.2972972972973%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHZkuWBgCv/xAAaEAABBQEAAAAAAAAAAAAAAAAQAQIDERIy/9oACAEBAAEFAn8xXoIP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEDAQE/ATV//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8Ci//EABgQAAMBAQAAAAAAAAAAAAAAAAERQRAA/9oACAEBAAE/IWeulJV28//aAAwDAQACAAMAAAAQb+//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QGif/xAAWEQEBAQAAAAAAAAAAAAAAAAABECH/2gAIAQIBAT8QHJ//xAAZEAADAAMAAAAAAAAAAAAAAAAQESEAQbH/2gAIAQEAAT8QTVGsZQu2eo//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="algoritmos"
+        title="algoritmos"
+        src="/static/530fb91f87b79dad7f21c7816bc03d46/1c72d/algoritmo.jpg"
+        srcset="/static/530fb91f87b79dad7f21c7816bc03d46/a80bd/algoritmo.jpg 148w,
+/static/530fb91f87b79dad7f21c7816bc03d46/1c91a/algoritmo.jpg 295w,
+/static/530fb91f87b79dad7f21c7816bc03d46/1c72d/algoritmo.jpg 590w,
+/static/530fb91f87b79dad7f21c7816bc03d46/4b190/algoritmo.jpg 800w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Una de las aplicaciónes reales en las que estoy trabajando utiliza <strong>datos geográficos</strong> del recorrido de máquinas de agro para <strong>obtener una serie de estadísticas relevantes</strong>. Utilizo principalmente las librerías Pandas, GeoPandas y Shapely.</p>
+<p>Voy a comentar algunos de ellos siguiendo el razonamiento que me llevó a resolver los problemas que se fueron planteando.</p>
+<h1>Problemática y recursos disponibles</h1>
+<p>Disponemos de una serie de datos con el recorrido de una máquina, con su posición geográfica y estado (trabajando, no trabajando).
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/028ab892e805e8f69b919883922d3f9b/6d2da/data.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 43.91891891891892%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABPUlEQVQoz1WSV7aDMAxEs62EasA0U0KA/S9FT1eUl3zoCOTRaEb2oyxL6dpWsiyTPM9lGAap69rCey9t00hzxjCMWvcS+nDUFNM07Y1/Pp/ygCiEIJ/PqvHRWKTSIVEUSVVVNgRiYt93rZWyLIt0XWeYru8Nk6SpvF4vefDD4TiOFtM0CaqTJLHMOcQERGVZGA6FYFp1ByZVYTdhCL3M77e8NWiiOY5jy879K9y2zRSCQwSYS+EPYVEUtwoazYJOJ1+7vaxfiukBQwaTqmXbIYfIHtUqdplODbAp/LI8z7NZBkcPGJS6c7ApZGqvsi+72KKGHe/rm5BbXNfV9vptudcLdWY5/SWcdDoKIKWGBa8kzjmpzh1CBCFYFIJhh2Buha29r+PtUbx2w5Mgo4JM0Jgk8XEJSgaGHjB8s8M/odJD2njqLBkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="data"
+        title="data"
+        src="/static/028ab892e805e8f69b919883922d3f9b/fcda8/data.png"
+        srcset="/static/028ab892e805e8f69b919883922d3f9b/12f09/data.png 148w,
+/static/028ab892e805e8f69b919883922d3f9b/e4a3f/data.png 295w,
+/static/028ab892e805e8f69b919883922d3f9b/fcda8/data.png 590w,
+/static/028ab892e805e8f69b919883922d3f9b/efc66/data.png 885w,
+/static/028ab892e805e8f69b919883922d3f9b/6d2da/data.png 936w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+En base a esto necesitamos obtener toda la información relevante que ayude a medir el trabajo realizado.</p>
+<p>Algunas de estas estadísticas son:</p>
+<ul>
+<li>Hectáreas trabajadas</li>
+<li>Área solapada</li>
+<li>Distancia entre 2 filas trabajadas</li>
+<li>Detección de cabeceras</li>
+</ul>
+<p>Para que alguien no familiarizado pueda entender como funcionan estas máquinas, voy a hacer un breve resumen.</p>
+<h2>Máquinas de agro</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c59480fd6d301a2f6e7ce3939f6abee6/e9794/cosechadora.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.2972972972973%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAWAQEBAQAAAAAAAAAAAAAAAAADAAH/2gAMAwEAAhADEAAAAYwfEFzqLf/EABkQAAMBAQEAAAAAAAAAAAAAAAABAhETQf/aAAgBAQABBQJwz3lR10x0KqP/xAAXEQADAQAAAAAAAAAAAAAAAAAAERNB/9oACAEDAQE/AYrSJ//EABURAQEAAAAAAAAAAAAAAAAAAAAT/9oACAECAQE/AbLv/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQESEx/9oACAEBAAY/Ao5Fqkaf/8QAHBAAAwACAwEAAAAAAAAAAAAAAAERIUExUWFx/9oACAEBAAE/IVtEWGxdkzcV+lioEGSvw//aAAwDAQACAAMAAAAQnD//xAAWEQADAAAAAAAAAAAAAAAAAAAAEVH/2gAIAQMBAT8Qkw9P/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQBBcf/aAAgBAgEBPxBblxf/xAAaEAEAAwADAAAAAAAAAAAAAAABABEhMWGh/9oACAEBAAE/EMpcW1q9UkSX4RWjU5UBgdu9YIj+hn//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cosechadora"
+        title="cosechadora"
+        src="/static/c59480fd6d301a2f6e7ce3939f6abee6/1c72d/cosechadora.jpg"
+        srcset="/static/c59480fd6d301a2f6e7ce3939f6abee6/a80bd/cosechadora.jpg 148w,
+/static/c59480fd6d301a2f6e7ce3939f6abee6/1c91a/cosechadora.jpg 295w,
+/static/c59480fd6d301a2f6e7ce3939f6abee6/1c72d/cosechadora.jpg 590w,
+/static/c59480fd6d301a2f6e7ce3939f6abee6/a8a14/cosechadora.jpg 885w,
+/static/c59480fd6d301a2f6e7ce3939f6abee6/e9794/cosechadora.jpg 1064w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Hay principalmente 2 tipos de máquina que monitoreamos, sembradoras y cosechadoras.
+Las sembradoras lo que hacen es colocar las semillas en un campo mientras que las cosechadoras levantan el producto luego de que crezca.</p>
+<p>Lo que tienen en común sobre todo es como se comportan, las máquinas tienen un área que sembrar/cosechar, y van cubriendola en zig zag.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/50383/zigzag.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 78.37837837837837%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD0ElEQVQ4yyWUaVdaVxSG+QNdTaNG5kFkEAEZRGS63IHLZUZEE5EhGBAcEpOYVrParn7oH3+6tR/O2udOz3n3ed9zbWanRuOkQdYsECtnqfVqVFoqaluneVJHbxtoTY1Do0CtX8foNeS9PNWmgdW1MFo19IZO96RJo9/E1hs06Q9aNKXGlZy8WCVvlch2VZKtKTvqiJA2ImKcy/0ug7M248kZiqWTVo5R6hrVukq0kGUjHsI2PO/Q7lv0h+1XpSUBeWoZ/PUcgdqYbWWKozLDVV3iKC8JVy9FSZ/uaZsjrURMQK5EhF9Dft7GdgX4oUdn2MLq6ZTaQ1LtU95pMbzmAV69i0tZCOwSd3Ui8yn28gpfeU5Or0irGoFMgl8CHjYEtpkIY0uaZSazIcZZnbdKEl91TsRqslUL4zHbeLVbnMqFwCZ41BluqfbSkph2Ia1W2Ijs8GbXJ8Agm3FR6CtlyFgV9tplNtQI29Uau9oPgnUdb7OEv7bG/QLSJqJy9gp1lSf4lVuSispG1MfbSICNvR22ErKHx+Kit5wh3qnglDYdRlY+FDO0NbFuDb85w6HMBTqSMRXgQlRO8aorPBmLrT0329Kq/SCMMxPFdiSRiEpkDnoKAesITz2F12hLi9ckWgtOZyuC+gqnLOLWxlLH8myMR7vHm2/iO9wlWEgROE7gzyew5SRzxb5JtF3Eb+WItgq4zWPZuykB/Yaz6T8UOv+ypz+wb34manxnV78joH7Bl14KJIPrMIQj9b9KW9oqY456+ATmqB2w1yziqidwaO3X9sLGZwJijE9dC+RBMvlNoAKuPqM0bwjmNZyprAAj2FNiivm+hfGhg69+KK5m8Nay2PU4TjkZHnWOX18QMu5kW25F8ULgn2SssD5cM1tK4Is5XNk0/twxnmwKm3ra4GIxJmjlBXSA20jhfK2SQ+0MvyYQMSAsbUaMG2n3Gq+YdCjB/va45tP6EzuFGNupEPZEHFuomudiOaE1OsGjp3Fq4rSaxK7t4zIUAV6zo1/heYlM9SPuigRb6n7LYLm+5PnpB5PFSFRG+S3qxRbVi3SnZzQuTgmLGZulvdexVd1nW41LhN7jlWP34qyzdIW/siRoGqQ7Zb58veL74x1PTw+M5xcklDy2XVF4LheD+XsqQ4ukhNlTSfKuEuNNUdJfLLJ9fMlmboCz0GHHLOIz05RPTQHd8PBjzdfHzzK/Z329kKNnlLl5WPH3X9/58/men093suqK+WrCYDqkMxlgnZ9j9F9+HGXJZoGAhL816vDz+ZaHP5bcfr3l/nHJ7483/AfijyyY0ZwGeQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="zig zag"
+        title="zig zag"
+        src="/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/fcda8/zigzag.png"
+        srcset="/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/12f09/zigzag.png 148w,
+/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/e4a3f/zigzag.png 295w,
+/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/fcda8/zigzag.png 590w,
+/static/8ae3fe8ed942ec3cd5c922ab9549f6b4/50383/zigzag.png 740w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Aquí hay una representación de un recorrido de una máquina.</p>
+<h2>Algoritmo 1 - Detección de cabeceras y líneas de trabajo</h2>
+<p>Un dato no menor, es que al finalizar una línea de trabajo, la máquina levanta el cabezal para poder hacer un giro de 180 grados y avanzar a la siguiente línea. </p>
+<p>Mientras esto ocurre <strong>la máquina no cosecha ni siembra, por lo que esos trozos deberían descartarse.</strong>
+Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separarlos de las propias líneas de trabajo.</p>
+<p>El algorítmo desarrollado, utiliza los cambios en el ángulo del gps para detectar estos giros de 180 grados, y los compara con el tiempo desde el último dato. De esta forma podemos tener un <strong>ratio de variación de ángulo en el tiempo</strong>. Al superar un determinado valor, se estima que la máquina está haciendo un giro lo suficientemente pronunciado como para considerarlo una cabecera.</p>
+<p>Punteo de los pasos para llegar a este resultado:</p>
+<ol>
+<li>Se calcula la diferencia de angulo entre el dato anterior y el actual, es relevante tomar en cuenta que al pasar de el ángulo 0 al 359 no hay 359 grados de distancia, sino 1.</li>
+<li>Se calcula la diferencia en tiempo desde el dato anterior y el actual.</li>
+<li>Se calcula el ratio entre variación de ángulo y variación de tiempo.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b03feb0a97ae57dc743629600378872e/d67ca/code1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 108.1081081081081%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC70lEQVQ4y41T2ZKiQBDkP8YDBUVO8cBb8RavCTXG3fn/H8mtbMQxjDWch4yi+sjOqiy0qBPB8Rx4gYewESIIAwT1AEVd/0GRKKJUKinospZ9ZyiXyypqo8kQnUELzYaLVstHMwoxHPdgV0y4VgV2VaJjw/c8RURiXU9JdfkuFgtClK4XCgVok/EEvW4P/W4X8WiE0K6h1xCVnouo00QjkEg06qLeh1/30ZWzTd9FvVYVIT6iqAXDNIUwD63T6ajXfSHyBFa1gjAIYFtVOKLQtS14Ti1Vpxd/ypVvwjQNGIYBXVQqwrBVh+WasOwyKpaOsmyalQrKctjgJemNaVZUj3iRMEUNS8zn88jlcipmudbtdVEXE0LfEbjwXUYPbs0S1VWlOpAKXNeFZVmo1WpwHEepJAH7RtwJh8MhWk32ykebLosBUbOBOsml3Ka4H7WaCGUSLKMEs1zCx8fHnSyLd0K+ljokGzfpmYMFdVjizcHU1eJd1SPuhO12W5VTFzWhY6lxqZnST6OM/E1BhtzD9zMytRrJ+HJbekgE4qhj2z+z9oTngX4cbO5rXRmbXq+HxXKJ2XyO6XSKxXwhcYa55LMZ4wKr1UrtRVEEjtoraDy0Xq+wFMLz+YzFYoHT6YSV5PvDAcfjUZEmSYL9fq+GmgJeQRvJ3zGdxqDb6/UazKmMik7ywFpiv99X6pNko1TwIon/By2OY6WGkQpULsTJZoOvry/sdjuMxyO1xv2M8KXCyWSiyh0OR9gICXP2k2r/fn8L4RaDwUCdORx+QZiWPE2JpH9UyPJY9maTyNpcFI4xnaUmve3hUnq03W5V79i3OJ6oiyTfSYlc4x5zqn5LmCRb5SRNITHVLG8ln88X1QaWzPwgrr8tebvd4fPzU5XMprN8khDX6/VmyliNDR9+S0iFByFiwktUQ1NY6vX6R40K95j/ypTD4aiU8MLlclFxfRsbDjoV0qhssN8SxlIiSfg3LG/z+Dysj4Ocfb8i/AfRxcAgTgFlXwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="codigo 1"
+        title="codigo 1"
+        src="/static/b03feb0a97ae57dc743629600378872e/fcda8/code1.png"
+        srcset="/static/b03feb0a97ae57dc743629600378872e/12f09/code1.png 148w,
+/static/b03feb0a97ae57dc743629600378872e/e4a3f/code1.png 295w,
+/static/b03feb0a97ae57dc743629600378872e/fcda8/code1.png 590w,
+/static/b03feb0a97ae57dc743629600378872e/d67ca/code1.png 714w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></li>
+<li>Aquellos datos con un turnrate superior a 12 (numero mágico obtenido a base de prueba y error) se les agrega una flag “turning” = 1, y a los demas datos se les asigna un 0.</li>
+<li>Agrego una columna con la diferencia entre el estado de “turning” del dato anterior y el actual, en aquellos datos donde la diferencia es 0 es que el estado anterior se mantuvo.</li>
+</ol>
+<p>De esta forma, si filtro aquellas filas con un cambio de estado de 1 o -1, lo que obtengo son las filas que comienzan un periodo de giro o un periodo de línea.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4acd68f74b550c20475aab9dc5c845b1/17a7a/code2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA/0lEQVQoz42RSW6EMBBFOQuLVmM6tEER84wNbJjvf5YfV6mJEFKkLJ5cNq7nb2M9Hg8IIRAEAXzfh5QSvqml98K3QboCvuswb0ZAvgQ84cBznniLJ75cF7ZtM1Ycx0iSBGmaIs9zjOPIKKWhtIbWPbpOcc3zvufvsekJo4iJDOQhrDAMTUOHZVlwHAf2fee6bRo0hmmaeKQ9tFbXNYZh4MOvougjZqFSCvM8Y9s2LOuK2UjKsjTNDcupJmlVVSiKgvdnWfYrPGU34cTpViNkiWkkAR1EEkpGYkp2F175CDVLrkISNG3LV6akranPlPSOef6H8FykH3OO/+G86l34A46X7wFMZzpgAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="code 2"
+        title="code 2"
+        src="/static/4acd68f74b550c20475aab9dc5c845b1/fcda8/code2.png"
+        srcset="/static/4acd68f74b550c20475aab9dc5c845b1/12f09/code2.png 148w,
+/static/4acd68f74b550c20475aab9dc5c845b1/e4a3f/code2.png 295w,
+/static/4acd68f74b550c20475aab9dc5c845b1/fcda8/code2.png 590w,
+/static/4acd68f74b550c20475aab9dc5c845b1/17a7a/code2.png 753w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Si separo el dataframe original utilizando las filas del paso anterior, obtengo múltiples segmentos de datos, donde se intercalan líneas de trabajo y cabeceras.</p>
+<p>En las siguientes imagenes se pueden ver los resultados, donde en azul se muestran los puntos que componen las lineas de trabajo y en rojo las cabeceras.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 294px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3bb6a31723d8f69af842fca7fa9f8ffb/04a86/caso1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 92.56756756756756%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACTklEQVQ4y5VUiW7aQBDl/7+gP9CKqkUlUVJFKlKiKhQkWiJwgGBsIMZgjgDyhc3hfZ1ZA4HGqGSk0R6z+3Zm3uykcChCwOz3oeo6NF2FbdvYbDZYrVZnqaD7Kb4QhqHc8BcLWFYfs04HWt2E7dhwHOe/6rou5vO5nKeCIICqqqRNjCYv8OpNNL4+oWeAvMPZEkVRDHi4GQZLFHMWsheA0QNmM8F5oMNChnNKWThCCbigMDVNQ7WqYPIyQOlPgMwXgW5XUBgx4O5Skuxs6/U6Bnx9id0OoVRdfPoIKIrYhhzbzgbkHLbbbeh6mzyaoFZ18DkNFH5FcbgiBn2Xh77vIwhC2gzw+OghlwPS6QiUjfd7yMkcj8cwiAXbmaL64OD+HviW2cAyN1sGT4O+AVwul5hOpxgMBrQxg2l6uP4O3P5Y40lZ7S+dDciLOOSARo/y6OHuDshmgWLxOOQk0ERSdP5qVDoTKuzVykepBFxdCdzcCFq/giaVTyIp+8IOl6Qunp/ZQ4ELKnBdF9s8JrP9BpALu9FooFaryTwGwUJ6VSgIXF6SXoP+KvYFfuqnHOVwZ+Am4bpe7NEmwu1PIPNhjOFvI/YmOgY5FAbk7nTQHFSMRiNJzE58qsP5Qwfw7LPq0PM8pHjCYe9aWIdaF4O3WhoRpaJjdNAi0niPyWs2m5JAHnkd/7KY1D710tS/L3JfM01TAlvWUI4DOtjtdmltybHX68kzhmHI/OfzedTrdWlPsfFQmZjhcCjD5wM83+nhmu18XlEUlMtlVCoVaf8LraGvHvszAeQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="caso1"
+        title="caso1"
+        src="/static/3bb6a31723d8f69af842fca7fa9f8ffb/04a86/caso1.png"
+        srcset="/static/3bb6a31723d8f69af842fca7fa9f8ffb/12f09/caso1.png 148w,
+/static/3bb6a31723d8f69af842fca7fa9f8ffb/04a86/caso1.png 294w"
+        sizes="(max-width: 294px) 100vw, 294px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 305px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2de26789cdbbf055387ea985c0957a6f/a3e09/caso2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 81.08108108108108%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHElEQVQ4y3VUXXPaQAzk//+lPnTS0umQPHSaGRxCCbQGbOD8dWdibHO+rSRjYgLczM3JZ2m90koe4NOKoghZlp231hnSNKP7DHHcnvzM932/NE3hnMOgrmvsdjssl0s58zy/+IC17XY47QagENn9ZYxB0zQYVFWFJEmw3W7l1FpTlAPFoSyBd13TRxwCv0b4r0JKr62AOhSFE1a8OE4AS4rabDZYLBYCahiQweIcr57Fzx8Ww+8Ov56O+Du3mDyXeB1uxaexNwAt5RPHsYDyabQRh+Voha9fakz/sDMxbuOQKEvgbb4MdpOhUgq+72O9XsNwDRuLxbPBLgJ61cP73mE0AsJNe89YV4DH41GUZTBhaDTsETgUzQkIUkPPcxgOgbc3dwF2BciisOScMsu/3xsR45ShADw8AC8vIL8PVU84t1MOw/Asis40KmJYqBxP3wo8PgL73J3ZtszQs++IImDSrKYFDFOsf6uODzm7K7CbDDllBvP9JfVhTPXUoLK2TU2+VXnJrA96F5BFCYIASZogChTqgyWhLcpDywzuUtH+upsy1zGmScl1y1CrinqyOYvTKdoBfH4+jx6LwnM8nU5FaW0Muu47VAS8K2H3Be6tK0C+YIOZ8sn15DbiFLTJaDIUMhWRrWXWu3d8drPPNg+HAPa/VhSFTMxkMpGeDNaB2IpqzEFsz2Yz+SPN53OMx2NhxvX3PA+r1Qr/AThW08yCo6AmAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="caso2"
+        title="caso2"
+        src="/static/2de26789cdbbf055387ea985c0957a6f/a3e09/caso2.png"
+        srcset="/static/2de26789cdbbf055387ea985c0957a6f/12f09/caso2.png 148w,
+/static/2de26789cdbbf055387ea985c0957a6f/e4a3f/caso2.png 295w,
+/static/2de26789cdbbf055387ea985c0957a6f/a3e09/caso2.png 305w"
+        sizes="(max-width: 305px) 100vw, 305px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Con algunas optimizaciones posteriores el resultado mejora notoriamente.</p>
+<h2>Algoritmo 2 - Cálculo de área de trabajo y solapamiento</h2>
+<p>Para calcular el área de trabajo, primero necesitamos las <strong>líneas de trabajo</strong> obtenidas con el algoritmo anterior, y postreriormente el <strong>ancho de la máquina</strong>.</p>
+<p>Si bien <strong>podría llegar a ser intuitivo</strong> pensar que el área trabajada es la distancia recorrida trabajando multiplicada por el áncho de trabajo, <strong>esto no contempla el solapamiento</strong>.</p>
+<p>El solapamiento se da cuando el operador pasa con la máquina por encima de una zona que ya habia sido trabajada previamente. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 351px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/38346007fe75ccd56b43eacc48d414c4/7c2a6/ancho.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 87.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB6UlEQVQ4y51UTUtCQRSdv2p7l9pKw7SFiRUl2sJCoUxIItoJVhpBoC4kiYJcPHXh5yLCQJ/Pd7ozOc/3oX3dzVzuzJx7z71nhsFmuq6LdTabGT5fpf+TMTOQvDQYDBwJ/gU4nU6Fn0gk4PP5HKB/AuSmqqpYY7EYGGNIJpOOCpe1wexbKuR941YsFuHxeFAulx39tFdsT8TsG5qmiVVRFIRCIUtMl+cogTqZYLYElC2bsAQIh8Oo1+uLKimuz1kM399xQPtmyhZAcxZJvVarIRKJWJIIn7diZwfHLhduHh4s+8wmwoUO5weCRFvp9b4u3d5iGgwCh4cAVdglea17vZgQfYOyY1KcGslH1nNXKGBvbQ2IRoF0GhiN8EbnspeXCG5uIp/PL3osKRtT42CyWMqup1L4oEuvFxcgkaI7HuP0/BwBvx9XBDiZy8wyZen0iZbI025DI0oaAeH+Xuz1iN4RVbdFsbNMBqVSydAsfwyWKctyTyjztdsN7O7yaYjYU6uFOL2aDXo12WwWlUoFnU6HWI9WC1tOVGk2kQgEhF95ecE2SWKfwHO5HKrVKvr9vtH8754jkxrj9vj8LMQcp6fXaDREbEx9U029+ukXYubgkAbBX4ihN5P2fvudsWXfEweSVa/q1Sr7BFMQBAvMk8S4AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Ancho de corte"
+        title="Ancho de corte"
+        src="/static/38346007fe75ccd56b43eacc48d414c4/7c2a6/ancho.png"
+        srcset="/static/38346007fe75ccd56b43eacc48d414c4/12f09/ancho.png 148w,
+/static/38346007fe75ccd56b43eacc48d414c4/e4a3f/ancho.png 295w,
+/static/38346007fe75ccd56b43eacc48d414c4/7c2a6/ancho.png 351w"
+        sizes="(max-width: 351px) 100vw, 351px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Este algoritmo utiliza <strong>trigonometría con el ángulo del gps</strong> para generar un polígono de trabajo para cada línea, haciendo una suma de todos estos al final para generar un <strong>polígono único descartando las zonas solapadas.</strong></p>
+<p>Asumiendo que el gps del vehículo está en el centro del mismo lo que hacemos es calcular <strong>donde están posicionados sus extremos</strong>. </p>
+<p>Si el ancho de la máquina es de 10 metros, un extremo va a estar 5 metros a su derecha y el otro 5 metros a su izquierda. <strong>Utilizando trigonometría sobre los datos de gps</strong> (latitud, longitud y ángulo) podemos obtener la posición de los 2 extremos.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 410px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/768c849a8ece884032dc137481136ee2/d68e4/ancho2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 79.72972972972973%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACJklEQVQ4y42TTW/TQBCG/bf4HRz4Cxw4I3HhVgkOEHEqIv1SBFXTCpUW1RRUqlaNUNMQAzESLW0RKDRpkroxdZwP27svs+t14jqxYCXL4xnvM+/Ozmj41+JcvXjMNe6LlpYKiW3iQSDtbuCDKXsSbBwoNidA4s1U2NTfYiG3KG3GWLpCPgEkN4Ue8LIBzGRhrm5javkdmo3zMC73pQBFRghFKsBcFyjuozuXA16vo1W3UKE8Fj01N/3YWtwpFdk2/A0dmJ/Hw5u3kN8zZezAAVwvwFmPY9dSynlUbn5dYdOy8HV3B9h8A+dpFp+3ijJ44/Zd3Ll3H5ddD4YdQkptjkOC2x6PQRPAq34f01OPgHIJZheok8/1GVaMH3g++wwHbXHDXKoTsIEfwLhSp2LXW0hjyvhm9/HdJ6ZUEuBjm8kSLK5tYKV8Iv8pNH0J+En2i8pvnFZrwxsf1TBG1885rAFHh2pevAx9m6cWsnMLaImk5BInLW0buMhkMP04gyDR7PJSQtUcxx2C+Rxf/nC0CWxR7Q4pkl97hZn31DqFAqq5ZdR2PlANOvhVrcJxnCRwOBTwiFykI3+yw+/9AeA3WjjKv8T6gycE3APv9WI9irH20SI7qmX5YoBaH+icNVDJrVL7zNKImKrF1SMaX/Vucq61aHSj2zqqN7EkbnwpD+/4ZARi8qdwkoZjirTRG2UIKPuWro+KLSATlKQtDSm1iECIKfqf9RcmE8lbFKUwaQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Ancho de corte 2"
+        title="Ancho de corte 2"
+        src="/static/768c849a8ece884032dc137481136ee2/d68e4/ancho2.png"
+        srcset="/static/768c849a8ece884032dc137481136ee2/12f09/ancho2.png 148w,
+/static/768c849a8ece884032dc137481136ee2/e4a3f/ancho2.png 295w,
+/static/768c849a8ece884032dc137481136ee2/d68e4/ancho2.png 410w"
+        sizes="(max-width: 410px) 100vw, 410px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Uniendo estos puntos con los siguientes, obtenemos un área trabajada.</p>
+<p>Si bien esto suena bien, <strong>es inviable generar un poligono por cada 2 puntos de la línea</strong>, por lo que basandonos en este concepto, lo que finalmente hice fue lo siguiente:</p>
+<ol>
+<li>Generar 2 columnas con la posición de gps del extremo derecho de la máquina.</li>
+<li>Generar 2 columnas iguales a las anteriores pero para le extremo izquierdo.</li>
+</ol>
+<p>Finalmente lo que obtenemos son 2 líneas que vienen a representar los extremos de la máquina.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 556px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e16c21d2d31f26361fdf0f2e21411499/96638/ancho3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 116.21621621621622%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACv0lEQVQ4y4VVXU8TQRTlt6j8C1/9LySK1sCDMa0UhZYYSn0xNeWhqTFN6IOBKA+FWNIGQgNoIFjAkIjdrYotRaAfQHfnHmd3dne2pVsnu7M7d+eeued+7QD4IBK3MRgZNzlrTdPAGDM3GCJLLBW6xoD7W+ceA5RcK+M0DlyriacH6ED3geoFcNwkXOtCEJ+dRS6bFdYnk6DBQWBnx6LDvC20Ae+9B+7OMRSqwOFBEbdu30F0ZkYcyoFoaAioVvsDMgtsuwK83AJCG4SjM7F5ejoCRVGEvjGl08DiolDQ9f4+rF2K59s9IPNdM99noq9QLBYdQFpaAlKp/oCd/iVEvxB2K2LzZCiMUqnkBIbicWBl5f8WOmnC+T9ZJbT5utmoIxAIQGu3BWCF+2R0VAL1irIt0y3/vuYBTO0JhYUPH5FIJMRBhv7YGFAoeFrnWGhlCHJlYLxAtvsRDAZRtukuLwPRqJ3t/S205U/XgD9NsVBUFRMTEzIYU1Ogw0OZLm5FN6CdMmpdpIxt3dbWJmKxmEMXk5PAyYm0zKv0bMBfDSC8KQH39/cRiUSk/8Jh0MHBTcpdwCZl5qJ8dC4WF40m/H4/GHc+2VUyMiKbg0ekOyqlyBk9zpEJYoxY7A3m5+fN92tjymRAPG3IBuvRJG6kTeYH4F8TwnZbg8/nw/r6uvRlLgfiMmq1LCwCeZWexkQ9xHeBd3vihHrrioM+Qj6fN9dXxvSJdx9eQeSOeK9KkT4mTp13m1NBrc19cv/hML5ui7bFOxzKoXHg9K/wbzeg20pmASoXhGFesmeXIqLNn8fwPX+GNM4xwhRsnKomJeYF2It6ViWEN4AGD0kSZ3jQ+IY5vcot1GU76xVlN6C7SRjjxWcGX/03FlBz/x04E9d/xsvCzv8LOf4Dkx81E4QgLuvdy0IvUENJJ6ncDeIe/wCSitSBhJ734AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Ancho de corte 3"
+        title="Ancho de corte 3"
+        src="/static/e16c21d2d31f26361fdf0f2e21411499/96638/ancho3.png"
+        srcset="/static/e16c21d2d31f26361fdf0f2e21411499/12f09/ancho3.png 148w,
+/static/e16c21d2d31f26361fdf0f2e21411499/e4a3f/ancho3.png 295w,
+/static/e16c21d2d31f26361fdf0f2e21411499/96638/ancho3.png 556w"
+        sizes="(max-width: 556px) 100vw, 556px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Si unimos esas 2 lineas por sus extremos, podemos generar un polígono que equivale al área cubierta por la máquina en esa línea.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c16fd0aad13450ab008c515e6bb87f02/a242d/ancho4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 85.8108108108108%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACPUlEQVQ4y4WUW08TURSF+WfGV9/9C/puTEzkwWACIfGKUQySULVaYw2gUYFoIQEVqZVaCi2tilzSSygpHdrSTts55/PMdIaWpnTmnjN71l5r77Wnj7ZNSvuudiGgKgVZBAdqbZcGC5rO94wdIVvx7VtfJ6AJZl6vBOFGVsOnJbm6GmCq8Jt7R1UGd8pWrCFNUOkOKJqoLNUN3sWCRD3PuXbuPDIasxI9Y5+SNE6U9ARsSmkG5eslvv2LUI4nmH8wQnVjHXJ5JiiwL+tW0p4MpQ3mBG03KvipI+Y+MzE0CIuL1DJpxjmkJowmIC6AVm3Mu2qIn2PWtjfYe+HD238dlOT5RIiPVKz3Vg3dJBt2/X6oj8bLuxCOsPzUQ2pmRj2HGW1kVBpxJrvuDJWcUYpU/yQRoZ+EPR7YTBBPRCzWJl7DTuwuWZp+q+HTs4rRGlv+17y5ewdimyzIIsuyZMWKM+R2BcyqKnqradWVHf5OTuK9fQtFjy+pJAGHoQ3mylBYDZGMUeIguopMpZkeGICVIEezHxgxMk7wiRs6rXOqKY6pY7LCYz1lrf2am+Pt5UsQWWdZpXxiDqJsTVWnFbvbRh3v0XipTvQ6X4eHmR65D1qRT9oes5RarkC6G1vYoFPykFcyb2Yh8PARKzeHVBVrXIwXWck2vzJ6SXZYmqAOU488IISOns/R7x9TljokVNY5rp0e1TNmuQXq1FNXPb0QrNC/VSBNvU2hUz8XwHYLCTt7VPUhd9yapuavqzvD/ybyEAYTk0fhAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Ancho de corte 4"
+        title="Ancho de corte 4"
+        src="/static/c16fd0aad13450ab008c515e6bb87f02/fcda8/ancho4.png"
+        srcset="/static/c16fd0aad13450ab008c515e6bb87f02/12f09/ancho4.png 148w,
+/static/c16fd0aad13450ab008c515e6bb87f02/e4a3f/ancho4.png 295w,
+/static/c16fd0aad13450ab008c515e6bb87f02/fcda8/ancho4.png 590w,
+/static/c16fd0aad13450ab008c515e6bb87f02/a242d/ancho4.png 724w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>En este punto, si aplicamos este algoritmo <strong>para cada línea</strong> de trabajo vamos a tener una <strong>lísta de polígonos</strong>, muchos de estos se solapan entre si, por lo que queremos saber el área real y también cuanto se solapó.</p>
+<p><strong>El área total</strong> se puede calcular como la suma del área de tódos los polígonos.</p>
+<p>Shapely nos disponibiliza una función llamada cascade_union, que toma una lista de polígonos y genera uno nuevo sumando todos ellos, el área de éste polígono pasa a ser nuestra <strong>área trabajada real</strong> (área total - solapamientos).</p>
+<p>Si restamos el total - la real, eso nos da el <strong>área solapada</strong>.</p>
+<h2>Algoritmo 3 - Detección de entrefila</h2>
+<p>Un dato que resulta relevante para algunos de los clientes, es la distancia entre una línea de trabajo y la siguiente.</p>
+<p>Este algoritmo requiere que el operador trabaje en forma de zig zag, pasando de una linea de trabajo a la siguiente de forma ordenada. </p>
+<p>Las líneas de trabajo son irregulares y estan compuestas por cientos de puntos, por lo que el algorítmo con el que resolví el problema consiste en lo siguiente:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 581px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/10603d0eb5da124685d78ef6f9beddf9/92d15/entrefila.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 39.189189189189186%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABNElEQVQoz22SiXLDIAxE8/+f2XQSY+ODw9x4KymxM51WM5hhjR4rxK3Win4cAI3eO03HNXi97zu8d+/1R+c85zx6a5LLOsdtHEfklOBjweITUoyymZO01jDbCr8HTJtDKUUSWZ/nmf5tiJS7uoAY0ws4PJ8IBNE+k1MgpXg51NOE1ViMLiPlgtaq6BPpxhgBKJsQSxNTAlRqgPUBJlYRGH6WtS4z7mqRJKoNpb6AwzCIOxOKDI50AqdR4T4ZDCb+AbKTp15R2oFGsFo/Di053AhWW5c7/AUcN489dxFyzhdwmdnhjCo961RyE50dzsuC7zVejbqAIQSMk8ZGJ/JFK6UuJ8456NXAeY+NSuS93Eu+P2MdvpaA9n4Z3DAB8ocXDPGUaK29nsAZDH48HjL/F+d+nn8AiYhvBm/wMfgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="entrefila"
+        title="entrefila"
+        src="/static/10603d0eb5da124685d78ef6f9beddf9/92d15/entrefila.png"
+        srcset="/static/10603d0eb5da124685d78ef6f9beddf9/12f09/entrefila.png 148w,
+/static/10603d0eb5da124685d78ef6f9beddf9/e4a3f/entrefila.png 295w,
+/static/10603d0eb5da124685d78ef6f9beddf9/92d15/entrefila.png 581w"
+        sizes="(max-width: 581px) 100vw, 581px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<ol>
+<li>Se toman una serie de puntos al azar <strong>(desde ahora A)</strong> de una línea y para cada uno de ellos se traza una perpendicular <strong>(desde ahora P)</strong>. </li>
+<li>Estas líneas se <strong>intersectan con la línea de trabajo</strong> siguiente en un punto <strong>(desde ahora B)</strong>.</li>
+<li>Se mide la <strong>distancia entre A y B</strong>.</li>
+<li>Se calcula la mediana de estas distancias.</li>
+</ol>
+<p>Si bien hay bastante aproximación en el algoritmo, con este enfoque <strong>se obtiene una precision incluso mayor</strong> que en las mediciones hechas manualmente en el campo, ya que se pueden obtener decenas de muestras para cada línea de trabajo. </p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/frontend-lol-app/">← <!-- -->Asistente de League of Legends Parte 2 - Frontend</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/agro-algorithms/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-ed7b7b3c234cf1bf4dd6.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2b353fc7628807af21e1.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-1344485071dfa9567159.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-ed7b7b3c234cf1bf4dd6.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-f1e4d05a061cddef1ccb.js" async=""></script></body></html>

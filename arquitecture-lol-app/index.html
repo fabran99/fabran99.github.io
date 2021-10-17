@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.81894ad2461fd1ba450a.css" id="gatsby-global-css">@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Asistente de League of Legends Parte 1 - Arquitectura | Fabran99</title><meta data-react-helmet="true" name="description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><meta data-react-helmet="true" property="og:title" content="Asistente de League of Legends Parte 1 - Arquitectura"/><meta data-react-helmet="true" property="og:description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Asistente de League of Legends Parte 1 - Arquitectura"/><meta data-react-helmet="true" name="twitter:description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+@media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
+data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
+.cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:850px){.cvEVjw{grid-template-columns:1fr;text-align:center;width:100%;}}/*!sc*/
+data-styled.g2[id="style__NavbarElement-sc-1kk5mj1-1"]{content:"cvEVjw,"}/*!sc*/
+.cXPKA-D{padding-left:0;display:grid;grid-template-columns:repeat(3,1fr);list-style:none;}/*!sc*/
+.cXPKA-D > li a{font-size:1.2rem;color:#232323;padding:0.5rem 0.2rem;margin:0 1rem;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle;}/*!sc*/
+.cXPKA-D > li a > svg{width:18px;margin-right:5px;}/*!sc*/
+.cXPKA-D > li a span,.cXPKA-D > li a svg{display:block;vertical-align:middle;}/*!sc*/
+@media (max-width:850px){.cXPKA-D > li a{font-size:1rem;}}/*!sc*/
+data-styled.g3[id="style__NavbarList-sc-1kk5mj1-2"]{content:"cXPKA-D,"}/*!sc*/
+.qSPLr{padding-top:1rem;padding-bottom:8rem;z-index:0;position:relative;text-align:left;}/*!sc*/
+@media (min-width:850px){.qSPLr{background:linear-gradient(to top,#efe9e9,transparent 50%);}}/*!sc*/
+@media (max-width:850px){.qSPLr{padding-bottom:2rem;padding-left:0.5rem;padding-right:0.5rem;text-align:center;}}/*!sc*/
+.qSPLr .quote{font-size:4rem;font-family:"GT-Walsheim-Pro-Bold";line-height:1.2;color:#0ec289;}/*!sc*/
+@media (max-width:850px){.qSPLr .quote{font-size:2rem;}}/*!sc*/
+data-styled.g4[id="style__FooterStyle-l15n7d-0"]{content:"qSPLr,"}/*!sc*/
+.rqPHC{text-align:center;font-size:1.1em;}/*!sc*/
+.rqPHC div{margin-bottom:0.5em;}/*!sc*/
+.rqPHC svg{-webkit-transform:translateY(5px);-ms-transform:translateY(5px);transform:translateY(5px);}/*!sc*/
+data-styled.g5[id="style__FooterLinks-l15n7d-1"]{content:"rqPHC,"}/*!sc*/
+.gPWzTY{text-align:center;}/*!sc*/
+data-styled.g8[id="style__FooterBody-l15n7d-4"]{content:"gPWzTY,"}/*!sc*/
+.cgHyiV{cursor:pointer;margin:5% 0%;font-family:"GT-Walsheim-Pro-Medium";font-size:inherit;text-align:center;-webkit-letter-spacing:3px;-moz-letter-spacing:3px;-ms-letter-spacing:3px;letter-spacing:3px;text-transform:uppercase;-webkit-text-decoration:none;text-decoration:none;border:4px solid #0ec289;color:#0ec289;background:#fff;outline:none;position:relative;display:inline-block;padding:15px 10px 14px;cursor:pointer;width:auto;min-width:200px;}/*!sc*/
+.cgHyiV::after{min-width:200px;position:absolute;width:100%;height:100%;border:4px solid #0ec289;background-color:#0ec289;left:4px;top:9px;z-index:-1;content:"";-webkit-transition:all 0.5s;transition:all 0.5s;}/*!sc*/
+.cgHyiV:hover:after{top:0px;left:-4px;}/*!sc*/
+data-styled.g11[id="buttons__ButtonDefault-sc-5x08bx-0"]{content:"cgHyiV,"}/*!sc*/
+.eBKkTK{width:96%;margin-left:auto;margin-right:auto;}/*!sc*/
+.eBKkTK.wrapper{max-width:65rem;margin:auto;}/*!sc*/
+@media only screen and (min-width:60em){.eBKkTK{max-width:75rem;}}/*!sc*/
+data-styled.g14[id="containerLayout__ContainerLayout-sc-25l7nr-0"]{content:"eBKkTK,"}/*!sc*/
+@media(min-width:850px){.szAWD{background:linear-gradient(to bottom,rgb(239 233 233 / 46%),transparent 22%);}}/*!sc*/
+data-styled.g15[id="mainContent__MainContent-gv3d4z-0"]{content:"szAWD,"}/*!sc*/
+.dgAeoZ{padding:3rem 0 4rem 0;text-align:left;}/*!sc*/
+data-styled.g33[id="posts__Intro-sc-4d4syh-0"]{content:"dgAeoZ,"}/*!sc*/
+.bxzDDq{font-size:2rem;text-transform:capitalize;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+data-styled.g34[id="posts__Title-sc-4d4syh-1"]{content:"bxzDDq,"}/*!sc*/
+.bcAOPN{margin-bottom:5rem;padding-bottom:1rem;max-width:60rem;margin:auto;text-align:left;}/*!sc*/
+.bcAOPN img[src$="imgresponsive"]{max-width:80%;}/*!sc*/
+data-styled.g35[id="posts__ArticlePost-sc-4d4syh-2"]{content:"bcAOPN,"}/*!sc*/
+.kzUKQC{font-size:0.89rem;padding-right:10px;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.kzUKQC > span{padding-left:5px;}/*!sc*/
+data-styled.g36[id="posts__SmallText-sc-4d4syh-3"]{content:"kzUKQC,"}/*!sc*/
+.lhbrzX{margin-top:5rem;}/*!sc*/
+.lhbrzX p{font-size:1.1rem;margin:0.5em;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.lhbrzX h1{font-size:3em;}/*!sc*/
+.lhbrzX strong{-webkit-text-decoration:underline;text-decoration:underline;color:#0ec289;}/*!sc*/
+.lhbrzX ul,.lhbrzX ol{text-align:left;font-size:1em;}/*!sc*/
+.lhbrzX a{font-size:1.3em;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g37[id="posts__ArticleBody-sc-4d4syh-4"]{content:"lhbrzX,"}/*!sc*/
+.hHDoRm{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:5rem;grid-row-gap:5rem;list-style:none;padding:0;border-top:4px solid #07ab77;border-bottom:4px solid #07ab77;}/*!sc*/
+data-styled.g38[id="posts__NaviagtionList-sc-4d4syh-5"]{content:"hHDoRm,"}/*!sc*/
+.GBDKS{padding:2rem 0;}/*!sc*/
+.GBDKS:last-child{text-align:right;}/*!sc*/
+.GBDKS a{font-size:1.3rem;font-family:"GT-Walsheim-Pro-Medium";}/*!sc*/
+data-styled.g39[id="posts__NaviagtionLi-sc-4d4syh-6"]{content:"GBDKS,"}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+html{box-sizing:border-box;-ms-overflow-style:scrollbar;line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+html body{font-size:14px;font-family:'GT-Walsheim-Pro-Regular';margin:0;}/*!sc*/
+html main{display:block;}/*!sc*/
+html h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+html hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+html a{background-color:transparent;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+html b,html strong{font-weight:bolder;font-family:'GT-Walsheim-Pro-Bold';}/*!sc*/
+html small{font-size:80%;}/*!sc*/
+html sub,html sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+html sub{bottom:-0.25em;}/*!sc*/
+html sup{top:-0.5em;}/*!sc*/
+html img{border-style:none;}/*!sc*/
+html .center{text-align:center;}/*!sc*/
+html button,html input,html optgroup,html select,html textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+html button,html input{overflow:visible;}/*!sc*/
+html button,html select{text-transform:none;}/*!sc*/
+html button,html [type="button"],html [type="reset"],html [type="submit"]{-webkit-appearance:button;}/*!sc*/
+html button::-moz-focus-inner,html [type="button"]::-moz-focus-inner,html [type="reset"]::-moz-focus-inner,html [type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+html button:-moz-focusring,html [type="button"]:-moz-focusring,html [type="reset"]:-moz-focusring,html [type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+html [hidden]{display:none;}/*!sc*/
+html .text-dark{color:#000;}/*!sc*/
+html .text-primary{color:#0ec289;}/*!sc*/
+html .align-middle{vertical-align:middle;}/*!sc*/
+html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
+.lined-link{display:inline-block;position:relative;padding-top:.5em;padding-bottom:.25em;-webkit-transition:all .2s ease-out;transition:all .2s ease-out;will-change:transform,color;}/*!sc*/
+.lined-link:after{z-index:1;position:absolute;bottom:-1px;left:0;content:"";display:block;width:100%;height:5px;background-color:#0ec289;-webkit-transform:scale(0,1);-ms-transform:scale(0,1);transform:scale(0,1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;will-change:transform;-webkit-transition:-webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.error__emoji{width:30vw;}/*!sc*/
+data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=91c7f04a9bfd3f81212d6747467d28fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link as="script" rel="preload" href="/webpack-runtime-f1e4d05a061cddef1ccb.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-ed7b7b3c234cf1bf4dd6.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"/><link as="fetch" rel="preload" href="/page-data\arquitecture-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Asistente de League of Legends Parte 1 - Arquitectura</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACu0lEQVQozx2SWW/bRhRGGcSWRInrDGfI4b6vEimRsvbIjuPYkeQ6XhLHjYUsblrAL0WAFtmQlwJ9L/qPy/Tl4lycD7gP96MYxaeR3QRmU9QbgtqRLFELRDUAegj0ABg1BNCI2pJF/8gYnOJxiltPoIXUg13hYQs8bItNQd0VCKfYbtLXvTjMhnFvEmdTPy6dqGiB2uI2UFu8vMPiNtSw4VM3I+3Y57sNoZ8fTA9vomSIiSQCH/N7qJMnD7Y95+rxxd2zk9tH1enz9cXq9ne3u1o+vhwvltSfH1//evdqbg+7veXq/EOshxoS8+E2yF+pUqkykzhYnG/ur/e3h9bei4ubL3//+8/Xv367/46tlNo8+eVk82mozKvx8fr2DycoFKwZ/tNw9RGhlGUNIxhUR9dZNN8jQTF4tD6720zPtmd3WT6mXr7/fPH226g6TcNyunnnV4cyMXV7tlf+nGiJwGiqly9O36T9o1hP+0kxHS0FlEGUOkGfen79bvbms1089dPB/vFpkExsM/XcfDo5kbFLJCdMqtX6RZTvp+liWc1ers9ds5+6pWbGVDa/7K3urfKn0uuOkj4AugCjUejP8xhIfuwVVfSkiI8gsLHgJbPR8NkRgn5oD3w/o+rXMVLQZLVOh9AMbrDyLoNbHG7zCi3oDDRonrRYpcmTBoNaUKWh2uBqpXWASsmwRFyq0Yu8+b7F64xsc7LTlkwa6k2BsMj8nw2eeG1kiloE9UhUfYF4u5xMpdmW4NLhD0hnzOBA8cZOOoZm3sahksxJdgCNruwUyOyJWip7fWT/AGT1GrxCZVffkTUXWZcTPVq0g2Cuel0rruoL0BmgcFLXUNIjQAJedqER1yuHXYH4OyyierMPgd4FnMYwpMnr3Wwhm75ixzw2RLuA/oiXLajYQLZZyRANV9ScGjhk7nTgfyR2dmjBEiDLAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="imagen de la app "
+        title="imagen de la app "
+        src="/static/af91051f1ac3254778715ff6b260308b/fcda8/img1.png"
+        srcset="/static/af91051f1ac3254778715ff6b260308b/12f09/img1.png 148w,
+/static/af91051f1ac3254778715ff6b260308b/e4a3f/img1.png 295w,
+/static/af91051f1ac3254778715ff6b260308b/fcda8/img1.png 590w,
+/static/af91051f1ac3254778715ff6b260308b/efc66/img1.png 885w,
+/static/af91051f1ac3254778715ff6b260308b/2bef9/img1.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span>
+Este es el primero de varios blogs, donde iré explicando mi proceso a la hora de desarrollar la app asistente de League of Legends, hay un <a href="/portfolio-work-1">post previo</a> en mi portfolio, donde comento por encima como funciona y que hace.</p>
+<h1>Necesidades de la app</h1>
+<p>Como comentaba en el post sobre la app, el objetivo principal es poder generar <strong>estadisticas actualizadas para cada personaje</strong>, de forma que sin necesidad de estar leyendo los parches del juego, <strong>el jugador pueda tomar decisiones</strong> sobre que personajes elegir o bloquear, asi como que equipamiento llevar.</p>
+<p>Antes de diseñar la arquitectura lo primero que necesitamos es saber con que recursos contamos y de donde vamos a sacar la información.
+En esta caso RiotGames <a href="https://developer.riotgames.com/apis">nos disponibiliza una API</a>, donde se puede obtener <strong>información de jugadores y de sus partidas</strong>.</p>
+<p>La api nos facilita un par de endpoints clave que debemos utilizar para llegar al dato final, que es la información final de cada campeón utilizado en una partida.</p>
+<h2>Endpoints disponibles</h2>
+<ul>
+<li><strong>/lol/league/v4/entries/{queue}/{tier}/{division}</strong>: Nos da una lista de jugadores en una liga</li>
+<li><strong>/lol/match/v4/matchlists/by-account/</strong>: Nos da una lista de las partidas de un jugador</li>
+<li><strong>/lol/match/v4/matches/</strong>: Nos da el detalle de una partida en concreto</li>
+</ul>
+<p>En base a estos endpoints, el proceso para llegar al detalle de una partida y obtener los datos de cada campeón es el siguiente:</p>
+<ol>
+<li>Obtenemos una lista de jugadores de cada liga/division</li>
+<li>Obtenemos una lista de partidas recorriendo esos jugadores</li>
+<li>Recorremos esas partidas y obtenemos el detalle de cada una</li>
+</ol>
+<h2>Limitantes de la API</h2>
+<p>La api nos limita a <strong>cierta cantidad de requests por minuto</strong>, sin embargo <strong>este límite aplica por servidor</strong>, es decir, si superamos el límite en el server de Corea, podemos seguir haciendo request de partidas al server de Norteamérica. De aquí surge una estratégia para optimizar las requests que detallaré mas adelante.</p>
+<h2>Plan y arquitectura</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB6acCo0B//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAECEjEDI//aAAgBAQABBQKU6q9T1NOcUh7/AP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAMBAQAAAAAAAAAAAAAAAAABERAy/9oACAEBAAY/AlSnRHv/xAAdEAEAAgICAwAAAAAAAAAAAAABESEAMRBBYXGR/9oACAEBAAE/ISoRfmSEmnR3jNkr7x2sPOSEGmuL/9oADAMBAAIAAwAAABCwz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQADAAMBAQAAAAAAAAAAAAEAESExcYFRYf/aAAgBAQABPxAB05bnr5Nl2aGuoV0E4L48ISoK+NQI4ppuurml+T//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Arquitectura"
+        title="Arquitectura"
+        src="/static/c163e391b3e3ca06eca4fee44b33be79/1c72d/model-architecture.jpg"
+        srcset="/static/c163e391b3e3ca06eca4fee44b33be79/a80bd/model-architecture.jpg 148w,
+/static/c163e391b3e3ca06eca4fee44b33be79/1c91a/model-architecture.jpg 295w,
+/static/c163e391b3e3ca06eca4fee44b33be79/1c72d/model-architecture.jpg 590w,
+/static/c163e391b3e3ca06eca4fee44b33be79/a8a14/model-architecture.jpg 885w,
+/static/c163e391b3e3ca06eca4fee44b33be79/fbd2c/model-architecture.jpg 1180w,
+/static/c163e391b3e3ca06eca4fee44b33be79/0f98f/model-architecture.jpg 1920w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span>
+El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stable/">Celery</a> para mantener procesos corriendo que vayan obteniendo datos de partidas, y a su vez actualizando tanto la lista de jugadores como la lista de partidas, descartando las antiguas y quitando de la lista jugadores inactivos de los que no vamos a obtener información.</p>
+<p>De aquí surgen una serie de procesos que van a correr en el servidor para llevar a cabo estas tareas, voy a numerar algunos de los más importantes:</p>
+<h3>1 - Obtención de jugadores</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 466px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cc32495a2657077401bb5352624f868e/fc1a1/code1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 22.2972972972973%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA1UlEQVQY002PSW7DMBAE/Y9YC02KiyiR1G5ZToDk/3+qUDoEORRmwXSj5xbHhPY9zjW0nceECdt6QugzAWsNUlu66YkzhuQ0nWnwWhGsxjXywjaKoiy5desXcVn5+V443ivPY2ffZ9Z15DhWUoxI1SBNixQCIwVaPv6Mzr55CGSmPA2rSuREhtfnQhoDU/LMmSk4xtDyzrstz2eyeN5NgaVvr3RKKT7ud4qiuLgMRV0jnEUNAZl65BhR3uWEiTmLh6Fj29JVU/TsrwWdX66qijprz/qfX46vdyE/crODAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Bloque de codigo 1"
+        title="Bloque de codigo 1"
+        src="/static/cc32495a2657077401bb5352624f868e/fc1a1/code1.png"
+        srcset="/static/cc32495a2657077401bb5352624f868e/12f09/code1.png 148w,
+/static/cc32495a2657077401bb5352624f868e/e4a3f/code1.png 295w,
+/static/cc32495a2657077401bb5352624f868e/fc1a1/code1.png 466w"
+        sizes="(max-width: 466px) 100vw, 466px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Mediante <strong>Celery Beat</strong>, dia por medio se realiza una recorrida por cada server, liga y division disponible,<strong>almacenando la información de todos los jugadores en PostgreSQL</strong>. De cada uno de ellos se almacena el server al que pertenece, su liga, división, nombre y distintos IDS que se requieren luego para hacer otros requests con la api.</p>
+<h3>2 - Obtención de partidas</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 530px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b70f1b1686e6830287511c387e79bfc0/b6a9b/code2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 49.32432432432432%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABmUlEQVQoz21S7ZKjIBDMa+xGvgQVRFHEjWZrL3V5/4fqHUg2l2zdjy5AZ3q6Gw6q9ahtgJ5GNCnAphndEmAy1gXGWTAuIFQNzjlYVaGqjmCMFZQ9fWMVnen/QUgJ1Y1wccF2OWP72nC5fuJ0XrH++YtpPWGcE5aPHa5rIWsN0znUSkJSr24tlDGQmgbSgIMoU49QVNj6gIaKfe/hrMMcSLG16BoD3xpoKaDz//gBQwRSKrgpoRnIJdUUQs4ZZNMT2YBlDYgx3IrcgG6Y0No8oCcSUrpu0Frj+P72z/LxnXC3XSwLUbIxjcV+vsITmaPmTGBDhCeFwTboO4spzsUmY/xBmEke+2L5TqhIfqcaap5IvrsHfQu/IuSa7EYIjtzzgMxQyHfBnxXmlZUGgXl22LcZp1NEihTFMiKlEcNgMU894jJgojWfh9HDkis73tS/EGZYY5EmIjonxMuOcU/wlK9z/q6SF5U/+994Icxrq1tEut1A7zA/JZZvUyio/A7Fa145y58oXgifUfKkN6brTELZPCn6Xfs/fAOx6B0ggye71gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Bloque de codigo 2"
+        title="Bloque de codigo 2"
+        src="/static/b70f1b1686e6830287511c387e79bfc0/b6a9b/code2.png"
+        srcset="/static/b70f1b1686e6830287511c387e79bfc0/12f09/code2.png 148w,
+/static/b70f1b1686e6830287511c387e79bfc0/e4a3f/code2.png 295w,
+/static/b70f1b1686e6830287511c387e79bfc0/b6a9b/code2.png 530w"
+        sizes="(max-width: 530px) 100vw, 530px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Mediante <a href="http://supervisord.org/running.html">Supervisor</a> se mantienen corriendo un proceso por cada server, cada uno de ellos recorre la lista de jugadores asociados a ese servidor, obteniendo una <strong>lista de partidas recientes</strong>.</p>
+<p>Para cada jugador se obtiene la última fecha en la que este proceso lo revisó, de forma que la siguiente vez que se soliciten sus partidas se haga solo con partidas posteriores a esa fecha. De esta forma se evitan duplicados.</p>
+<p>Una vez obtenidas las partidas de los jugadores de determinada región, estas <strong>se almacenan en una lista de Redis</strong>, donde la key es la región de la partida.</p>
+<h3>3 - Obtención de detalle de partidas</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d003dcab40f768dba9f07f66bcbb05fb/e9beb/code3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.64864864864865%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABa0lEQVQoz22SWZLDIAxEc4/Y7ItZjLfJZO5/sR6BQ1yVykeXKAFPLcFN2gidC9Lvhvg4YLcVbt9gnIPSBlIZMMYwjuOl4Yw9X2PXjXNOFx2OuSBvB5SfIJRsUtZAewsuObhgLQp1inH2FdqAjI3gTCClgMffgsdzwX5krHtELh4brX1wDaishHbyDRxfoA59Ac+KLmqsR8T+LJgJZryCpZxLBjboBpJGNGnaq3BO99jIPh0ympXCNM9wOWNaCnwOiNkjRYsQLGS9LPjVJnU1vGY6DFUDrYcLyLmAnyLKvmBZMpJ3CDTDSZNDTU5pplrSGVoLQQ4pH62Gofw0WUwhwFh3AjtUSYm/nwNbKVCUE5SrYuRCkTtJUgSt5yWdrTBRH7UWowJSqsuhIIfZJ6xlxpwiubVwzrRYHVTA2db1fb62zN6vRFCqvu8Zy5oaTGtyYRRJtzY//9w33Xq1/vT3+9BUK/bK3dm3j/ypf4xxF3O/PtOvAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Bloque de codigo 3"
+        title="Bloque de codigo 3"
+        src="/static/d003dcab40f768dba9f07f66bcbb05fb/fcda8/code3.png"
+        srcset="/static/d003dcab40f768dba9f07f66bcbb05fb/12f09/code3.png 148w,
+/static/d003dcab40f768dba9f07f66bcbb05fb/e4a3f/code3.png 295w,
+/static/d003dcab40f768dba9f07f66bcbb05fb/fcda8/code3.png 590w,
+/static/d003dcab40f768dba9f07f66bcbb05fb/e9beb/code3.png 730w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Utilizando también supervisor, se va extrayendo de la cola de redis de partidas por procesar un puñado de partidas de cada server (de esta forma evitamos en cierta medida el limite de requests de la API).</p>
+<p>Estas partidas van a una cola de celery worker donde se solicita su detalle, se recorre la información de cada jugador que participó en ella y todo lo relevante a la misma se almacena en PostgreSQL.</p>
+<p>Algunos de los datos que se obtienen de cada partida son: Personajes jugados y bloqueados, asesinatos, muertes y asistencias de cada personaje, objetos y runas de cada personaje, cantidad de minions asesinados por cada jugador, línea de cada personaje, entre otras.</p>
+<h3>4 - Obtención de estadísticas</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 487px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d65cfcaf751f7d855a7fe460ba9a03da/7b439/code4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 28.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABCUlEQVQY012RaXaEIBCEPce4gSwCgozOFjPJ/Y9VKUziy+THZ2O97rJoq9s1Ic4z/PJgzTjnjHW9IMaIwTjMb5+I3mENI9aJ784gjQbZj9BKoW1bdF13UKXLHc+PG7bnA7f7gu39im274v5YsKxnuDhDDRJWK2hWo4a9Fm2QEn3fv1AJIZnAIlgOKA7oYcdZTRMOS8HGDg2TtP/4m+xIKOiayxVoMPKrgQkcmal5GiZrMLDndKrRNA3q+pWi/5qXWpWYKjjIyUNGj5770kyckscUHcI07uecAzz1SG2iNnGnaQ7cOXcth8O0Ko/eaIjRErOj3feg5w9wpBgVbLnFWPjRQ+nzEEIchl+D9qw5nJMWhwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Bloque de codigo 4"
+        title="Bloque de codigo 4"
+        src="/static/d65cfcaf751f7d855a7fe460ba9a03da/7b439/code4.png"
+        srcset="/static/d65cfcaf751f7d855a7fe460ba9a03da/12f09/code4.png 148w,
+/static/d65cfcaf751f7d855a7fe460ba9a03da/e4a3f/code4.png 295w,
+/static/d65cfcaf751f7d855a7fe460ba9a03da/7b439/code4.png 487w"
+        sizes="(max-width: 487px) 100vw, 487px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Una vez ya se han obtenido una buena cantidad de partidas (me he manejado con cerca de 100.000), lo que se hace es utilizar pandas para obtener estadisticas de cada personaje. Este proceso se ejecuta mediante Celery Beat cada 24 horas o cuando se detecte un cambio de parche en el juego, para mantener las estadísticas actualizadas.</p>
+<p>En 100.000 partidas, al haber 10 jugadores, hay un muestreo de 1.000.000 de datos totales si lo dividimos por personaje. De esta forma podemos obtener los siguientes datos de cada personaje:</p>
+<ul>
+<li>Líneas frecuentes en las que se juega</li>
+<li>Ratio de veces que se elige/bloquea</li>
+<li>Ratio de victorias/derrotas</li>
+<li>Objetos y runas con mayor ratio de éxito</li>
+<li>Personajes contra los que se gana/pierde mas </li>
+<li>En que minuto de la partida se gana/pierde más</li>
+</ul>
+<p>Algunas de esas estadísticas es relevante contrastarlas segun que línea se esté jugando, es decir, el equipamiento de un personaje puede ser muy distinto si se está jugando como Soporte o como Medio. De esta forma podemos obtener <strong>varias builds distintas para cada personaje de acuerdo a la línea asignada.</strong></p>
+<p>Estas estadísticas tienen una estructura considerablemente compleja, y se almacenan en MongoDB.
+El análisis de los datos es demasiado extenso para comentarlo en detalle en este post, pero quizá escriba al respecto más adelante.</p>
+<h1>Comentarios finales</h1>
+<p>En este punto ya obtuvimos las estadísticas de cada personaje en cada línea, por lo que en el siguiente post voy a estar escribiendo sobre como diseñe el frontend, que funcionalidades tiene y que tecnologías usé.</p>
+<p><a href="/frontend-lol-app/">Siguiente post - Frontend de la app</a></p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/frontend-lol-app/">Asistente de League of Legends Parte 2 - Frontend<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/arquitecture-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-ed7b7b3c234cf1bf4dd6.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2b353fc7628807af21e1.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-1344485071dfa9567159.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-ed7b7b3c234cf1bf4dd6.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-f1e4d05a061cddef1ccb.js" async=""></script></body></html>

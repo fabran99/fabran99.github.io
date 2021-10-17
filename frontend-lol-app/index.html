@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.81894ad2461fd1ba450a.css" id="gatsby-global-css">@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Asistente de League of Legends Parte 2 - Frontend | Fabran99</title><meta data-react-helmet="true" name="description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><meta data-react-helmet="true" property="og:title" content="Asistente de League of Legends Parte 2 - Frontend"/><meta data-react-helmet="true" property="og:description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Asistente de League of Legends Parte 2 - Frontend"/><meta data-react-helmet="true" name="twitter:description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+@media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
+data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
+.cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:850px){.cvEVjw{grid-template-columns:1fr;text-align:center;width:100%;}}/*!sc*/
+data-styled.g2[id="style__NavbarElement-sc-1kk5mj1-1"]{content:"cvEVjw,"}/*!sc*/
+.cXPKA-D{padding-left:0;display:grid;grid-template-columns:repeat(3,1fr);list-style:none;}/*!sc*/
+.cXPKA-D > li a{font-size:1.2rem;color:#232323;padding:0.5rem 0.2rem;margin:0 1rem;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle;}/*!sc*/
+.cXPKA-D > li a > svg{width:18px;margin-right:5px;}/*!sc*/
+.cXPKA-D > li a span,.cXPKA-D > li a svg{display:block;vertical-align:middle;}/*!sc*/
+@media (max-width:850px){.cXPKA-D > li a{font-size:1rem;}}/*!sc*/
+data-styled.g3[id="style__NavbarList-sc-1kk5mj1-2"]{content:"cXPKA-D,"}/*!sc*/
+.qSPLr{padding-top:1rem;padding-bottom:8rem;z-index:0;position:relative;text-align:left;}/*!sc*/
+@media (min-width:850px){.qSPLr{background:linear-gradient(to top,#efe9e9,transparent 50%);}}/*!sc*/
+@media (max-width:850px){.qSPLr{padding-bottom:2rem;padding-left:0.5rem;padding-right:0.5rem;text-align:center;}}/*!sc*/
+.qSPLr .quote{font-size:4rem;font-family:"GT-Walsheim-Pro-Bold";line-height:1.2;color:#0ec289;}/*!sc*/
+@media (max-width:850px){.qSPLr .quote{font-size:2rem;}}/*!sc*/
+data-styled.g4[id="style__FooterStyle-l15n7d-0"]{content:"qSPLr,"}/*!sc*/
+.rqPHC{text-align:center;font-size:1.1em;}/*!sc*/
+.rqPHC div{margin-bottom:0.5em;}/*!sc*/
+.rqPHC svg{-webkit-transform:translateY(5px);-ms-transform:translateY(5px);transform:translateY(5px);}/*!sc*/
+data-styled.g5[id="style__FooterLinks-l15n7d-1"]{content:"rqPHC,"}/*!sc*/
+.gPWzTY{text-align:center;}/*!sc*/
+data-styled.g8[id="style__FooterBody-l15n7d-4"]{content:"gPWzTY,"}/*!sc*/
+.cgHyiV{cursor:pointer;margin:5% 0%;font-family:"GT-Walsheim-Pro-Medium";font-size:inherit;text-align:center;-webkit-letter-spacing:3px;-moz-letter-spacing:3px;-ms-letter-spacing:3px;letter-spacing:3px;text-transform:uppercase;-webkit-text-decoration:none;text-decoration:none;border:4px solid #0ec289;color:#0ec289;background:#fff;outline:none;position:relative;display:inline-block;padding:15px 10px 14px;cursor:pointer;width:auto;min-width:200px;}/*!sc*/
+.cgHyiV::after{min-width:200px;position:absolute;width:100%;height:100%;border:4px solid #0ec289;background-color:#0ec289;left:4px;top:9px;z-index:-1;content:"";-webkit-transition:all 0.5s;transition:all 0.5s;}/*!sc*/
+.cgHyiV:hover:after{top:0px;left:-4px;}/*!sc*/
+data-styled.g11[id="buttons__ButtonDefault-sc-5x08bx-0"]{content:"cgHyiV,"}/*!sc*/
+.eBKkTK{width:96%;margin-left:auto;margin-right:auto;}/*!sc*/
+.eBKkTK.wrapper{max-width:65rem;margin:auto;}/*!sc*/
+@media only screen and (min-width:60em){.eBKkTK{max-width:75rem;}}/*!sc*/
+data-styled.g14[id="containerLayout__ContainerLayout-sc-25l7nr-0"]{content:"eBKkTK,"}/*!sc*/
+@media(min-width:850px){.szAWD{background:linear-gradient(to bottom,rgb(239 233 233 / 46%),transparent 22%);}}/*!sc*/
+data-styled.g15[id="mainContent__MainContent-gv3d4z-0"]{content:"szAWD,"}/*!sc*/
+.dgAeoZ{padding:3rem 0 4rem 0;text-align:left;}/*!sc*/
+data-styled.g33[id="posts__Intro-sc-4d4syh-0"]{content:"dgAeoZ,"}/*!sc*/
+.bxzDDq{font-size:2rem;text-transform:capitalize;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+data-styled.g34[id="posts__Title-sc-4d4syh-1"]{content:"bxzDDq,"}/*!sc*/
+.bcAOPN{margin-bottom:5rem;padding-bottom:1rem;max-width:60rem;margin:auto;text-align:left;}/*!sc*/
+.bcAOPN img[src$="imgresponsive"]{max-width:80%;}/*!sc*/
+data-styled.g35[id="posts__ArticlePost-sc-4d4syh-2"]{content:"bcAOPN,"}/*!sc*/
+.kzUKQC{font-size:0.89rem;padding-right:10px;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.kzUKQC > span{padding-left:5px;}/*!sc*/
+data-styled.g36[id="posts__SmallText-sc-4d4syh-3"]{content:"kzUKQC,"}/*!sc*/
+.lhbrzX{margin-top:5rem;}/*!sc*/
+.lhbrzX p{font-size:1.1rem;margin:0.5em;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.lhbrzX h1{font-size:3em;}/*!sc*/
+.lhbrzX strong{-webkit-text-decoration:underline;text-decoration:underline;color:#0ec289;}/*!sc*/
+.lhbrzX ul,.lhbrzX ol{text-align:left;font-size:1em;}/*!sc*/
+.lhbrzX a{font-size:1.3em;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g37[id="posts__ArticleBody-sc-4d4syh-4"]{content:"lhbrzX,"}/*!sc*/
+.hHDoRm{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:5rem;grid-row-gap:5rem;list-style:none;padding:0;border-top:4px solid #07ab77;border-bottom:4px solid #07ab77;}/*!sc*/
+data-styled.g38[id="posts__NaviagtionList-sc-4d4syh-5"]{content:"hHDoRm,"}/*!sc*/
+.GBDKS{padding:2rem 0;}/*!sc*/
+.GBDKS:last-child{text-align:right;}/*!sc*/
+.GBDKS a{font-size:1.3rem;font-family:"GT-Walsheim-Pro-Medium";}/*!sc*/
+data-styled.g39[id="posts__NaviagtionLi-sc-4d4syh-6"]{content:"GBDKS,"}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+html{box-sizing:border-box;-ms-overflow-style:scrollbar;line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+html body{font-size:14px;font-family:'GT-Walsheim-Pro-Regular';margin:0;}/*!sc*/
+html main{display:block;}/*!sc*/
+html h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+html hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+html a{background-color:transparent;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+html b,html strong{font-weight:bolder;font-family:'GT-Walsheim-Pro-Bold';}/*!sc*/
+html small{font-size:80%;}/*!sc*/
+html sub,html sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+html sub{bottom:-0.25em;}/*!sc*/
+html sup{top:-0.5em;}/*!sc*/
+html img{border-style:none;}/*!sc*/
+html .center{text-align:center;}/*!sc*/
+html button,html input,html optgroup,html select,html textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+html button,html input{overflow:visible;}/*!sc*/
+html button,html select{text-transform:none;}/*!sc*/
+html button,html [type="button"],html [type="reset"],html [type="submit"]{-webkit-appearance:button;}/*!sc*/
+html button::-moz-focus-inner,html [type="button"]::-moz-focus-inner,html [type="reset"]::-moz-focus-inner,html [type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+html button:-moz-focusring,html [type="button"]:-moz-focusring,html [type="reset"]:-moz-focusring,html [type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+html [hidden]{display:none;}/*!sc*/
+html .text-dark{color:#000;}/*!sc*/
+html .text-primary{color:#0ec289;}/*!sc*/
+html .align-middle{vertical-align:middle;}/*!sc*/
+html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
+.lined-link{display:inline-block;position:relative;padding-top:.5em;padding-bottom:.25em;-webkit-transition:all .2s ease-out;transition:all .2s ease-out;will-change:transform,color;}/*!sc*/
+.lined-link:after{z-index:1;position:absolute;bottom:-1px;left:0;content:"";display:block;width:100%;height:5px;background-color:#0ec289;-webkit-transform:scale(0,1);-ms-transform:scale(0,1);transform:scale(0,1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;will-change:transform;-webkit-transition:-webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.error__emoji{width:30vw;}/*!sc*/
+data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=91c7f04a9bfd3f81212d6747467d28fe" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=91c7f04a9bfd3f81212d6747467d28fe"/><link as="script" rel="preload" href="/webpack-runtime-f1e4d05a061cddef1ccb.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-ed7b7b3c234cf1bf4dd6.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"/><link as="fetch" rel="preload" href="/page-data\frontend-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Asistente de League of Legends Parte 2 - Frontend</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz02RaW7bMBCFFckUF4mkdi5aLcmWLcuO3TZJg7QFiiL/e4geqnfp5Tp2gqLAw2DwgDfvI+gktpeqZbHlaYVFQaTCUv8TiQy9StPYkJsjiobnTaQ7WbTOeZmeLsuny2WcFxwIn4SeH7g+cxHGLPQpX1EOpk9vOwldnzoeWiHmIeIc5+2xX/ebedk/R7pHXK+YQkInaqJJ5UcGdl8qltVB1tC4CmROMeUBXGTOuuuKKHqen//8+n0+viTLpM9TWHePl5/1cE+z2hXFbv992D1Uh2P2+MJTLQmLAw5gDqEhD3mRNz8+vubtXn171q8brI0dDuvDB2l6lxeJ2aV2jG0r+0MYa0GCVEhCAgfB8zw/KVo7nIUdedoRUbGkBmbgDLIaSc2Lzo6ncroXdmAihXAc3prjOPMxq+ppOX4V1SayQ2T6vJkiM5TjMS03KNbz/NqNF7XZJk8vPDMc0+iKTZ1KpQBgyu3u+CUoN7EZpF4DLVedWc9xOazgw5I6zBuhWpK30CwpA+xrcxgwx0XK9Kf5c2THxI7QCeVCrU1/SMpxJRROrDRwcWBZ47MYY0IwXcFXIcI9FKSmWpaT1j10QvMt3Kl2BwuESWzDomNJSdPKo9Gd59+tMMjxGYSBa9g+fMurCbDh2VAL4aLdx/aKTfM1b05h0QdFfwuj9zAi4Z1P0qJruzPJmzCrQdeSxGbVyPPaDVIklS8LHGkcGZeI/8OMMA7TuVrvPLflTdhFxL1O7N58D+E3gfMX+B8+fJaknEAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="imagen de la app "
+        title="imagen de la app "
+        src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
+        srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
+/static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
+/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png 590w,
+/static/727ae3b906892c5521a8273e03923f83/efc66/img12.png 885w,
+/static/727ae3b906892c5521a8273e03923f83/2bef9/img12.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span>
+En este post voy a explicar un poco como desarrollé el frontend de la app asistente de League of Legends, hay un <a href="/arquitecture-lol-app">post previo</a>, donde comento la arquitectura del backend. </p>
+<h1>Necesidades de la app</h1>
+<p>En la parte frontend, se requiere una app de escritorio que por un lado muestre las estadísticas de todos los personajes obtenidas desde backend, y a su vez que se pueda conectar al launcher del juego, de forma que segun el feedback que reciba del mismo más las estadísticas, se pueda dar una serie de consejos.</p>
+<h1>Tecnologías utilizadas</h1>
+<p>Como es mi framework de preferencia, utilicé ReactJS para la interfaz, y de paso utilicé también electron para que la app fuera de escritorio. </p>
+<p>Fue mi primera aproximación a electron, y resulta que no se lleva del todo bien con ReactJS (al menos utilizando create-react-app), asi que el setup del proyecto fue relativamente mas complejo de lo esperado. Pero finalmente todo funcionó como correspondía e incluso pude habilitar features realmente útiles como actualizaciones automáticas.</p>
+<h2>El setup de ReactJS + Electron</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8bb2eea4a87251c9a17c50c61148dc43/c58a3/react_and_electron.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAME/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHGNSYP/8QAFxABAAMAAAAAAAAAAAAAAAAAEQECEP/aAAgBAQABBQKoQZ//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAEBAQAAAAAAAAAAAAAAAAAhABD/2gAIAQEABj8CZz//xAAYEAADAQEAAAAAAAAAAAAAAAAAESEBQf/aAAgBAQABPyHT0vCg1OH/2gAMAwEAAgADAAAAEAPP/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQADAAMAAAAAAAAAAAAAAAEAESExQXH/2gAIAQEAAT8QCKL5EQsMr2bel5P/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="react y electron"
+        title="react y electron"
+        src="/static/8bb2eea4a87251c9a17c50c61148dc43/1c72d/react_and_electron.jpg"
+        srcset="/static/8bb2eea4a87251c9a17c50c61148dc43/a80bd/react_and_electron.jpg 148w,
+/static/8bb2eea4a87251c9a17c50c61148dc43/1c91a/react_and_electron.jpg 295w,
+/static/8bb2eea4a87251c9a17c50c61148dc43/1c72d/react_and_electron.jpg 590w,
+/static/8bb2eea4a87251c9a17c50c61148dc43/a8a14/react_and_electron.jpg 885w,
+/static/8bb2eea4a87251c9a17c50c61148dc43/fbd2c/react_and_electron.jpg 1180w,
+/static/8bb2eea4a87251c9a17c50c61148dc43/c58a3/react_and_electron.jpg 1500w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Por un tema de practicidad siempre utilizo create-react-app al iniciar un proyecto de react. Por la complejidad del manejo del state, en este caso utilicé tambien Redux.</p>
+<p>Electron en este caso no solo va a servir para hacer la aplicacion un ejecutable, sino que tambien se va a encargar de la conexión con el launcher del juego.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/618f326ad4b19d895b611fc0e5260e70/e088a/electron_setup.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50.67567567567568%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABqklEQVQoz31S266bMBDkP8rFgA3YxoHAgZAQIFBVOg996P//zHRCEzWK2vMwYrV4Z3dm19s+f2KeZ1ynGafTCefzGd+3GettwTyNGMeR+YG5BZ8/NmzrDRPz8zShbVscj82Oruv3d97CH86V6LsGSipIKWF0Dm00XNOhbnvUlYVmrrQGusj3N1EUIQhDBMEdAULGYRjBa7oBtjTYlgHrdIW1FkIISKWQ5haJythIwP/mw2fhszh4xO/wPsYF/TDitiz4aDtOQpIkIVmGwijkWkLIGCKJH1M8p/k3vOHU4+AOKAqDOElJRsQx8qpFQ/9MqREXCjEbRJFAGPwlDN4mvtvgNQ0L65qoSFpAUWpMyco4VMMVuix3Et8PdslPvBK9fr26PqJyBsulwamtkGU5PUvoa4bD+guOHmfWIeMiMsouZApnLFSavCzjjdA5jSvllbbcJacszLRGcRwglHlsM9j9ixgLSovC8P+El0vPu1thKDPP6Rk9lLmB1CVSTpamMRvFiETy5YYfhDXOQ8vD3Xgyjh5mO+H9XGRe0IKUTShXSSSp+rOYLzb9G9DaJDAYBrGFAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="setup react y electron"
+        title="setup react y electron"
+        src="/static/618f326ad4b19d895b611fc0e5260e70/fcda8/electron_setup.png"
+        srcset="/static/618f326ad4b19d895b611fc0e5260e70/12f09/electron_setup.png 148w,
+/static/618f326ad4b19d895b611fc0e5260e70/e4a3f/electron_setup.png 295w,
+/static/618f326ad4b19d895b611fc0e5260e70/fcda8/electron_setup.png 590w,
+/static/618f326ad4b19d895b611fc0e5260e70/efc66/electron_setup.png 885w,
+/static/618f326ad4b19d895b611fc0e5260e70/e088a/electron_setup.png 1015w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+El setup con electron en este caso, se aplica dentro de la carpeta public, donde al ejecutarse electron pasa a cargar el index.html generado por reactjs. A su vez disponibiliza a nivel de la ventana sus funciones, para comunicarse con el lado de react.</p>
+<p>Una vez hecho esto, hay que generar una serie de eventos para disparar desde react, que permitan realizar todas las acciones que solo pueden ejecutarse desde electron.</p>
+<p>En este caso el ipcRenderer va a servir como puente entre react y electron, en la práctica va a funcionar como funciones asíncronas que se llaman o se escuchan desde react.</p>
+<h2>Comunicación con el launcher</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a1f636e8572ba51768619cdb93c75d79/644c5/launcher.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.891891891891895%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAIDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHFmJSK/8QAFhABAQEAAAAAAAAAAAAAAAAAACER/9oACAEBAAEFAomP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAABAxQf/aAAgBAQAGPwLSL//EABoQAQACAwEAAAAAAAAAAAAAAAEAESFBYaH/2gAIAQEAAT8hfCXSAO7YuZ//2gAMAwEAAgADAAAAEA/v/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qp//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EIf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhQdHw/9oACAEBAAE/EBhs9Fjtey5sW23A3fuRo//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="launcher lol"
+        title="launcher lol"
+        src="/static/a1f636e8572ba51768619cdb93c75d79/1c72d/launcher.jpg"
+        srcset="/static/a1f636e8572ba51768619cdb93c75d79/a80bd/launcher.jpg 148w,
+/static/a1f636e8572ba51768619cdb93c75d79/1c91a/launcher.jpg 295w,
+/static/a1f636e8572ba51768619cdb93c75d79/1c72d/launcher.jpg 590w,
+/static/a1f636e8572ba51768619cdb93c75d79/a8a14/launcher.jpg 885w,
+/static/a1f636e8572ba51768619cdb93c75d79/fbd2c/launcher.jpg 1180w,
+/static/a1f636e8572ba51768619cdb93c75d79/644c5/launcher.jpg 1440w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+El launcher de league of legends utiliza ciertas tecnologias web, y habilita una serie de endpoints y sockets que pueden utilizarse para recibir feedback en tiempo real. </p>
+<p>Para comunicarse con el es necesario chequear un archivo temporal que se genera en la carpeta de instalación del juego y almacena un juego de clave/valor para hacer estas requests. En este caso para no reinventar la rueda, decidí utilizar <a href="https://github.com/Pupix/lcu-connector">una pequeña librería</a> que se encarga de escuchar los cambios en ese archivos y facilitar la conexión.</p>
+<p>Por otro lado, una vez que hay una partida en curso, se habilita un endpoint que permite traer información de la partida en curso, minuto de partida, temporizadores de objetivos, builds actuales de cada jugador, etc.</p>
+<h2>Desarrollando las funcionalidades</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/730514681ea1cbdef8084b5ab27b9746/2bef9/img2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQoz1WSXWvbMBSGDaNtEsexLcmyJcuyFMtfSZZkaRNC0rSBbV27jfWiHRRyscJ2O9hgsI+rsV8w2OX+7E5COygI8SLp0Xnfw7GcyBz4yV6HN6lqINlEcrvj7WpgadNui6gWSdtU2yS1iUKi9LjZ7blVnm5ml+/H5x+C4dN9n7Wp8ljWDuAXYWPhRSloO5A+z2ySYFFikbuR9lnWRNyaX329+fLn9tffYngBZaN0kpge8A2PUXNI6yXoIM4RyzpUEZmj2LihxrFpodiabn4sr78/f/ez1z9r+iqv17KcFKNlqB8HZhZVSyz7oRqQpPZ4SeFQDUAgUbdwbJ19+31y9XG+2owHbxySzSbPRP6EpAOXlUE+o9USiSqUfSIqjxVBd0DSns9yLOomVNant7PR+eeXl59eXwSUz40K0wriwR3pjoGHeJhnPuuCbQiMeNYJt5nbJLEWi1fX67PLxbrMRwd+yvRxkg9kObJxgvUoMEfQKkjoRQ9giI1417par+rhEsnxnqebOJXliqkSrltYED0mZgoY4ncwdGvbuVAB7DFlhbF81Ob7Dt9zInh0evKCytKhqoXEzvYDGCcGjIDYwpGyAj7s0MwONIwKZul8chRn/WI4dUO1tX2X2dxnNmgHw19umFqDajPMburqrZOvYCp0MRZZD+w1fY71kJhDwCCzf2/7f2U3lNZxdTSRWZyWJDbtQMl6Gnd7JCmgYcQc0XLhc0PuhkQTVSBhdmR3C7NIp5TjMGkjBkVW6/NAZA5JGm7oxwVKKpdKP9IuDCmOfabdSIFwgqQTxP8AqPVifn5OSZcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="frontend"
+        title="frontend"
+        src="/static/730514681ea1cbdef8084b5ab27b9746/fcda8/img2.png"
+        srcset="/static/730514681ea1cbdef8084b5ab27b9746/12f09/img2.png 148w,
+/static/730514681ea1cbdef8084b5ab27b9746/e4a3f/img2.png 295w,
+/static/730514681ea1cbdef8084b5ab27b9746/fcda8/img2.png 590w,
+/static/730514681ea1cbdef8084b5ab27b9746/efc66/img2.png 885w,
+/static/730514681ea1cbdef8084b5ab27b9746/2bef9/img2.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+El primer paso para que la aplicación funcione, es traer las estadísticas desde nuestro backend y poder visualizarlas, no hay mucho que ampliar aquí. Las funcionalidades básicas son mostrar un listado con estadísticas básicas y múltiples filtros. Al hacer foco en un campeón se pueden ver otros detalles relativos al mismo, como las builds recomendadas.</p>
+<p>Una vez eso está listo, pasamos a la parte de gestión de estado con redux. </p>
+<p>Hay múltiples estados posibles para el launcher:</p>
+<ul>
+<li>Inactivo </li>
+<li>Creando sala / Buscando partida</li>
+<li>En selección de campeón</li>
+<li>Jugando</li>
+</ul>
+<p>Según el estado actual, en la pestaña Ingame de la app se debe mostrar una cosa u otra.
+En electron desarollé una serie de listeners que envian mensajes a react, de forma que al recibir estos mensajes react vaya actualizando el state de la aplicación en redux, estas actualizaciones constantes de state permiten que la aplicación le siga el ritmo <strong>(y extrañamente, aveces supere)</strong> al launcher del juego. </p>
+<h3>En sala / Buscando partida</h3>
+<p>En este estado, se debe mostrar a toda la gente que esta en tu sala, y deberías poder chequear también estadísticas de los demás.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/93329b59ac82739c08b22143dafd2177/2bef9/img5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVQoz3WS2XKCMBSGI1KRLYaEJaKg0YK2duwyvWhve9lX6Tv1WfvDKVG7zHyT+TnkO1kmTJRtXBgvWU5l7SVVnBu13M30VlU7uWwx4jOt91xvfLXyVS3mDdfbZNGIsmGjQDmhGkcpGAVSzs325qGo2+vD43p3NPt70Nw9CW3cOJvMiqs47+DFNCmZE6bnjHzJpgk6Tmbal4txlDtRxnyJAAFFT5Sog0AtL2Q3zt2+64QXedXON7eRqjwxh0Om1ShcyJgBeRxlV1xjHE04TBSpjgwBu4VM/LEyNJCsjublPdKNlbEyTEAtLs4M4SQHYnF4e/74TBd7l+dWxuKAzE7G1B9yl+MsKRuzf+WFsR3tdXhCUyNGmzz3uxBmXJtivQvT2h7k5A/3x8ghn35TdlEMcXP5uWx3R7BhzdT6l/yunFp0Mj0yJ8x66P6+c99xKA6m04PAnEASYzxSeqcU/iUdUF9xMTBJVdDNrAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="en sala"
+        title="en sala"
+        src="/static/93329b59ac82739c08b22143dafd2177/fcda8/img5.png"
+        srcset="/static/93329b59ac82739c08b22143dafd2177/12f09/img5.png 148w,
+/static/93329b59ac82739c08b22143dafd2177/e4a3f/img5.png 295w,
+/static/93329b59ac82739c08b22143dafd2177/fcda8/img5.png 590w,
+/static/93329b59ac82739c08b22143dafd2177/efc66/img5.png 885w,
+/static/93329b59ac82739c08b22143dafd2177/2bef9/img5.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+En ciertas partidas se acostumbra solicitar la línea por chat, donde el primero que la pida “se la queda”, por lo que también agregué una funcionalidad que permita <strong>enviar instantáneamente la línea deseada</strong> al ingresar a la selección de campeón, esto en mi experiencia consigue que <strong>en 9 de cada 10 partidas consigas la linea que quieras.</strong></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6ee95f696c0e81b424484d7e400783fa/2bef9/img4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABzElEQVQoz12S626jMBCFCfh+w2AbEwhJkzZNGnV3//T9n22PYZtKK32yhsFnbp6KCkOlIVwRJgiToHlCJYW//FJPf7kvDJMWZxVj3o+z9YNsc8XsjrtGeaI60MiuFu0G1T083EXpAhWKCt1QUYWQhjS1wzJff+WX+/z2qeJSm6FxWacTPvP5EY836veA9wfhIuGSSVPEvou+jW6Yw/wal2s6vnfTxU+vNp+76Xz/83X7/bW8PUxaZDioeOQ20E3MRNV2yUjr4zic3vPLx/7yyOcPEA5XFQ7T+TZf7sDlo+hmFCVspEwysWZujbfS6jbqYdHpaPIJmtqi7JG6sdJDpeLOJNZNop95ODCIkVloDLIa99OQErVhZ3NtEmTEZjQMaDuWVtv9ZjA/IgQ1PXrGwJiAOKfYT8INJdsKgfJbT9z4NECJZTqICdeYeSWl4swSHZpv8XZ71X/bP4xEr5k38boAolEdMqPsnxD/4f7FwmvTUrYq4lqYgg61KT1XaBuPjLRrLNglqN2ayrXNyIz1YsqtYukKyteqJbpTLnEXcAO1UBMAMX05nx7dYs50mzaeq6Z8PRnq8c4LVX4Qyrn23PaY6sa6Gxpg4QtC/gV4pSnHAH3aRwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="en sala"
+        title="en sala"
+        src="/static/6ee95f696c0e81b424484d7e400783fa/fcda8/img4.png"
+        srcset="/static/6ee95f696c0e81b424484d7e400783fa/12f09/img4.png 148w,
+/static/6ee95f696c0e81b424484d7e400783fa/e4a3f/img4.png 295w,
+/static/6ee95f696c0e81b424484d7e400783fa/fcda8/img4.png 590w,
+/static/6ee95f696c0e81b424484d7e400783fa/efc66/img4.png 885w,
+/static/6ee95f696c0e81b424484d7e400783fa/2bef9/img4.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Por otro lado, otra feature útil es la de <strong>aceptar automáticamente la partida</strong>. Dependiendo de ciertas condiciones, se puede demorar varios minutos en encontrar una partida, por lo que si te distraes y no alcanzas a darle al botón de aceptar se pueden perder varios minutos. </p>
+<h3>En selección de campeón</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/22e2b51b08c78cb6a37a9db330abb313/2bef9/img8.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXElEQVQoz32RSW8TQRCFGzuOPfvSs/X07D2exfaY8cQ2iePEWXBCpIAQQiFX+APcOALKlQMnLnDhyoXfSE1YjkifWtWlevVar5FgJgM9GOi+YEQKSRWHqSRV3aFMmOQkGs10msG1haQcDkWHCXYkkwSGkWJ5kkkR4rqcHuZVVD4cThrKymZ5zPK6qh9BMx3N8ukcELCrWx42Y8Vkoh2gb58//vzy6cf3rzcvbrAdTiczy0s5jVK/wiazyXBHdjQSk7ggUSEZdBhlOWsm1ZZEE3T37u2bpy/ff7g7Oby0wvpqu2LLGVss5TDmHCr5ieSxnmT3FKevujz2+7rXx26YzU1SoO3ZxWy54R6f4ld7cjVvrlbN6/Pi+drdTI290qxzlcW7ssPplMeeYPgiYIYeK3WaIFkmpjfZu7htLp+kk83kfDG+PkxP94260EapXmZKzHZlG2wHmscbrR5wIEjC0HBYY5JV4/1mejyq1nk1pVGpWDGn0r5CBDMSLHC2B5oL5gL2Wwx/oFPooNvrzWK+Oto/LpMxEgz4M9mKuqK1qzg9MNRoH3s9ybo3J+APwBYQwxVVZWxRFiQj4rfBYj8zvBQCH8g2iUvViQcq6SluR7IFw3Oi0vKz9gmay4OzHRQQgGzHPOyzcyk7soPpOsjdNlgqWSGnESGYyflGjJd8tFCDuvHzo6Ag2Efb9WxT5ycHs1EZor7eFY2uaHYE4wHAYwDqrmC0p2j+owNjkonwwTNpvCJJoTsRCKDbaU/Qt/wZbeu2+Vdp/q6R7BecO1SsQMSkw987C/j/7NwDxS9GVlhjlC1bhgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="en seleccion"
+        title="en seleccion"
+        src="/static/22e2b51b08c78cb6a37a9db330abb313/fcda8/img8.png"
+        srcset="/static/22e2b51b08c78cb6a37a9db330abb313/12f09/img8.png 148w,
+/static/22e2b51b08c78cb6a37a9db330abb313/e4a3f/img8.png 295w,
+/static/22e2b51b08c78cb6a37a9db330abb313/fcda8/img8.png 590w,
+/static/22e2b51b08c78cb6a37a9db330abb313/efc66/img8.png 885w,
+/static/22e2b51b08c78cb6a37a9db330abb313/2bef9/img8.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+En este estado, se debe mostrar el estado actual de la selección de campeón, asi como consejos sobre que personajes banear o elegir para poner la balanza a tu favor.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/727ae3b906892c5521a8273e03923f83/2bef9/img12.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz02RaW7bMBCFFckUF4mkdi5aLcmWLcuO3TZJg7QFiiL/e4geqnfp5Tp2gqLAw2DwgDfvI+gktpeqZbHlaYVFQaTCUv8TiQy9StPYkJsjiobnTaQ7WbTOeZmeLsuny2WcFxwIn4SeH7g+cxHGLPQpX1EOpk9vOwldnzoeWiHmIeIc5+2xX/ebedk/R7pHXK+YQkInaqJJ5UcGdl8qltVB1tC4CmROMeUBXGTOuuuKKHqen//8+n0+viTLpM9TWHePl5/1cE+z2hXFbv992D1Uh2P2+MJTLQmLAw5gDqEhD3mRNz8+vubtXn171q8brI0dDuvDB2l6lxeJ2aV2jG0r+0MYa0GCVEhCAgfB8zw/KVo7nIUdedoRUbGkBmbgDLIaSc2Lzo6ncroXdmAihXAc3prjOPMxq+ppOX4V1SayQ2T6vJkiM5TjMS03KNbz/NqNF7XZJk8vPDMc0+iKTZ1KpQBgyu3u+CUoN7EZpF4DLVedWc9xOazgw5I6zBuhWpK30CwpA+xrcxgwx0XK9Kf5c2THxI7QCeVCrU1/SMpxJRROrDRwcWBZ47MYY0IwXcFXIcI9FKSmWpaT1j10QvMt3Kl2BwuESWzDomNJSdPKo9Gd59+tMMjxGYSBa9g+fMurCbDh2VAL4aLdx/aKTfM1b05h0QdFfwuj9zAi4Z1P0qJruzPJmzCrQdeSxGbVyPPaDVIklS8LHGkcGZeI/8OMMA7TuVrvPLflTdhFxL1O7N58D+E3gfMX+B8+fJaknEAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="en seleccion"
+        title="en seleccion"
+        src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
+        srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
+/static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
+/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png 590w,
+/static/727ae3b906892c5521a8273e03923f83/efc66/img12.png 885w,
+/static/727ae3b906892c5521a8273e03923f83/2bef9/img12.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Por otro lado, se debería poder <strong>obtener información automáticamente</strong> de los jugadores aliados para <strong>saber que líneas o personajes juegan</strong>, y así facilitar la cooperación y contar con cierta ventaja que al entrar a ciegas no se tiene. Se puede ver también un <strong>historial de partidas de cada jugador</strong> aliado, lo que da un mayor panorama.</p>
+<p>Esta información de jugadores, se trae desde el propio launcher, por lo que <strong>no es necesario utilizar requests mediante la api de Riot</strong> que se utiliza principalmente en backend.</p>
+<p>Una feature fundamental en estos casos, es la de <strong>cargar el equipamiento recomendado</strong> para el campeón actual, la app permite cargarlo automáticamente al seleccionar un campeón, o de forma manual.</p>
+<p>Las runas se cargan utilizando un socket hacia el launcher, mientras que las builds se cargan agregando un archivo JSON a los archivos del juego, de forma que al estar en partida y entrar en la tienda te muestre una lista de objetos recomendados por la app.</p>
+<h3>En partida</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/727ae3b906892c5521a8273e03923f83/2bef9/img12.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.83783783783784%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz02RaW7bMBCFFckUF4mkdi5aLcmWLcuO3TZJg7QFiiL/e4geqnfp5Tp2gqLAw2DwgDfvI+gktpeqZbHlaYVFQaTCUv8TiQy9StPYkJsjiobnTaQ7WbTOeZmeLsuny2WcFxwIn4SeH7g+cxHGLPQpX1EOpk9vOwldnzoeWiHmIeIc5+2xX/ebedk/R7pHXK+YQkInaqJJ5UcGdl8qltVB1tC4CmROMeUBXGTOuuuKKHqen//8+n0+viTLpM9TWHePl5/1cE+z2hXFbv992D1Uh2P2+MJTLQmLAw5gDqEhD3mRNz8+vubtXn171q8brI0dDuvDB2l6lxeJ2aV2jG0r+0MYa0GCVEhCAgfB8zw/KVo7nIUdedoRUbGkBmbgDLIaSc2Lzo6ncroXdmAihXAc3prjOPMxq+ppOX4V1SayQ2T6vJkiM5TjMS03KNbz/NqNF7XZJk8vPDMc0+iKTZ1KpQBgyu3u+CUoN7EZpF4DLVedWc9xOazgw5I6zBuhWpK30CwpA+xrcxgwx0XK9Kf5c2THxI7QCeVCrU1/SMpxJRROrDRwcWBZ47MYY0IwXcFXIcI9FKSmWpaT1j10QvMt3Kl2BwuESWzDomNJSdPKo9Gd59+tMMjxGYSBa9g+fMurCbDh2VAL4aLdx/aKTfM1b05h0QdFfwuj9zAi4Z1P0qJruzPJmzCrQdeSxGbVyPPaDVIklS8LHGkcGZeI/8OMMA7TuVrvPLflTdhFxL1O7N58D+E3gfMX+B8+fJaknEAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="en partida"
+        title="en partida"
+        src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
+        srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
+/static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
+/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png 590w,
+/static/727ae3b906892c5521a8273e03923f83/efc66/img12.png 885w,
+/static/727ae3b906892c5521a8273e03923f83/2bef9/img12.png 1024w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+En esta pantalla se van mostrando <strong>datos de la partida en curso</strong>, estan accesibles todas las estadísticas del estado anterior pero esta vez también para los <strong>jugadores rivales</strong>. </p>
+<p>Por otro lado se muestran tambien la <strong>distribución del oro</strong> entre los equipos, los objetos actuales, el minuto de partida, jugadores actualmente vivos o muertos y cuanto tiempo queda para el spawn de los distintos objetivos dentro del juego.</p>
+<h1>Comentarios finales</h1>
+<p>Con esto lo que sería la descripción básica de las funcionalidades del frontend quedan cubiertas, sin haber entrado en mucho detalle. </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 266px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a818e9181d2e49652ff1951c933cfe40/b4ffe/distribution.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.1891891891892%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABcElEQVQ4y61STU/CQBDl//8DTxJF755NPInRhCA18eMAUoLQ7227dNvS3e1zWqFAYkJJmOTNzuxOXt7MTgdkSmsUUkJK1aDYxqodKo7KOmVZ4lxWcXWqQKQCjDEELATncR27no8sy5rCNqgVVm6xXMIwDPRfBhiORug/PeHxeQA/CDeEJyjcLy5LWXk61fYGWss6/xdK76D3FBapAeFfYh3dYh3eNGce9v5yQsaukQUVesijLvjsDtOrPqbdB0wu7sGG4x2hlgF0YUEkIeLYQRRaWHEXycoHj906VgUnFYJqE2hFkClkkm+QQa/lHqH2yAdw3RjjiQnTnOPj/ZNmGMNzA1h2gKI84ZczmyO3OGzXJsJvIvFIGYdjO6i2q+QM2vyCzwK8jt5gzuZg9GGLnyWKQjZkuxlyAclTxCsO36c2OUeaUk6kiup0Rq0yGoEQsB2XlDMIQe9RDKXUIeHxxS5btbq1zvHFRauFPmj5nPYLsNvy4/1M59MAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="distribucion de lenguajes"
+        title="distribucion de lenguajes"
+        src="/static/a818e9181d2e49652ff1951c933cfe40/b4ffe/distribution.png"
+        srcset="/static/a818e9181d2e49652ff1951c933cfe40/12f09/distribution.png 148w,
+/static/a818e9181d2e49652ff1951c933cfe40/b4ffe/distribution.png 266w"
+        sizes="(max-width: 266px) 100vw, 266px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+El desarrollo de esta parte fue bastante mas largo que el de backend, incluso cuando la arquitectura es más simple.
+El css es casi en su totalidad hecho a mano lo cual supuso una buena parte del tiempo dedicado a eso. </p>
+<p>En cuanto a la interacción con el launcher, <a href="https://lcu.vivide.re/">dejo aquí</a> una web donde pude obtener algo de información acerca de los endpoints que hay disponibles para interactuar con el mismo, de todos ellos realmente muy pocos funcionan, por lo que la web debe estar desactualizada. A base de prueba y error encontré aquellos que necesitaba y siguen funcionando.</p>
+<p>Básicamente <strong>toda acción dentro del launcher puede dispararse desde un endpoint</strong> de estos, asi que las posibilidades son muy amplias.
+Con esto finalizo por el momento la explicación acerca de la app asistente de League of Legends.</p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/arquitecture-lol-app/">← <!-- -->Asistente de League of Legends Parte 1 - Arquitectura</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/agro-algorithms/">Algoritmos para agro<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/frontend-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-ed7b7b3c234cf1bf4dd6.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2b353fc7628807af21e1.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-ceece961ad1561586e05.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-1344485071dfa9567159.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-ceece961ad1561586e05.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-32ac7f495fa2f77141d0.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-ed7b7b3c234cf1bf4dd6.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-f1e4d05a061cddef1ccb.js" async=""></script></body></html>
