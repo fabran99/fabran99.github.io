@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Generación de polígono de campo con Machine Learning | Fabran99</title><meta data-react-helmet="true" name="description" content="Generación automática de poligonos de chacras en base al recorrído de las máquinas usando Machine Learning"/><meta data-react-helmet="true" property="og:title" content="Generación de polígono de campo con Machine Learning"/><meta data-react-helmet="true" property="og:description" content="Generación automática de poligonos de chacras en base al recorrído de las máquinas usando Machine Learning"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Generación de polígono de campo con Machine Learning"/><meta data-react-helmet="true" name="twitter:description" content="Generación automática de poligonos de chacras en base al recorrído de las máquinas usando Machine Learning"/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+@media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
+data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
+.cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:850px){.cvEVjw{grid-template-columns:1fr;text-align:center;width:100%;}}/*!sc*/
+data-styled.g2[id="style__NavbarElement-sc-1kk5mj1-1"]{content:"cvEVjw,"}/*!sc*/
+.cXPKA-D{padding-left:0;display:grid;grid-template-columns:repeat(3,1fr);list-style:none;}/*!sc*/
+.cXPKA-D > li a{font-size:1.2rem;color:#232323;padding:0.5rem 0.2rem;margin:0 1rem;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle;}/*!sc*/
+.cXPKA-D > li a > svg{width:18px;margin-right:5px;}/*!sc*/
+.cXPKA-D > li a span,.cXPKA-D > li a svg{display:block;vertical-align:middle;}/*!sc*/
+@media (max-width:850px){.cXPKA-D > li a{font-size:1rem;}}/*!sc*/
+data-styled.g3[id="style__NavbarList-sc-1kk5mj1-2"]{content:"cXPKA-D,"}/*!sc*/
+.qSPLr{padding-top:1rem;padding-bottom:8rem;z-index:0;position:relative;text-align:left;}/*!sc*/
+@media (min-width:850px){.qSPLr{background:linear-gradient(to top,#efe9e9,transparent 50%);}}/*!sc*/
+@media (max-width:850px){.qSPLr{padding-bottom:2rem;padding-left:0.5rem;padding-right:0.5rem;text-align:center;}}/*!sc*/
+.qSPLr .quote{font-size:4rem;font-family:"GT-Walsheim-Pro-Bold";line-height:1.2;color:#0ec289;}/*!sc*/
+@media (max-width:850px){.qSPLr .quote{font-size:2rem;}}/*!sc*/
+data-styled.g4[id="style__FooterStyle-l15n7d-0"]{content:"qSPLr,"}/*!sc*/
+.rqPHC{text-align:center;font-size:1.1em;}/*!sc*/
+.rqPHC div{margin-bottom:0.5em;}/*!sc*/
+.rqPHC svg{-webkit-transform:translateY(5px);-ms-transform:translateY(5px);transform:translateY(5px);}/*!sc*/
+data-styled.g5[id="style__FooterLinks-l15n7d-1"]{content:"rqPHC,"}/*!sc*/
+.gPWzTY{text-align:center;}/*!sc*/
+data-styled.g8[id="style__FooterBody-l15n7d-4"]{content:"gPWzTY,"}/*!sc*/
+.cgHyiV{cursor:pointer;margin:5% 0%;font-family:"GT-Walsheim-Pro-Medium";font-size:inherit;text-align:center;-webkit-letter-spacing:3px;-moz-letter-spacing:3px;-ms-letter-spacing:3px;letter-spacing:3px;text-transform:uppercase;-webkit-text-decoration:none;text-decoration:none;border:4px solid #0ec289;color:#0ec289;background:#fff;outline:none;position:relative;display:inline-block;padding:15px 10px 14px;cursor:pointer;width:auto;min-width:200px;}/*!sc*/
+.cgHyiV::after{min-width:200px;position:absolute;width:100%;height:100%;border:4px solid #0ec289;background-color:#0ec289;left:4px;top:9px;z-index:-1;content:"";-webkit-transition:all 0.5s;transition:all 0.5s;}/*!sc*/
+.cgHyiV:hover:after{top:0px;left:-4px;}/*!sc*/
+data-styled.g11[id="buttons__ButtonDefault-sc-5x08bx-0"]{content:"cgHyiV,"}/*!sc*/
+.eBKkTK{width:96%;margin-left:auto;margin-right:auto;}/*!sc*/
+.eBKkTK.wrapper{max-width:65rem;margin:auto;}/*!sc*/
+@media only screen and (min-width:60em){.eBKkTK{max-width:75rem;}}/*!sc*/
+data-styled.g14[id="containerLayout__ContainerLayout-sc-25l7nr-0"]{content:"eBKkTK,"}/*!sc*/
+@media(min-width:850px){.szAWD{background:linear-gradient(to bottom,rgb(239 233 233 / 46%),transparent 22%);}}/*!sc*/
+data-styled.g15[id="mainContent__MainContent-gv3d4z-0"]{content:"szAWD,"}/*!sc*/
+.dgAeoZ{padding:3rem 0 4rem 0;text-align:left;}/*!sc*/
+data-styled.g33[id="posts__Intro-sc-4d4syh-0"]{content:"dgAeoZ,"}/*!sc*/
+.bxzDDq{font-size:2rem;text-transform:capitalize;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+data-styled.g34[id="posts__Title-sc-4d4syh-1"]{content:"bxzDDq,"}/*!sc*/
+.bcAOPN{margin-bottom:5rem;padding-bottom:1rem;max-width:60rem;margin:auto;text-align:left;}/*!sc*/
+.bcAOPN img[src$="imgresponsive"]{max-width:80%;}/*!sc*/
+data-styled.g35[id="posts__ArticlePost-sc-4d4syh-2"]{content:"bcAOPN,"}/*!sc*/
+.kzUKQC{font-size:0.89rem;padding-right:10px;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.kzUKQC > span{padding-left:5px;}/*!sc*/
+data-styled.g36[id="posts__SmallText-sc-4d4syh-3"]{content:"kzUKQC,"}/*!sc*/
+.lhbrzX{margin-top:5rem;}/*!sc*/
+.lhbrzX p{font-size:1.1rem;margin:0.5em;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.lhbrzX h1{font-size:3em;}/*!sc*/
+.lhbrzX strong{-webkit-text-decoration:underline;text-decoration:underline;color:#0ec289;}/*!sc*/
+.lhbrzX ul,.lhbrzX ol{text-align:left;font-size:1.1em;}/*!sc*/
+.lhbrzX a{font-size:1.1em;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.lhbrzX .gatsby-highlight{max-height:350px;overflow-y:auto;}/*!sc*/
+.lhbrzX img{margin:0 auto;display:block;}/*!sc*/
+data-styled.g37[id="posts__ArticleBody-sc-4d4syh-4"]{content:"lhbrzX,"}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+html{box-sizing:border-box;-ms-overflow-style:scrollbar;line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+html body{font-size:14px;font-family:'GT-Walsheim-Pro-Regular';margin:0;}/*!sc*/
+html main{display:block;}/*!sc*/
+html h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+html hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+html a{background-color:transparent;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+html b,html strong{font-weight:bolder;font-family:'GT-Walsheim-Pro-Bold';}/*!sc*/
+html small{font-size:80%;}/*!sc*/
+html sub,html sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+html sub{bottom:-0.25em;}/*!sc*/
+html sup{top:-0.5em;}/*!sc*/
+html img{border-style:none;}/*!sc*/
+html .center{text-align:center;}/*!sc*/
+html button,html input,html optgroup,html select,html textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+html button,html input{overflow:visible;}/*!sc*/
+html button,html select{text-transform:none;}/*!sc*/
+html button,html [type="button"],html [type="reset"],html [type="submit"]{-webkit-appearance:button;}/*!sc*/
+html button::-moz-focus-inner,html [type="button"]::-moz-focus-inner,html [type="reset"]::-moz-focus-inner,html [type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+html button:-moz-focusring,html [type="button"]:-moz-focusring,html [type="reset"]:-moz-focusring,html [type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+html [hidden]{display:none;}/*!sc*/
+html .text-dark{color:#000;}/*!sc*/
+html .text-primary{color:#0ec289;}/*!sc*/
+html .align-middle{vertical-align:middle;}/*!sc*/
+html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
+.lined-link{display:inline-block;position:relative;padding-top:.5em;padding-bottom:.25em;-webkit-transition:all .2s ease-out;transition:all .2s ease-out;will-change:transform,color;}/*!sc*/
+.lined-link:after{z-index:1;position:absolute;bottom:-1px;left:0;content:"";display:block;width:100%;height:5px;background-color:#0ec289;-webkit-transform:scale(0,1);-ms-transform:scale(0,1);transform:scale(0,1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;will-change:transform;-webkit-transition:-webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.error__emoji{width:30vw;}/*!sc*/
+data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-2334755ca3e485bfe096.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js"/><link as="script" rel="preload" href="/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"/><link as="fetch" rel="preload" href="/page-data\portfolio-work-3\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Generación de polígono de campo con Machine Learning</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->July 09, 2022<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b148d5a36b14a99cee7e517b24e6275d/66465/img1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 34.45945945945946%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAACFUlEQVQozxWQzW/SYACHuWnMDktMtizASPyImn3EhQ1HBqN0dPQDSqHQUqBdSykrsOmc8WvxsKPx4M2bB++e/Cuc2JP+Act79F/Y3nc/t/PzJE/yxMZD98ck9P7Jh8Z5viWSR6ubZFcWiOPXyShwyWC0R3JHXbIqiWRpLUtqukgGoUVehANiHXRJMayT5UyOPMtxpONUz2OHrhXt93vI911sjk9QqmvIN6soe00cDfdgWjr6egkTiQfXULHVVmEEFo59G+WuiezkGCXTQlGTUbAbiBVV5UyoiHhonlwmjr6znbbDOFlgXFVhO/UqE3iendydY6epFCvpGsvLZcZrKhMquyyt7rE59wvbMEdMUMWrvCJdxjqh/8sNfaQNny7Yn8CHb1BtKciUeNjhAE3Phra8jCCehNNtIleRwNcq6E8ClDs9xM0PWOq9vWq5BjaFHRbzJsOfNzBbUS7mOh9p+vVX2gk6NCdL9DpEjYFDi5kMPZ2Zpe8VgYpelwq1Kt1/PqKyWacp4x1d7H+mxjigu7p6EbND94/3coRKz8RKvY9U2cHW9QLHdxC+GsMMPYiWAfnJCorpdXC6htHBEP7xCI2b990BEnwba6IE1dQRazjmt6f5wl/VtafrPBfNxpPRrflEtFHYjq6FaI3jo0bgRYlMNrqdvBfNLCxGSrP2e1uSpgWtNpWs1nT+/oPpnYXkNP546ew/nR8D7b2haiAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="proceso1"
+        title="proceso1"
+        src="/static/b148d5a36b14a99cee7e517b24e6275d/fcda8/img1.png"
+        srcset="/static/b148d5a36b14a99cee7e517b24e6275d/12f09/img1.png 148w,
+/static/b148d5a36b14a99cee7e517b24e6275d/e4a3f/img1.png 295w,
+/static/b148d5a36b14a99cee7e517b24e6275d/fcda8/img1.png 590w,
+/static/b148d5a36b14a99cee7e517b24e6275d/efc66/img1.png 885w,
+/static/b148d5a36b14a99cee7e517b24e6275d/66465/img1.png 1097w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>El objetivo de este proyecto es <strong>generar polígonos</strong> con la forma de las chacras en base a los <strong>datos de gps</strong> de las cosechadoras o sembradores que trabajen en ellos. </p>
+<p>Si bien los datos de gps indican una serie de puntos por los que la máquina pasó, <strong>no hay una forma programática</strong> de determinar la forma correcta de las chacras, ya que son muy irregulares y puden haber pérdidas de datos, por lo que se entrenó un modelo de Machine Learning con la librería FastAI que, en base a estos puntos, <strong>determine la forma de la chacra</strong> y la retorne como polígono.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1c4cc5d90856d0acbce5cf2daa7b1c83/6029f/img2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 76.35135135135135%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD6UlEQVQ4y62T60+bZRjGm5j4xSxqVDbRbc7h1DHmEnBAgEk3QLZxPkPLCqVAaen70q1lLaeuQCmDcoZxMug2EnfCE4saEzR+MSZ+85uJmcs4bcCgnFvo+Pmi/gneyZM8z+957ufDdV23TGc3EqpKISktluhEOXqbkYL6OgL1SvqEUkSlinCNltIOB8FmNTkl2cToFaQ0mGnpa+XYWwfITzmPtcpAUXUJskRLGZFZZyk/HUZiXhxZdoF6m5MctZLbBi31Gj0Ki5W8vmYyClL5w+9l6uKjiGmspGekC7EkncvKBCryzqO5VICsa6gLwaTHYigm3y5iG2rh6y/GaGlvYKL+CnXOJgxXW7nyaT/FDguNVRVctJspH2jj3vhtugdddPY76a8x0thQiYyVFXxeD96tbbY3PfxT62t41lbZ3mXerX/ZxibPNjZYkbYen+8/tsH26ioer5ctae34niG7/cNdro320dDrorLLyej4HZqH2rE5TLTedHHeqqCix4Kj20GZcIEWWwUtjSJCnZZff/mZiftfMjg6grHbhXa4HVnrZy4EQYEjIZbY7AT0ziqKbaUo809jj/uAvJjjmCsN5GuzOBl2iPiwAKKC93H040C+Gfucgc5myo3lfFiYw3u7Gl4ZcGApSOO6/BQNyXGU2MyIPZcQo9/l9xeewxn+jqSdgcLSHCJCDpIV8jbRQf6ExAdzb+wWPTUWRqKjKMw8x4lLamQtfVdpEjUM5aZjLr3AZZeD4Zs9OLQZ/KRMprksFVWXgL7WQHHiKcTMWOIVceSWZTDx4/cM9HZQazWSJRmW2WRB5pubw7u2xur6OguSQZvbkuArbnyb66yxIxkjnXfA53bjWVzELRmxLL1b83hB6vO4l1jY3GBpVWLSnay1z4nJJmK1m7DUiFyXstU23IWqopAyq5RBk4b6zkZ6bvRysUrAWncRk1Wgw9XETcnAG3dvcP/bcUbu3OK7++PI4tPPcOj4m+wNOsBrR/aiyE8gSZ3G8wF7OHjiDV4/vIfIuEjOGVJ5KdQP7WE/yo/tp04oQLhqJaVCTVtrM/YiNZ/09yJLldIvlz4b2/8K0QH7yC/JIkeXx6uBftiO7CPU/0XC5B+RbFQQHuxPb1AAGvkJajTZiN12VDolv6kuMJiZhqLWjKzMpOZsUhR5iZHIY4Ip1KnQVRuIiDpKkTyE908Gkp2biVAroosNZeBMBAZFErZKvZTfAZrLC/hK1FFZbaZod1KePnzAzNQkD+Ye89f0JE+XFlmemWJS4n/OzjD16BELkiGrM9M8kdj87Czz01MsSmxzfo7Hs1M8XF5ieu4J7mW3NHr/c/0NBAciYu699DEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="proceso2"
+        title="proceso2"
+        src="/static/1c4cc5d90856d0acbce5cf2daa7b1c83/fcda8/img2.png"
+        srcset="/static/1c4cc5d90856d0acbce5cf2daa7b1c83/12f09/img2.png 148w,
+/static/1c4cc5d90856d0acbce5cf2daa7b1c83/e4a3f/img2.png 295w,
+/static/1c4cc5d90856d0acbce5cf2daa7b1c83/fcda8/img2.png 590w,
+/static/1c4cc5d90856d0acbce5cf2daa7b1c83/efc66/img2.png 885w,
+/static/1c4cc5d90856d0acbce5cf2daa7b1c83/6029f/img2.png 906w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Lo primero que se hace es generar, en base a chacras con la forma ya conocida, una serie de imagenes con los puntos de gps que esten dentro.
+El formato que admite <strong>FastAI</strong> para los problemas de segmentación como este es: una imagen PNG desde la que se va a predecir, y una máscara binaria (tambien en png) que indica que puntos pertenecen a la chacra y cuales no.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b3a29963f59289f47ff0e4d9da4a6d3f/0b533/img3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVQ4y62Ur46DQBDGS7krAgMhlSTV1ahKBKY1NMFg+xAoLFhMa9E8AOBaQ1JUQzCoioomvAGU8OcmnYRc7gLby/UTE9jl9+1kZofJ5F2aTqefT308RdM0rPzLkaIo8jbP84qi6LquqqokSYvFQhAEyAK2+kQGLfA7z/O6rmuapiiK2+2Wpqnrurg1lgIa27YNcF3XENu2hVhVleM4pmluNptBC4QNw0AYSIjVU+gVhiEB3u12/ckocCnLEh6CICDA6/X6B9y/nk4nArzdbofg4/FIgC3LGoKjKCJU2/f9ITiO47F7wrJslmXY5z/AeIeXyyX2FvsERX48HtgtWEySZOxkURT3+z1U9X6/I4DCRC6Xy0vDwHHcarWCnh8Oh/P5nOc5wNfrlTAhULbfzZjP57Isa5pGmLDvLjBJUIuXgPGfxGw2Yxhm8kZ9Af5hOTAFdD9sAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="mascara binaria"
+        title="mascara binaria"
+        src="/static/b3a29963f59289f47ff0e4d9da4a6d3f/0b533/img3.png"
+        srcset="/static/b3a29963f59289f47ff0e4d9da4a6d3f/12f09/img3.png 148w,
+/static/b3a29963f59289f47ff0e4d9da4a6d3f/e4a3f/img3.png 295w,
+/static/b3a29963f59289f47ff0e4d9da4a6d3f/0b533/img3.png 500w"
+        sizes="(max-width: 500px) 100vw, 500px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Se entrena un modelo de segmentación que retorna una matriz de probabilidades de que un punto pertenezca a la chacra en base a una imagen con los puntos.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3af6cc286e16e963f654967c7dd5a25a/393aa/img4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50.67567567567568%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbUlEQVQozwFiAp39ADZMPztcTDJTRztlVEtnTNDBJebRIOfUHu/bIMGtHFJbUFdgWmNSTFhSU1ltXNPAI+zYH7+rLMWvKdbFKABIXU1OdV9fZ1VaXE9Qb1Lu3Sz/9SHdyC/t1jDXyR5MW1B5dm93TEd8SEx5jHXu3Sn/+yBrQlCQa0f46SgASFpNU2dWiT8zbWBWb35h8eEo4sktgWdL+uUq0sEbZ19UfnhydTs6gXJvgYt08uEn5tAqVShV5s8r7NoqAD1TR09WTlxNQVdtXm5xV+/gJ+3VK822NP/6JNTAHGBdU4FcWXZRTm5/eYuHb/zwJqB6Qpx/Rv//HufULQAnSDo5V0tFWk9OYVVlaU7dzSf24CDz3yD34STJtxtUVUtmSUpSXFN+em6eh2zh0SiXfjzZxSn03iDayCoAKDQpMUU3PU9ATmBPXGpL0sMj7tof6tce8d0hwK8bPEs5KlRDOk1GbmVjoo962MUl6dYd7dse6dUd0b8pAEJDNTE7NE5CNEpJQztJOejXJ/beKMmxNvXjLNnJHU9PP0ZjTVlQQnthZLCbhvTgKv/1IqqRQuzVLO/fKwAzRz6JUkmdNix2ODhNVkvs2iKRdEdEJ2GzmD/ZyhlKRTtrXFSFSTtdTk5zaVz44ybOuTA8El3hyyvq2CkAPEdBT05KfGpfbVlUgHpi9OQs8Nsr5M4w49I21cUdWlhKeXFngWVYcXx1b3Zh9+on3sgwup48//sh69ktACYtKk9TTD5HQig7OTxFMsq4JtnHHNbEHeDMHrCgF0RANGNhWUpiUURZTlteS8y8Jd3KG9vJHtjFHca2JwrBF44nUhPvAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="resultado"
+        title="resultado"
+        src="/static/3af6cc286e16e963f654967c7dd5a25a/fcda8/img4.png"
+        srcset="/static/3af6cc286e16e963f654967c7dd5a25a/12f09/img4.png 148w,
+/static/3af6cc286e16e963f654967c7dd5a25a/e4a3f/img4.png 295w,
+/static/3af6cc286e16e963f654967c7dd5a25a/fcda8/img4.png 590w,
+/static/3af6cc286e16e963f654967c7dd5a25a/efc66/img4.png 885w,
+/static/3af6cc286e16e963f654967c7dd5a25a/c83ae/img4.png 1180w,
+/static/3af6cc286e16e963f654967c7dd5a25a/393aa/img4.png 1190w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Sabiendo las coordenadas de las esquinas de las imágenes generadas para la predicción, se puede convertir la matriz obtenida de vuelta en un polígono, descartando los puntos con baja probabilidad de pertenecer a la chacra.
+Para esto se usa también la librería <a href="https://pypi.org/project/imantics/">Imantics</a>, que tiene algunas utilidades para esta conversión.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 579px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6b023b05366a8a93f65c3e3084ce313d/c08bc/img5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 106.08108108108108%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAFWElEQVQ4yx2TaU+b6RmF/R9mUaJAwGDwAgaDwYB3A7EBG+/G8b683g22wQvGQNghDmggTGkb2pnRNB8qVWmlqpXm513zTj48epZz7kdH9zm35OGiw3Vvh1gyRLMh0O1mSFQCJHIhfhSx5o5AKh3iYL9EfT9NSPDQbRZ4uuoiCBG2t9McHRaoNGP4Mm4kOykPnWKIasSOwzHLlNvAlFmGyTrJXtZLJx8kElzFujqJ4Y0c9dIIIa+JTiFII+3GvzGPRlxauwr1ghRJIxuiIn6WysTQVH5grHiJYWUYj3OBnbQfIe5iz23hTDNKwKpg0TGBEHZQE99zCTcr2QZy4YTF9SlWV1VI0ltrLKbaDDe/MNz+L7LGr8x719mwT5N0WejpVNwrXvMkH+JEPYRjWUVwU8/GVhhVvs9Y9RPK8iOzoQjLKwok5jdqRvwJpPFDZJtbSNdcTC7PY1xRMW+Ssz0tJTo9gnNGilUzhNGiFDElKoeZ8UiDcacfmd3BuE2P8Q+FKusoY/PfoZ0fQq59iXT2WyYXX7NkGmdY/wqFeJ7QyRgQ94GFQWaNY2jNowyLNZq5ASZmXzE8+x2yuZcYTaLC5vE2260cnU4ZoZ4lUo2RbiSoN3PUu0UaItYWXU1UoiS3o+QaKfYPq+z2ynQPqtTbZeL1JEIzw047j+T24ZrrD+ec99/Rfzji5PqYo9Mjrvqn9O8uuPxwxukPZ1w+XtA77XFyeczdxxvuH/vc3F9x93TOh8dLTq7+4F8hkTrGGZ96ica6wMv1MGarlqzHhtO9yCv9AEqxdxu6EayqF3jWDaS9y8y71AzOvGB6Xs6Iy8ekfoaYy/gVk8iCUygcY2hKfQY6/2NNqHNTjZLPe/jWNYpFdPtqdowjjZRG1Ml1I4MtbmTA/prFcAxZ/e/osvscFLa4bKSRjDgUKEVFit3PSFtfkJUfyEe9xN6u8s2KjIJ5ktspGTdzckpGNfVMAL1njiG7munSe1Tle8YrD7jCW3SyHiRzPh0Gp4mxwgPD+/9Hm+5+DW0otMq0WBjUq/moknK/NEVuw0AtHcDi07Pk0jEZrjFR+yszYrCTERf1lBfJmt+ExTbBtHMT1c4nXK4ViuIkhLw2Vp06Zm0aSnMKDnST+H3LlN46cXkM2OwzzJk1TGbPsHl8CAEbua0NJELWz2ZwhXW/jUAsRDnuJR3ZwOe38DYqToxI9HrMInmdUtJHWORGY2uEohu4gst4ogHx3U8p5cPrsyDJtlpkdmukmrvEWk1OL6+5/9Bn990hyXabpIjHOh2E7gH3fTEq1xfsnJ1QPTygfNhDeHfE4c17np+euH24RaLcDKGM1BhxJxh0ONn0+env77EZT6IV7ybrG8ZX1xhbc5LJ5Dnab6PzBpEHc4xuJhlwuFjYcHFQLdOq7yDRhhNMtD8z2v4Pyt1f0NceKfRu8RVK2D1+iktm4kYbmTfrvE+mOG+3MMcTosOXjO78hFxMhb5yg9C+ptk7QKJwu9Hm2gw1/83rvS+86vyG9t0zpqqAKrBFwL5GVKsnabDxj3SKXLfORCLGXCSJrPLEQPFPKOq/Yjv6G67TNhK1P4AmIiDd+xeDYrCnOp9J3p2x2dtD6QviWHcTmTNQEVUeN6rEfrzGWMihFjF54Y7B8jOa3Wci52dkn8TRmwgEMaXizLcf+T7/CV15j4Q4s769GqpgCFc2SdhsxWswY2/UyF6dYMqm0YZDWGpdXqRvUadreMS+F9+fIbEJRTy1bUo3RziLJdy1Bh8//ZmT81PMognRXovyWQdbMoNwfsHPz0+kW23spcrXmli3hT1f5vjjA//86S/8DvRpUQao97p/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="poligono"
+        title="poligono"
+        src="/static/6b023b05366a8a93f65c3e3084ce313d/c08bc/img5.png"
+        srcset="/static/6b023b05366a8a93f65c3e3084ce313d/12f09/img5.png 148w,
+/static/6b023b05366a8a93f65c3e3084ce313d/e4a3f/img5.png 295w,
+/static/6b023b05366a8a93f65c3e3084ce313d/c08bc/img5.png 579w"
+        sizes="(max-width: 579px) 100vw, 579px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Finalmente, obtenemos un resultado como un poligono de shapely, en la imagen anterior tenemos:</p>
+<ol>
+<li><strong>A la izquierda:</strong> LineString del recorrido del vehículo</li>
+<li><strong>Al centro</strong>: Puntos individuales del LineString (esto se utiliza como input para el modelo)</li>
+<li><strong>A la derecha</strong>: Polígono resultante obtenido por el modelo. </li>
+</ol>
+<p>Una utilidad inesperada, es que <strong>el modelo generaliza</strong> de forma que incluso en chacras de las que se tienen pocos datos se obtiene un polígono que se ajusta suficientemente bien a la forma correcta. </p></div></article></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/portfolio-work-3/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c0c47ca5c93355474948.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-2334755ca3e485bfe096.js" async=""></script></body></html>

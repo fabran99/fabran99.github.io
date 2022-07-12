@@ -1,0 +1,625 @@
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Detección de personajes de LOL en tiempo real (Parte 1) | Fabran99</title><meta data-react-helmet="true" name="description" content="Parte 1 de la guía paso a paso de detección de personajes de LOL en minimapa"/><meta data-react-helmet="true" property="og:title" content="Detección de personajes de LOL en tiempo real (Parte 1)"/><meta data-react-helmet="true" property="og:description" content="Parte 1 de la guía paso a paso de detección de personajes de LOL en minimapa"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Detección de personajes de LOL en tiempo real (Parte 1)"/><meta data-react-helmet="true" name="twitter:description" content="Parte 1 de la guía paso a paso de detección de personajes de LOL en minimapa"/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+@media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
+data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
+.cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:850px){.cvEVjw{grid-template-columns:1fr;text-align:center;width:100%;}}/*!sc*/
+data-styled.g2[id="style__NavbarElement-sc-1kk5mj1-1"]{content:"cvEVjw,"}/*!sc*/
+.cXPKA-D{padding-left:0;display:grid;grid-template-columns:repeat(3,1fr);list-style:none;}/*!sc*/
+.cXPKA-D > li a{font-size:1.2rem;color:#232323;padding:0.5rem 0.2rem;margin:0 1rem;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle;}/*!sc*/
+.cXPKA-D > li a > svg{width:18px;margin-right:5px;}/*!sc*/
+.cXPKA-D > li a span,.cXPKA-D > li a svg{display:block;vertical-align:middle;}/*!sc*/
+@media (max-width:850px){.cXPKA-D > li a{font-size:1rem;}}/*!sc*/
+data-styled.g3[id="style__NavbarList-sc-1kk5mj1-2"]{content:"cXPKA-D,"}/*!sc*/
+.qSPLr{padding-top:1rem;padding-bottom:8rem;z-index:0;position:relative;text-align:left;}/*!sc*/
+@media (min-width:850px){.qSPLr{background:linear-gradient(to top,#efe9e9,transparent 50%);}}/*!sc*/
+@media (max-width:850px){.qSPLr{padding-bottom:2rem;padding-left:0.5rem;padding-right:0.5rem;text-align:center;}}/*!sc*/
+.qSPLr .quote{font-size:4rem;font-family:"GT-Walsheim-Pro-Bold";line-height:1.2;color:#0ec289;}/*!sc*/
+@media (max-width:850px){.qSPLr .quote{font-size:2rem;}}/*!sc*/
+data-styled.g4[id="style__FooterStyle-l15n7d-0"]{content:"qSPLr,"}/*!sc*/
+.rqPHC{text-align:center;font-size:1.1em;}/*!sc*/
+.rqPHC div{margin-bottom:0.5em;}/*!sc*/
+.rqPHC svg{-webkit-transform:translateY(5px);-ms-transform:translateY(5px);transform:translateY(5px);}/*!sc*/
+data-styled.g5[id="style__FooterLinks-l15n7d-1"]{content:"rqPHC,"}/*!sc*/
+.gPWzTY{text-align:center;}/*!sc*/
+data-styled.g8[id="style__FooterBody-l15n7d-4"]{content:"gPWzTY,"}/*!sc*/
+.cgHyiV{cursor:pointer;margin:5% 0%;font-family:"GT-Walsheim-Pro-Medium";font-size:inherit;text-align:center;-webkit-letter-spacing:3px;-moz-letter-spacing:3px;-ms-letter-spacing:3px;letter-spacing:3px;text-transform:uppercase;-webkit-text-decoration:none;text-decoration:none;border:4px solid #0ec289;color:#0ec289;background:#fff;outline:none;position:relative;display:inline-block;padding:15px 10px 14px;cursor:pointer;width:auto;min-width:200px;}/*!sc*/
+.cgHyiV::after{min-width:200px;position:absolute;width:100%;height:100%;border:4px solid #0ec289;background-color:#0ec289;left:4px;top:9px;z-index:-1;content:"";-webkit-transition:all 0.5s;transition:all 0.5s;}/*!sc*/
+.cgHyiV:hover:after{top:0px;left:-4px;}/*!sc*/
+data-styled.g11[id="buttons__ButtonDefault-sc-5x08bx-0"]{content:"cgHyiV,"}/*!sc*/
+.eBKkTK{width:96%;margin-left:auto;margin-right:auto;}/*!sc*/
+.eBKkTK.wrapper{max-width:65rem;margin:auto;}/*!sc*/
+@media only screen and (min-width:60em){.eBKkTK{max-width:75rem;}}/*!sc*/
+data-styled.g14[id="containerLayout__ContainerLayout-sc-25l7nr-0"]{content:"eBKkTK,"}/*!sc*/
+@media(min-width:850px){.szAWD{background:linear-gradient(to bottom,rgb(239 233 233 / 46%),transparent 22%);}}/*!sc*/
+data-styled.g15[id="mainContent__MainContent-gv3d4z-0"]{content:"szAWD,"}/*!sc*/
+.dgAeoZ{padding:3rem 0 4rem 0;text-align:left;}/*!sc*/
+data-styled.g33[id="posts__Intro-sc-4d4syh-0"]{content:"dgAeoZ,"}/*!sc*/
+.bxzDDq{font-size:2rem;text-transform:capitalize;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+data-styled.g34[id="posts__Title-sc-4d4syh-1"]{content:"bxzDDq,"}/*!sc*/
+.bcAOPN{margin-bottom:5rem;padding-bottom:1rem;max-width:60rem;margin:auto;text-align:left;}/*!sc*/
+.bcAOPN img[src$="imgresponsive"]{max-width:80%;}/*!sc*/
+data-styled.g35[id="posts__ArticlePost-sc-4d4syh-2"]{content:"bcAOPN,"}/*!sc*/
+.kzUKQC{font-size:0.89rem;padding-right:10px;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.kzUKQC > span{padding-left:5px;}/*!sc*/
+data-styled.g36[id="posts__SmallText-sc-4d4syh-3"]{content:"kzUKQC,"}/*!sc*/
+.lhbrzX{margin-top:5rem;}/*!sc*/
+.lhbrzX p{font-size:1.1rem;margin:0.5em;font-family:"GT-Walsheim-Pro-Regular";}/*!sc*/
+.lhbrzX h1{font-size:3em;}/*!sc*/
+.lhbrzX strong{-webkit-text-decoration:underline;text-decoration:underline;color:#0ec289;}/*!sc*/
+.lhbrzX ul,.lhbrzX ol{text-align:left;font-size:1.1em;}/*!sc*/
+.lhbrzX a{font-size:1.1em;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.lhbrzX .gatsby-highlight{max-height:350px;overflow-y:auto;}/*!sc*/
+.lhbrzX img{margin:0 auto;display:block;}/*!sc*/
+data-styled.g37[id="posts__ArticleBody-sc-4d4syh-4"]{content:"lhbrzX,"}/*!sc*/
+.hHDoRm{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:5rem;grid-row-gap:5rem;list-style:none;padding:0;border-top:4px solid #07ab77;border-bottom:4px solid #07ab77;}/*!sc*/
+data-styled.g38[id="posts__NaviagtionList-sc-4d4syh-5"]{content:"hHDoRm,"}/*!sc*/
+.GBDKS{padding:2rem 0;}/*!sc*/
+.GBDKS:last-child{text-align:right;}/*!sc*/
+.GBDKS a{font-size:1.3rem;font-family:"GT-Walsheim-Pro-Medium";}/*!sc*/
+data-styled.g39[id="posts__NaviagtionLi-sc-4d4syh-6"]{content:"GBDKS,"}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+html{box-sizing:border-box;-ms-overflow-style:scrollbar;line-height:1.15;-webkit-text-size-adjust:100%;}/*!sc*/
+html body{font-size:14px;font-family:'GT-Walsheim-Pro-Regular';margin:0;}/*!sc*/
+html main{display:block;}/*!sc*/
+html h1{font-size:2em;margin:0.67em 0;}/*!sc*/
+html hr{box-sizing:content-box;height:0;overflow:visible;}/*!sc*/
+html a{background-color:transparent;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+html b,html strong{font-weight:bolder;font-family:'GT-Walsheim-Pro-Bold';}/*!sc*/
+html small{font-size:80%;}/*!sc*/
+html sub,html sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}/*!sc*/
+html sub{bottom:-0.25em;}/*!sc*/
+html sup{top:-0.5em;}/*!sc*/
+html img{border-style:none;}/*!sc*/
+html .center{text-align:center;}/*!sc*/
+html button,html input,html optgroup,html select,html textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}/*!sc*/
+html button,html input{overflow:visible;}/*!sc*/
+html button,html select{text-transform:none;}/*!sc*/
+html button,html [type="button"],html [type="reset"],html [type="submit"]{-webkit-appearance:button;}/*!sc*/
+html button::-moz-focus-inner,html [type="button"]::-moz-focus-inner,html [type="reset"]::-moz-focus-inner,html [type="submit"]::-moz-focus-inner{border-style:none;padding:0;}/*!sc*/
+html button:-moz-focusring,html [type="button"]:-moz-focusring,html [type="reset"]:-moz-focusring,html [type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}/*!sc*/
+html [hidden]{display:none;}/*!sc*/
+html .text-dark{color:#000;}/*!sc*/
+html .text-primary{color:#0ec289;}/*!sc*/
+html .align-middle{vertical-align:middle;}/*!sc*/
+html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
+.lined-link{display:inline-block;position:relative;padding-top:.5em;padding-bottom:.25em;-webkit-transition:all .2s ease-out;transition:all .2s ease-out;will-change:transform,color;}/*!sc*/
+.lined-link:after{z-index:1;position:absolute;bottom:-1px;left:0;content:"";display:block;width:100%;height:5px;background-color:#0ec289;-webkit-transform:scale(0,1);-ms-transform:scale(0,1);transform:scale(0,1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;will-change:transform;-webkit-transition:-webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);transition:transform 0.8s cubic-bezier(0.19,1,0.22,1), -webkit-transform 0.8s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
+.error__emoji{width:30vw;}/*!sc*/
+data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-2334755ca3e485bfe096.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"/><link as="fetch" rel="preload" href="/page-data\lol-champ-minimap-detection-part-1\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Detección de personajes de LOL en tiempo real (Parte 1)</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->July 12, 2022<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><h1>Detección de personajes de LOL en tiempo real (Parte 1)</h1>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/179fe712e73ec2f3b74f9af7075b1673/6af66/img1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.70270270270271%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC5ElEQVQozyWS32/bZBiFI3GJiirWJk2cxHF+ObYTO05iJ64bJ3GakK5p0q2spILtApjQxg2rgCHG2ksQF1ztGmmCUioxIe0CaUIqytpO3V/A+GsevmkXrz69+o5ePTrnRM7Pz5ifX/Dn06f8cnTE0e8n4v2Nv549Y34m/s7O+e/Vv7y8fMHp/DnPLy44Pjnh58eP+fX4mL9PT/lnPufi8pI/njwhEi+mkOLLZNIJkkqSTCaJrKTJK1mUQhG1ZPDDj99jBzWi8SVkKUZaSQmN0AltVpbJFlWx5xhtjokMNpvs3hqLQ1GKmkSrUmA66KCVTTxVo1zSuPftAyxX5+4Xe5TKWQqFFbRCnN2ei++1aLstbKFrrw+ITEd1hh/eIGOayPKyIEoy2RwRBm2qlo0hhPsPHtL1K3x0awel6ZMvytRqKsN+wOZ6SNtbo15rsLElCNPKEu2exYJhkzYruLUs3abN6sCjPV5HU/PcPzhAziXp+BqSZbFUtnEcjY5n0V1r0Z9uYZYNBldHRBKJRUbTVUrVPONeh9u3Z5QEpZJdpqRKFLIS9w8PSctxgtCi0anQNHU+3ttmOA4ol3MYhoIcX6QjaCPRK29j2wYbk5BrOz5Xx30yTlMEFEc3hOnFtCA8FAEkKOXS9MMO13d7fHBtiNt/D0Uv0BT+5ooSQb9HZCW2TLg9485X+7i+zkZYR2/VeUu1iSZj5FMxvhGEiiJjNTw+u/cdo+0OwapNGHosVBosCZ9T0QV6oSDMJSTWJ9uMP71JQU3hdupUbIVkRWe8N0XLS3z58ABNVMOtO+x8vi8Om1QbJdb6LoqWw78+oVnL4wWBCGUlSWBXeX93gm3pqEqMhPQug1Wd2Sxk8co7fC1CyasGVSXPdOsGftunZhQxrTKOqNEnN4eim1EankdEdVr43a7wpku5URd9c6i+HqdBsVLBdBx+evQIJxxQ9dcIRddqrdYbXdMVpHUM2yar6+zszfgfg0OGUgb6gSgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img1"
+        title="img1"
+        src="/static/179fe712e73ec2f3b74f9af7075b1673/fcda8/img1.png"
+        srcset="/static/179fe712e73ec2f3b74f9af7075b1673/12f09/img1.png 148w,
+/static/179fe712e73ec2f3b74f9af7075b1673/e4a3f/img1.png 295w,
+/static/179fe712e73ec2f3b74f9af7075b1673/fcda8/img1.png 590w,
+/static/179fe712e73ec2f3b74f9af7075b1673/6af66/img1.png 640w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>Objetivo</h2>
+<p>Como experimento para familiarizarme con la detección de elementos en imagenes me di a la tarea de generar algún programa que usando <strong>Machine Learning</strong> (Python y FastAI) detecte los personajes de League of Legends en una imagen del minimapa. <strong>En el siguiente gif se puede ver el resultado final.</strong></p>
+<p><img src="/1f392a9a7bef17963ac296c233c2d97f/result.gif"></p>
+<p><a href="https://medium.com/@farzatv/deepleague-leveraging-computer-vision-and-deep-learning-on-the-league-of-legends-mini-map-giving-d275fd17c4e0">En este post</a> se da una aproximación al problema, que utiliza datos de partidas grabadas para generar el dataset de entrenamiento, lo cual tiene sus problemas, sin embargo <strong>en este caso voy a usar otro método que nos da mucho mas posibilidades.</strong></p>
+<h2>Generación de dataset</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e51798d1b4d50a58516ec814d464d73f/6295b/img2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 70.27027027027026%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADqUlEQVQ4yyWT60/aZxTHfy/3amm2OrVqVUpBFBQFL4B3uetEQKQCclHxgooCOrUo3uoSuzZdZpYlS7Y3/efmBe20nYBtPnvmTvLkefI9l+fkfL9HMg50oddr0GgbMXYZWc9kcHpHsYwOYXOZMUdi7L35CbffhdVmor1TS4u2jWgkSiQexdDXgcXRgy0cJXlwhNRqaubb5zLa9Ur0Wg2TwRA9lgEUIsnU34ItEiCxs4+xR4+mXU9vtw6jKOIYHsHlGqVSoUDXqWJqIcbCnijYpFPQrJXT0WekXl6Fe9zN984BZIpqWgY6qFdVsJSep1Wv5Ul1GUZHPxVPv8FiH2TA3MfXj75Ca9CiVNczFRlHyuZy5LIrOFwOfKEAR8f75HZ22T/OMT7pwerz8PaXN6wklohFQkwGvHgjQeHfZTO9TmhijAkR55j0c/zuBIm/b7gr3lMqlbj79IkHu7mhUPoPu6dYLP6P3d5SKhQpff78EPtgHz9S/KfAncALIveL8EmeoJfwjJ/QbIhYdp/Xp6ckkvN43A6GRx047Q729g9Jbq7iHLGIY8PhGCaTWSf7aofwXIC5pRjhjS1enf6KVCmroKy2Fl27Cld8lujyKnoxkwq5jGe131FXWYbP58fmtvKo/inPlTWolXIGB80E4y+oUitoa1djDk8S2NhGatM1ItfIMQ4Z6RnUE5uPMWTrFjJSYhFYedVjMSMfdns/jRolnhcj1NQ9pm+ol8hsEIW6gV57Nw2qSgLTfqTZ+CLLm0nCIT8T8RmyBy9ZTaVIv0wTDU/QP+JkYyNN6uiYeGYZ15gdk93G6lqC3bfvWNxO4fFY6HXa2D7KIhXPzshffeDi/IL8xbkgoUDp7JzL/DV/iTt/eUFBEFO8zIv3lcDzXH+4pvRFkHNxyZWIy19dcX1zS+H+HimRTrCRTZESHa39+Jrf/vyDnJBEejtJRmCJ/SN+f//+QUYpEbu8tsj8wgKHB4ec/HxCMjnHzNw0U8EAh4I8SdGmpExeS1dXE96FJYJLq1jcFsrVKnT6RgbFisW2cgy7BjG0ttCkrcMqtOcNxZiI+alokCOrf4KivgqrxYqk61LR1tfJpH+YAUHK/OoiY2ImaqMBqxCsqqmGta01vP4RWg0tGMwm9J0anGMjgpRpKuXVTITGMJm0D5KSzNEo41GP2OMGnhl0zK3E8S+vYPc7UQs5yDr1LGcSBNfSuGM+Gptl1LY04wu6iaz/ID4dxdDbRnmDkinR8b8KFGhxjfNquAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img2"
+        title="img2"
+        src="/static/e51798d1b4d50a58516ec814d464d73f/fcda8/img2.png"
+        srcset="/static/e51798d1b4d50a58516ec814d464d73f/12f09/img2.png 148w,
+/static/e51798d1b4d50a58516ec814d464d73f/e4a3f/img2.png 295w,
+/static/e51798d1b4d50a58516ec814d464d73f/fcda8/img2.png 590w,
+/static/e51798d1b4d50a58516ec814d464d73f/efc66/img2.png 885w,
+/static/e51798d1b4d50a58516ec814d464d73f/6295b/img2.png 919w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Mi approach para generar el dataset va a ser simplificar el proceso lo más posible y a la vez, obtener un dataset amplio y que no esté limitado a partidas previas o a que personajes son más usados.</p>
+<p>Por lo tanto queremos que:</p>
+<ol>
+<li>El dataset sea suficientemente grande para que el modelo pueda adecuarse lo suficiente al problema.</li>
+<li>No limitarnos por los personajes que estén en el meta.</li>
+<li>Facilidad para ampliar el dataset si sale un campeón nuevo.</li>
+</ol>
+<p>La solución que desarrollé toma en cuenta esos factores, <strong>generando artificialmente las imagenes</strong> con los personajes en lugares aleatorios del minimapa.
+Esto por un lado nos permite generar tantas imagenes como se quiera haciendo que <strong>el dataset sea virtualmente infinito</strong>, sino que solucionamos el problema de obtener los bounds de cada personaje en cada imagen ya que somos nosotros quien los determinamos.</p>
+<h2>Generando las imagenes</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4913652cf6d370008bbcde3944fc8303/4dba2/img3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.21621621621622%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACRUlEQVQozx2R20/SARiGuXBrs6lpeAAq8YCi4iEklIP446AoqbVZqZSjg4qVtvTCG1kuQEU8wMwSZ3koHU6xSNPuumrddbjQv+fpp7fPnn3vt/eVRGIxDA0GWttaaRBshOYWiSd2aL/txNXWjNVqZToU5tv3Q2xOgbZ2J4LIwjOzHBwf4OpoOmfNTifDQ8NIfIEJLkgzKFBdQ5GTweDQCJG3EfLKlChVV5Flp/O4r5/tnY9kKvO4UignT2Rer5eN7Q3SFJcpqihEXSzHIghIJhdmKb9eTK1FT5ZMyovRUZZWY1TeUNPY4SBTLsU7+ISdz3todKXoG/Wk5WTyfMjLbnKPkqoC7J0tFGmKcd10IJlYWqW+q4tK8Wjq2Tf9fUQ349T1uNFoVWSLyf0DHtYSSercvdTo1WQpc+kbeMj6/le0d7up1JWQJ3r2FiuS5I+fjE4u4Jue4eW4j/fxfX79/kMwushsdJ5AyM9uYo+/JycEom8IiywYCpyzf6en+CNn3hyT4SmWlt8hWVlbwWw1iEWbMRgbiIjCxqd16k067A4LJqOJYHCKg6MkQrNZHMmEwWAkNBUikUxQW1eDo6kRm83GU+8zJMGZ16RI0ymtKkKaeUHsZojo0jwXZVmU1qgoyM/C3dvLVnyT1HwZpboK8hXpeDwecZQ1Ui6lkquUo5BnYDAZkSx/iCE4jXQP3KdMW4Hf/4rN+BZN7QKdj+6h1moYGxsheXyI3WWh2/uAcn01474xvhwdILSYudXTTrWhli73Hf4DPg9Le6v0YDsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img3"
+        title="img3"
+        src="/static/4913652cf6d370008bbcde3944fc8303/fcda8/img3.png"
+        srcset="/static/4913652cf6d370008bbcde3944fc8303/12f09/img3.png 148w,
+/static/4913652cf6d370008bbcde3944fc8303/e4a3f/img3.png 295w,
+/static/4913652cf6d370008bbcde3944fc8303/fcda8/img3.png 590w,
+/static/4913652cf6d370008bbcde3944fc8303/efc66/img3.png 885w,
+/static/4913652cf6d370008bbcde3944fc8303/4dba2/img3.png 1151w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+Lo primero que hay que hacer es <strong>obtener fondos de minimapa vacios</strong>, que sirvan de base para luego colocar los iconos de los personajes.</p>
+<p>Para esto saqué <strong>una serie de capturas del minimapa</strong> en distintos estados del juego, quitando con photoshop los personajes <strong>de forma que quedaran vacios</strong> (como se ven en la imagen de arriba)</p>
+<p>Una vez tuve unos 20 o 30 fondos, para aumentar la aleatoriedad hice un pequeño script que se encarga de cortar las imagenes en una diagonal, y unir cada trozo con la diagonal opuesta de cada otra imagen, de forma que con n capturas obtenemos n*n imagenes.</p>
+<h3>El proceso se ve mas o menos asi</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f07a68ae274b6fe9a901c2e0080dda3c/1fbe8/img4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.54054054054055%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADO0lEQVQ4y3WTzW8bVRTFJ3Fw0jj+wontOPHYnhnPh2cy8cTpOB927NhxQuKoTUtNI5KGqCKoEhskFnTFChaAQAKJPY3YQoCqqihikQXtnrAByoIu6R/x4zGsO9LT3POu7tG7954j8YLv/PyckZERIpEoRa1Abnaa0fAoxUKBer3O2NgY0Vgc3dZITaYIh8N4nof09K+nXFxc8Psff/L8+T9c/PYrfz97xr3TUyRJYjKdwFx0mClMIw1JRONxLMsKcoXyLO5KlUrVCHCpVELq9XtkcinWVlf59IvPMKs6pqHSEHjWdunsbVFyTRSzhKLkKWSmmVNV9EaTdn+NGUPDntfJF2UqFRvpysGAbHkG0zH48JOPqHWWyOgyB4L06LVbbJ3cxvMtNHFnzFVozspcVVR679yl9+o2FU8TjzDY2ruG79eR3v/8S15/84ij24d8/c0ZJ+/d5fjOEQeD64yGXsJbmkN1DWRTI51OMjk5RaWsM56IUW+4yJbCykadXCaJVlKQXrSUX548DuYSHg1TdlQxlnSAk8kktuMEcSKVYN6vIOtFhgTu6zrSTz//yHf37/PDgwd8L/7fnp3x8NEjvrp3iiMKq9UqVW+BhVoN27Zpt9sMBgNM0xTHwq3Oi/ladIpF3m40kKKTUewFldqqQ3IqgqyVuex6NLs9LglphEIhhoeHGR4aCl41lcvR6nSC+FJkHLdmkizkcASuZzJI3pKDtlgjr+qU1Qw7h/vs7R/Q3twKiuIvx0VuFlkpEZuIYiQTrPs+w6GhoN2S67DgixGEQ8RTKUFYtzBshazQlulqAWltbZ6T61dZFoTZQhZn0eZyy6dSkjkeH+d4fZ32G2+xcaOPJTasOxrN9jqWIfTpd1fxmx79vVX0RZdYXmbnRpvDmwPSgtBcXmFjsIvhGWTlDBOJJK3eJt72Lt0rHfJiIXbNorXZRVE1QXjtJocffMxyty6EmyFnGyL22djdDlqOZWfIlYW9puL/bzmRYFlY779Y0fOUPYul9UUxAuGiaAypuX+LzTvvCkfs0BCJVm8Z1VDovrIjdJcmGokwIdqMCd9OiFjTNPq7u6I4Kjw8JVxikS/kRS4abP5fhGK+Skn7FBoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img4"
+        title="img4"
+        src="/static/f07a68ae274b6fe9a901c2e0080dda3c/fcda8/img4.png"
+        srcset="/static/f07a68ae274b6fe9a901c2e0080dda3c/12f09/img4.png 148w,
+/static/f07a68ae274b6fe9a901c2e0080dda3c/e4a3f/img4.png 295w,
+/static/f07a68ae274b6fe9a901c2e0080dda3c/fcda8/img4.png 590w,
+/static/f07a68ae274b6fe9a901c2e0080dda3c/1fbe8/img4.png 757w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<ol>
+<li>Tomamos 2 imagenes</li>
+<li>Las rotamos 45 grados</li>
+<li>Tomamos la mitad izquierda de la imagen 1 y la mitad derecha de la imagen 2.</li>
+<li>Unimos las 2 imagenes.</li>
+<li>Rotamos 45 grados en la dirección opuesta.</li>
+<li>Cortamos la imagen para que no queden bordes.</li>
+</ol>
+<p>Aquí el código utilizado
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+
+
+<span class="token keyword">def</span> <span class="token function">join_images</span><span class="token punctuation">(</span>img1_route<span class="token punctuation">,</span> img2_route<span class="token punctuation">,</span> new_img_route<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    img1 <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>img1_route<span class="token punctuation">)</span>
+    img2 <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>img2_route<span class="token punctuation">)</span>
+    <span class="token comment"># rotate imgs 45 degrees without loosing the size</span>
+    img1 <span class="token operator">=</span> img1<span class="token punctuation">.</span>rotate<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">45</span><span class="token punctuation">,</span> expand<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    img2 <span class="token operator">=</span> img2<span class="token punctuation">.</span>rotate<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">45</span><span class="token punctuation">,</span> expand<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token comment"># take the half left of the first and the half right of the second</span>
+    img1_half <span class="token operator">=</span> img1<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> img1<span class="token punctuation">.</span>width<span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">,</span> img1<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    img2_half <span class="token operator">=</span> img2<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span>img2<span class="token punctuation">.</span>width<span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> img2<span class="token punctuation">.</span>width<span class="token punctuation">,</span> img2<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># join the two images</span>
+    img_joined <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'RGB'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>img1<span class="token punctuation">.</span>width<span class="token punctuation">,</span> img1<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    img_joined<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>img1_half<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    img_joined<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>img2_half<span class="token punctuation">,</span> <span class="token punctuation">(</span>img1<span class="token punctuation">.</span>width<span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># rotate the image back to 0 degrees</span>
+    img_joined <span class="token operator">=</span> img_joined<span class="token punctuation">.</span>rotate<span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">,</span> expand<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token comment"># crop the image so it only has the center</span>
+    img_joined <span class="token operator">=</span> img_joined<span class="token punctuation">.</span>crop<span class="token punctuation">(</span>
+        <span class="token punctuation">(</span>img_joined<span class="token punctuation">.</span>width<span class="token operator">//</span><span class="token number">4</span><span class="token punctuation">,</span> img_joined<span class="token punctuation">.</span>height<span class="token operator">//</span><span class="token number">4</span><span class="token punctuation">,</span> img_joined<span class="token punctuation">.</span>width<span class="token operator">*</span><span class="token number">3</span><span class="token operator">//</span><span class="token number">4</span><span class="token punctuation">,</span> img_joined<span class="token punctuation">.</span>height<span class="token operator">*</span><span class="token number">3</span><span class="token operator">//</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># save image</span>
+    img_joined<span class="token punctuation">.</span>save<span class="token punctuation">(</span>new_img_route<span class="token punctuation">)</span></code></pre></div></p>
+<p>En este punto tenemos las imagenes del fondo, <strong>faltan los personajes</strong>. Para esto tambien voy a sacar capturas de pantalla y recortar los iconos de los personajes, en este caso tomé unos 15, evitando tomar el borde que señala el equipo, esto lo vamos a añadir luego nosotros.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 574px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ce2754d12aa30df0da050cb454a7f600/86389/img5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.7027027027027%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABIUlEQVQY01WQ7U+CUBTG+f//iz5Xm9lmbbUl5gJBNCFKUF6KeJGXDMYUJXjSi3HX8+Xcc/bb85xzGWE4hW06+FO+zcDyD+Rd1TWpL4qPdL1pmTQJoU8apq4qUi15hiyJwHDDEbS53sJB4IETnrD++j5NKgijN9iW2zIr34fEDVDs9qTP0gyKOMb7cgmGZx9haNQwDmNIA7ax+mnSZ/0+XGNJr4hcqPedfxtenp1jrqhg5MkzzAWFwzDEVBijKArSl2UJTVHgOQ5OP4B4FUCVRGy2DVMdTCe8CNuwwHRvu5BVmRoGMa4vbo7ZBDyK7V1Bf1Vb5sPx0OndNRvWlDtWxrIsfB7Si2JHhkmSQNcWyPO8NbANE77rtX0URljolKlB9Qt8hcKlccfHgQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img5"
+        title="img5"
+        src="/static/ce2754d12aa30df0da050cb454a7f600/86389/img5.png"
+        srcset="/static/ce2754d12aa30df0da050cb454a7f600/12f09/img5.png 148w,
+/static/ce2754d12aa30df0da050cb454a7f600/e4a3f/img5.png 295w,
+/static/ce2754d12aa30df0da050cb454a7f600/86389/img5.png 574w"
+        sizes="(max-width: 574px) 100vw, 574px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Con el siguiente script se le agrega el borde a las imagenes de acuerdo al color del team que le corresponda.
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw
+base_folder <span class="token operator">=</span> <span class="token string">"./images/"</span>
+blue_team_imgs <span class="token operator">=</span> <span class="token string">"./images/blue_team/"</span>
+red_team_imgs <span class="token operator">=</span> <span class="token string">"./images/red_team/"</span>
+
+champs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"zilean"</span><span class="token punctuation">,</span> <span class="token string">"...resto de personajes"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> champ_name <span class="token keyword">in</span> champs<span class="token punctuation">:</span>
+    <span class="token comment"># Obtengo la imagen</span>
+    champ_name <span class="token operator">=</span> champ_name<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    img <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>base_folder<span class="token operator">+</span><span class="token string">"champ_icons/"</span><span class="token operator">+</span>champ_name<span class="token operator">+</span><span class="token string">".png"</span><span class="token punctuation">)</span>
+    w<span class="token punctuation">,</span> h <span class="token operator">=</span> img<span class="token punctuation">.</span>size
+    zoom <span class="token operator">=</span> <span class="token number">1</span>
+    zoom2 <span class="token operator">=</span> zoom <span class="token operator">*</span> <span class="token number">1.8</span>
+    x <span class="token operator">=</span> w<span class="token operator">/</span><span class="token number">2</span>
+    y <span class="token operator">=</span> h<span class="token operator">/</span><span class="token number">2</span>
+
+    img <span class="token operator">=</span> img<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x <span class="token operator">-</span> w <span class="token operator">/</span> zoom2<span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">-</span> h <span class="token operator">/</span> zoom2<span class="token punctuation">,</span>
+                    x <span class="token operator">+</span> w <span class="token operator">/</span> zoom2<span class="token punctuation">,</span> y <span class="token operator">+</span> h <span class="token operator">/</span> zoom2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    offset <span class="token operator">=</span> <span class="token number">2</span>
+
+    <span class="token comment"># Agrego el borde rojo</span>
+    mask <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'L'</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    draw <span class="token operator">=</span> ImageDraw<span class="token punctuation">.</span>Draw<span class="token punctuation">(</span>mask<span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span>
+        <span class="token punctuation">(</span>offset<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span>offset<span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>offset<span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span>
+    back <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'RGBA'</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    draw2 <span class="token operator">=</span> ImageDraw<span class="token punctuation">.</span>Draw<span class="token punctuation">(</span>back<span class="token punctuation">)</span>
+    draw2<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  fill<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> outline<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">232</span><span class="token punctuation">,</span> <span class="token number">61</span><span class="token punctuation">,</span> <span class="token number">61</span><span class="token punctuation">)</span><span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    img<span class="token punctuation">.</span>putalpha<span class="token punctuation">(</span>mask<span class="token punctuation">)</span>
+    img<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>back<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> back<span class="token punctuation">)</span>
+    <span class="token comment"># Guardo con el borde rojo</span>
+    img<span class="token punctuation">.</span>save<span class="token punctuation">(</span>red_team_imgs<span class="token operator">+</span>champ_name<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".png"</span><span class="token punctuation">)</span>
+    <span class="token comment"># Agrego el borde azul</span>
+    draw2<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  fill<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> outline<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">153</span><span class="token punctuation">,</span> <span class="token number">210</span><span class="token punctuation">)</span><span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    img<span class="token punctuation">.</span>paste<span class="token punctuation">(</span>back<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> back<span class="token punctuation">)</span>
+    <span class="token comment"># Guardo con el borde azul</span>
+    img<span class="token punctuation">.</span>save<span class="token punctuation">(</span>blue_team_imgs<span class="token operator">+</span>champ_name<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".png"</span><span class="token punctuation">)</span></code></pre></div>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8afe2d80044d0d3faf4f3763a5fef776/fdaf8/img6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.756756756756754%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABy0lEQVQY0x3QwUuTAQCG8S+75T9gRIdGBpF1COpgWQTu4oxYhFi5cCAMRYglFuScYLpYFmnbsOma22hjbq50ksMsyi3R2VyusIIiFxsN/CIbumjaesrvPT6/2yvwf7nUN2LuKdw3PUy5Jij8XOXvFvzOM2Ey09vYwKS1l8ziAvwpbAlfo3Fs6ovEOpT8mHGSXxGlLuRFkX69kxqVh77BNzywz/BudFrCiM3E7Qv7MZ8vIdRVwfRAK8noHOvpDG2nKhhqVOKv38OXoIqloI/N7BrCY/scVWeMqOvuMmqPk36/RsC3hDi/yA1VNc6mMjKmUrK23VjqSvHd6SRiDdDf0sP3jyJvrUb8DQcwqKpIPH+FoGsaYdsOPU+HPrCeLLAcSdGh9TDvHaNZcYLyYoFg20nifXJO7yzCYbiO62oP7bUWAvdj5OKfmPU+QSkr4aUviBAOvGZ78QDyY2GGdc94ZF1AcVRL9nMSh66FvUUCl+UyBq9Vo9fUkAiNE/WPc3bXIaKdWlbGLBivdFNbVs6vVBqBzQ1cXQ/ZJ9NSeeQeBo2DF+6Q9GEuuUy7+hKKwwfpbtUQ9jrZWM1KNnnLjKtewXDzOTTHK0mMBKX+D75FVWiibGCIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img6"
+        title="img6"
+        src="/static/8afe2d80044d0d3faf4f3763a5fef776/fcda8/img6.png"
+        srcset="/static/8afe2d80044d0d3faf4f3763a5fef776/12f09/img6.png 148w,
+/static/8afe2d80044d0d3faf4f3763a5fef776/e4a3f/img6.png 295w,
+/static/8afe2d80044d0d3faf4f3763a5fef776/fcda8/img6.png 590w,
+/static/8afe2d80044d0d3faf4f3763a5fef776/fdaf8/img6.png 674w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>Generacion final de las imagenes</h2>
+<p>Lo que vamos a hacer ahora es una función que <strong>genere una imagen aleatoria con 2 equipos</strong> con personajes al azar de los disponibles. A su vez <strong>vamos a obtener los bounds de cada personaje</strong> que no esté tapado por otro.</p>
+<p>Primero preparo un par de variables y unas funciones de utilidad
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">
+img_route <span class="token operator">=</span> base_folder<span class="token operator">+</span><span class="token string">"imgs/"</span>
+minimaps_route <span class="token operator">=</span> base_folder<span class="token operator">+</span><span class="token string">"all_minimaps/"</span>
+<span class="token comment"># Genero una lista de todas las imagenes de minimapas para acceder rapidamente</span>
+map_imgs <span class="token operator">=</span> <span class="token punctuation">[</span>
+    Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>minimaps_route<span class="token operator">+</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>minimaps_route<span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment"># Genero un dataframe con los nombres de los champs</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"zilean"</span><span class="token punctuation">,</span> <span class="token string">"...resto de champs"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_teams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Retorna las imagenes y nombres de personajes de cada equipo
+    """</span>
+    <span class="token comment"># Armo 2 equipos al azar</span>
+    t1 <span class="token operator">=</span> df<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> df<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t1_imgs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    t2_imgs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> t1<span class="token punctuation">:</span>
+        img <span class="token operator">=</span> get_champ_img<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"red"</span><span class="token punctuation">)</span>
+        t1_imgs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> t2<span class="token punctuation">:</span>
+        img <span class="token operator">=</span> get_champ_img<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">)</span>
+        t2_imgs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> t1_imgs<span class="token punctuation">,</span> t2_imgs<span class="token punctuation">,</span> t1<span class="token punctuation">,</span> t2
+
+
+<span class="token keyword">def</span> <span class="token function">parse_extent</span><span class="token punctuation">(</span>extent<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Convierte los bounds de coordenadas a la posicion en pixeles
+    """</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span>extent<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>width<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>extent<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>width<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span>extent<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>extent<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>height<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_random_img_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".png"</span>
+</code></pre></div></p>
+<h3>Genero las imagenes</h3>
+<p><div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">
+<span class="token keyword">def</span> <span class="token function">draw_teams</span><span class="token punctuation">(</span>width<span class="token operator">=</span><span class="token number">250</span><span class="token punctuation">,</span> height<span class="token operator">=</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Genera una imagen al azar
+    """</span>
+    xmin <span class="token operator">=</span> <span class="token number">0.035</span>
+    xmax <span class="token operator">=</span> <span class="token number">0.80</span>
+    ymin <span class="token operator">=</span> <span class="token number">0.035</span>
+    ymax <span class="token operator">=</span> <span class="token number">0.80</span>
+    img_size <span class="token operator">=</span> <span class="token number">0.092</span>
+    DPI <span class="token operator">=</span> <span class="token number">100</span>
+
+    fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span>width<span class="token operator">/</span>DPI<span class="token punctuation">,</span> height<span class="token operator">/</span>DPI<span class="token punctuation">)</span><span class="token punctuation">,</span> dpi<span class="token operator">=</span>DPI<span class="token punctuation">)</span>
+    ax <span class="token operator">=</span> fig<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    map_img <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>map_imgs<span class="token punctuation">)</span>
+
+    plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>map_img<span class="token punctuation">,</span> extent<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Obtengo los teams aleatoriamente</span>
+    t1<span class="token punctuation">,</span> t2<span class="token punctuation">,</span> t1_names<span class="token punctuation">,</span> t2_names <span class="token operator">=</span> get_teams<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    boundary_boxes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+    current_zorder <span class="token operator">=</span> <span class="token number">50</span>
+    current_positions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token comment"># Elijo si mostrar o no el rectangulo de la vision</span>
+    <span class="token keyword">if</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.97</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>xmin<span class="token punctuation">,</span> xmax<span class="token punctuation">)</span>
+        y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>ymin<span class="token punctuation">,</span> ymax<span class="token punctuation">)</span>
+        rect <span class="token operator">=</span> patches<span class="token punctuation">.</span>Rectangle<span class="token punctuation">(</span>
+            <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token number">0.32</span><span class="token punctuation">,</span> <span class="token number">0.17</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">1.2</span><span class="token punctuation">,</span> edgecolor<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">,</span> facecolor<span class="token operator">=</span><span class="token string">'none'</span><span class="token punctuation">,</span> zorder<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+        ax<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>rect<span class="token punctuation">)</span>
+
+    <span class="token comment"># Elijo si mostrar o no el personaje</span>
+    <span class="token keyword">for</span> t1_img<span class="token punctuation">,</span> t1_name <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>t1<span class="token punctuation">,</span> t1_names<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.2</span><span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        current_zorder <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token comment"># Decido la posicion aleatoriamente</span>
+        current_x <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>xmin<span class="token punctuation">,</span> xmax<span class="token punctuation">)</span>
+        current_y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>ymin<span class="token punctuation">,</span> ymax<span class="token punctuation">)</span>
+        <span class="token comment"># Reviso si esta muy pegado a otro personaje, en ese caso no lo agrego a los bounds</span>
+        <span class="token comment"># porque considero que esta tapado</span>
+        should_add <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">for</span> pos <span class="token keyword">in</span> current_positions<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>pos<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token operator">-</span>current_x<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.05</span> <span class="token keyword">and</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>pos<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token operator">-</span>current_y<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.05</span><span class="token punctuation">:</span>
+                should_add <span class="token operator">=</span> <span class="token boolean">False</span>
+                <span class="token keyword">break</span>
+
+        current_positions<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"x"</span><span class="token punctuation">:</span> current_x<span class="token punctuation">,</span> <span class="token string">"y"</span><span class="token punctuation">:</span> current_y<span class="token punctuation">}</span><span class="token punctuation">)</span>
+        current_extent <span class="token operator">=</span> <span class="token punctuation">[</span>current_x<span class="token punctuation">,</span> current_x <span class="token operator">+</span>
+                          img_size<span class="token punctuation">,</span> current_y<span class="token punctuation">,</span> current_y<span class="token operator">+</span>img_size<span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span> should_add<span class="token punctuation">:</span>
+            <span class="token comment"># Agrego los bounds que ingrese</span>
+            boundary_boxes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                parse_extent<span class="token punctuation">(</span>current_extent<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            boundary_boxes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>t1_name<span class="token punctuation">)</span>
+        <span class="token comment"># Agrego la imagen del personaje al mapa</span>
+        plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>t1_img<span class="token punctuation">,</span> extent<span class="token operator">=</span>current_extent<span class="token punctuation">,</span> zorder<span class="token operator">=</span>current_zorder<span class="token punctuation">)</span>
+
+    <span class="token comment"># Elijo si mostrar o no el personaje</span>
+    <span class="token keyword">for</span> t2_img<span class="token punctuation">,</span> t2_name <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>t2<span class="token punctuation">,</span> t2_names<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.2</span><span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        current_zorder <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token comment"># Decido la posicion aleatoriamente</span>
+        current_x <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>xmin<span class="token punctuation">,</span> xmax<span class="token punctuation">)</span>
+        current_y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span>ymin<span class="token punctuation">,</span> ymax<span class="token punctuation">)</span>
+        <span class="token comment"># Reviso si esta muy pegado a otro personaje, en ese caso no lo agrego a los bounds</span>
+        <span class="token comment"># porque considero que esta tapado</span>
+        should_add <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">for</span> pos <span class="token keyword">in</span> current_positions<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>pos<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token operator">-</span>current_x<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.05</span> <span class="token keyword">and</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>pos<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token operator">-</span>current_y<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.05</span><span class="token punctuation">:</span>
+                should_add <span class="token operator">=</span> <span class="token boolean">False</span>
+                <span class="token keyword">break</span>
+
+        current_positions<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"x"</span><span class="token punctuation">:</span> current_x<span class="token punctuation">,</span> <span class="token string">"y"</span><span class="token punctuation">:</span> current_y<span class="token punctuation">}</span><span class="token punctuation">)</span>
+        current_extent <span class="token operator">=</span> <span class="token punctuation">[</span>current_x<span class="token punctuation">,</span> current_x <span class="token operator">+</span>
+                          img_size<span class="token punctuation">,</span> current_y<span class="token punctuation">,</span> current_y<span class="token operator">+</span>img_size<span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span> should_add<span class="token punctuation">:</span>
+            <span class="token comment"># Agrego los bounds que ingrese</span>
+            boundary_boxes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                parse_extent<span class="token punctuation">(</span>current_extent<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            boundary_boxes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>t2_name<span class="token punctuation">)</span>
+        <span class="token comment"># Agrego la imagen del personaje al mapa</span>
+        plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>t2_img<span class="token punctuation">,</span> extent<span class="token operator">=</span>current_extent<span class="token punctuation">,</span> zorder<span class="token operator">=</span>current_zorder<span class="token punctuation">)</span>
+
+    <span class="token comment"># Quito los bordes</span>
+    plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">'off'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>set_axis_off<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>subplots_adjust<span class="token punctuation">(</span>top<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> bottom<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> right<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> left<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+                        hspace<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> wspace<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>margins<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>xaxis<span class="token punctuation">.</span>set_major_locator<span class="token punctuation">(</span>plt<span class="token punctuation">.</span>NullLocator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>yaxis<span class="token punctuation">.</span>set_major_locator<span class="token punctuation">(</span>plt<span class="token punctuation">.</span>NullLocator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    img_name <span class="token operator">=</span> get_random_img_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># plt.show()</span>
+    plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span>img_route <span class="token operator">+</span> img_name<span class="token punctuation">,</span> bbox_inches<span class="token operator">=</span><span class="token string">"tight"</span><span class="token punctuation">,</span> pad_inches<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>clf<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>close<span class="token punctuation">(</span>fig<span class="token operator">=</span>fig<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> boundary_boxes<span class="token punctuation">,</span> img_name
+</code></pre></div></p>
+<p>Ejecutando esta funcion en bucle obtenemos imagenes que son indistinguibles de las reales y sirven para entrenar el.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b4b4cb3d61aca36aeb0a2793d3087f63/078fe/img7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.64864864864865%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACuklEQVQozxWRWU9TCxSFz4MPxgcfNBocGFoK1LZ05JwGOgAFSalWOnHoKYWWQSiWSksKoobEKRK9XuODN/fHaYRSChESnC+UXvp5fNtr7b2zVvIJSlpGdFowmtrR6/XIsTHuLs7hHhBx9znok2Uml1fJFRaRPHZ6fE7sji7kSIL7xSX6/W4s5nZMZhOubhdCIHiTZrsZXft12jRX8Q8HiMRGaDLpkFwSE6koiaUi2UIGrVmPrq2Zbq+IPDbO9GwK24CLVpuJfrGDPklE8Hgl2oyNdHQZaWg4T2+vk9uh25w9dwaHu5fWTq3aVmJmbha9oQWvT+Ti9YsMBrpR0kla26/hG/YiiUZ0misIqWSKdGqc9NwMw/I4mWyWlZUi4WE/4XCAoXiczHKGF6/+pvD8GfO5NDdHguTWlnj6/CnKWJTJ6VECoTvEJuMIPw9+UP58QvkQSvsnqBKOjjj99R/V01NqtRPqqkW1Su3nL46qNarqvnp8DPVT6t++c1z7c1fj/3odIb+6xGw2zcLiNLOra2z88y8bb14iJyIkEzKJRIL5uQx/vXvD1L0pFu7PMLVcYP3de16/fU0wGiQm3yEai6DEFYT+Wz4MdhNdVh1DSRll5RGjcoQLOi0WFYxoNeKw2NXQu3SKFq40XcIdHCBcfISSVGhobKCxRYOm5TKapmaEkBzFar6Bx++izdRCeOwW4dEQTdrLOF02rBYDnZ0d3MvPY7hxDaunC4tkVKG4Wcgv4uyRMDlsGNRwnVaFMr/2kOlilsDIIA6Ph2x+gZVCjlhoiLDsx+YbJBgK8PjlBukHyygTI1jdPUxkp1h/sk4unyM1E0fyeej2eREOt0rsVvbY3Npku1Ti67cffNkps/PhI6VymcpOhf3DQ77u7bGvzju7u5S3t/mset8PDjj4tEmpUlF/tyhXdvkNCkDC5Y+GnicAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img7"
+        title="img7"
+        src="/static/b4b4cb3d61aca36aeb0a2793d3087f63/fcda8/img7.png"
+        srcset="/static/b4b4cb3d61aca36aeb0a2793d3087f63/12f09/img7.png 148w,
+/static/b4b4cb3d61aca36aeb0a2793d3087f63/e4a3f/img7.png 295w,
+/static/b4b4cb3d61aca36aeb0a2793d3087f63/fcda8/img7.png 590w,
+/static/b4b4cb3d61aca36aeb0a2793d3087f63/efc66/img7.png 885w,
+/static/b4b4cb3d61aca36aeb0a2793d3087f63/078fe/img7.png 934w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>Conversion de los bounds a annotation</h2>
+<p>Para entrenar el modelo, ademas de las imagenes <strong>necesitamos una forma de representar los bounds de los personajes</strong>, esto lo vamos a hacer con una función que convierte los bounds a un xml con el formato que necesitamos.</p>
+<p><div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">
+<span class="token keyword">from</span> json2xml <span class="token keyword">import</span> json2xml
+<span class="token keyword">def</span> <span class="token function">bounding_box_to_annotation</span><span class="token punctuation">(</span>bbox<span class="token punctuation">,</span> img_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">"""
+  Arma el xml para el bounding box de una forma rebuscada
+  """</span>
+  data <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string">"annotation"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+          <span class="token string">"folder"</span><span class="token punctuation">:</span><span class="token string">"imgs"</span><span class="token punctuation">,</span>
+          <span class="token string">"filename"</span><span class="token punctuation">:</span>img_name<span class="token punctuation">,</span>
+          <span class="token string">"path"</span><span class="token punctuation">:</span><span class="token string">"../imgs/"</span><span class="token operator">+</span>img_name<span class="token punctuation">,</span>
+          <span class="token string">"source"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+              <span class="token string">"database"</span><span class="token punctuation">:</span><span class="token string">"Unknown"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">"size"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+              <span class="token string">"width"</span><span class="token punctuation">:</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token string">"height"</span><span class="token punctuation">:</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token string">"depth"</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">"segmented"</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token string">"object"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> bounds<span class="token punctuation">,</span> champ <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>bbox<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> bbox<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data<span class="token punctuation">[</span><span class="token string">'annotation'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'object'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string">"name"</span><span class="token punctuation">:</span>champ<span class="token punctuation">,</span>
+        <span class="token string">"pose"</span><span class="token punctuation">:</span><span class="token string">"Unspecified"</span><span class="token punctuation">,</span>
+        <span class="token string">"truncated"</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string">"difficult"</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string">"bndbox"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+          <span class="token string">"xmin"</span><span class="token punctuation">:</span>bounds<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"ymin"</span><span class="token punctuation">:</span>bounds<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"xmax"</span><span class="token punctuation">:</span>bounds<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"ymax"</span><span class="token punctuation">:</span>bounds<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+  content <span class="token operator">=</span> json2xml<span class="token punctuation">.</span>Json2xml<span class="token punctuation">(</span>data<span class="token punctuation">,</span> root<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> attr_type<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> item_wrap<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">.</span>to_xml<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"&lt;object>"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"&lt;/object>"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"&lt;name>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;object>&lt;name>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"&lt;/bndbox>"</span><span class="token punctuation">,</span><span class="token string">"&lt;/bndbox>&lt;/object>"</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> content
+</code></pre></div></p>
+<p>La idea es que cada vez que generemos una imagen, creemos un xml pasandole los bounds a esta funcion y luego lo guardamos en otra carpeta con el mismo nombre que la imagen.</p>
+<p>De esta forma obtenemos 2 carpetas, <strong>una con las imagenes y otra con los xmls</strong>, es muy importante que <strong>el nombre de las imagenes y los xmls sean iguales</strong> ya que esto permite a FastAI encontrar los xmls y imagenes correspondientes, solo debe cambiar la extensión.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fdf896ce69a8c60190986ba399e785fb/79e1b/img8.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAk0lEQVQY03VPAQrCMAzs/z8mMsVXODsHK5O1i63paTZSKtaD0pC7XC4mpQS/LFhXgiDnjBakr+8fhDNi6KYJ8/xoDrdMWrxqDBHB+wD+NKQmeoKZNwFz3mr5ZaHwMca9V3jV8G547W84nS8IIWAYLO7jCEmtSVR4OHaw1sI5h5heP0mLoUatz6q3al0bfPNcLhK8Ad7Qibe2D/4mAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img8"
+        title="img8"
+        src="/static/fdf896ce69a8c60190986ba399e785fb/79e1b/img8.png"
+        srcset="/static/fdf896ce69a8c60190986ba399e785fb/12f09/img8.png 148w,
+/static/fdf896ce69a8c60190986ba399e785fb/e4a3f/img8.png 295w,
+/static/fdf896ce69a8c60190986ba399e785fb/79e1b/img8.png 498w"
+        sizes="(max-width: 498px) 100vw, 498px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>Conclusion</h2>
+<p>En este punto podemos generar tantas imagenes como se quiera para entrenar el modelo, en la siguiente parte vamos a <strong>entrenar el modelo</strong> y verlo en accion.</p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/agro-algorithms/">← <!-- -->Algoritmos para agro</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/lol-champ-minimap-detection-part-1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c0c47ca5c93355474948.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-2334755ca3e485bfe096.js" async=""></script></body></html>
