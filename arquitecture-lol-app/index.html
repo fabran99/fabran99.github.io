@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Asistente de League of Legends Parte 1 - Arquitectura | Fabran99</title><meta data-react-helmet="true" name="description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><meta data-react-helmet="true" property="og:title" content="Asistente de League of Legends Parte 1 - Arquitectura"/><meta data-react-helmet="true" property="og:description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Asistente de League of Legends Parte 1 - Arquitectura"/><meta data-react-helmet="true" name="twitter:description" content="Parte 1 sobre la app asistente para League of Legends, en esta primera parte hablaré del diseño de la arquitectura para obtener estadísticas."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">League of Legends Assistant Part 1 - Architecture | Fabran99</title><meta data-react-helmet="true" name="description" content="Part 1 of the League of Legends assistant app, in this first part I will talk about the architecture design to obtain statistics."/><meta data-react-helmet="true" property="og:title" content="League of Legends Assistant Part 1 - Architecture"/><meta data-react-helmet="true" property="og:description" content="Part 1 of the League of Legends assistant app, in this first part I will talk about the architecture design to obtain statistics."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="League of Legends Assistant Part 1 - Architecture"/><meta data-react-helmet="true" name="twitter:description" content="Part 1 of the League of Legends assistant app, in this first part I will talk about the architecture design to obtain statistics."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
 @media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
 data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
 .cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
@@ -87,7 +87,7 @@ html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
 .lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
 .error__emoji{width:30vw;}/*!sc*/
 data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
-</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-2334755ca3e485bfe096.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"/><link as="fetch" rel="preload" href="/page-data\arquitecture-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Asistente de League of Legends Parte 1 - Arquitectura</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-687a9b9ecc2f0bae4722.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"/><link as="fetch" rel="preload" href="/page-data\arquitecture-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">League of Legends Assistant Part 1 - Architecture</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Posted on : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Reading Time: <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
     >
@@ -97,8 +97,8 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="imagen de la app "
-        title="imagen de la app "
+        alt="app image "
+        title="app image "
         src="/static/af91051f1ac3254778715ff6b260308b/fcda8/img1.png"
         srcset="/static/af91051f1ac3254778715ff6b260308b/12f09/img1.png 148w,
 /static/af91051f1ac3254778715ff6b260308b/e4a3f/img1.png 295w,
@@ -110,27 +110,27 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
         loading="lazy"
       />
     </span>
-Este es el primero de varios blogs, donde iré explicando mi proceso a la hora de desarrollar la app asistente de League of Legends, hay un <a href="/portfolio-work-1">post previo</a> en mi portfolio, donde comento por encima como funciona y que hace.</p>
-<h1>Necesidades de la app</h1>
-<p>Como comentaba en el post sobre la app, el objetivo principal es poder generar <strong>estadisticas actualizadas para cada personaje</strong>, de forma que sin necesidad de estar leyendo los parches del juego, <strong>el jugador pueda tomar decisiones</strong> sobre que personajes elegir o bloquear, asi como que equipamiento llevar.</p>
-<p>Antes de diseñar la arquitectura lo primero que necesitamos es saber con que recursos contamos y de donde vamos a sacar la información.
-En esta caso RiotGames <a href="https://developer.riotgames.com/apis">nos disponibiliza una API</a>, donde se puede obtener <strong>información de jugadores y de sus partidas</strong>.</p>
-<p>La api nos facilita un par de endpoints clave que debemos utilizar para llegar al dato final, que es la información final de cada campeón utilizado en una partida.</p>
-<h2>Endpoints disponibles</h2>
+This is the first of several blogs, where I will explain my process when developing the League of Legends assistant app, there is a <a href="/portfolio-work-1">previous post</a> in my portfolio, where I briefly comment on how it works and what it does.</p>
+<h1>App needs</h1>
+<p>As I mentioned in the post about the app, the main objective is to generate <strong>updated statistics for each character</strong>, so that without having to be reading the game patches, <strong>the player can make decisions</strong> about which characters to choose or block, as well as what equipment to carry.</p>
+<p>Before designing the architecture, the first thing we need is to know what resources we have and where we are going to get the information.
+In this case, RiotGames <a href="https://developer.riotgames.com/apis">provides us with an API</a>, where you can obtain <strong>information about players and their games</strong>.</p>
+<p>The api provides us with a couple of key endpoints that we must use to reach the final data, which is the final information of each champion used in a match.</p>
+<h2>Available Endpoints</h2>
 <ul>
-<li><strong>/lol/league/v4/entries/{queue}/{tier}/{division}</strong>: Nos da una lista de jugadores en una liga</li>
-<li><strong>/lol/match/v4/matchlists/by-account/</strong>: Nos da una lista de las partidas de un jugador</li>
-<li><strong>/lol/match/v4/matches/</strong>: Nos da el detalle de una partida en concreto</li>
+<li><strong>/lol/league/v4/entries/{queue}/{tier}/{division}</strong>: Gives us a list of players in a league</li>
+<li><strong>/lol/match/v4/matchlists/by-account/</strong>: Gives us a list of a player’s matches</li>
+<li><strong>/lol/match/v4/matches/</strong>: Gives us the detail of a specific match</li>
 </ul>
-<p>En base a estos endpoints, el proceso para llegar al detalle de una partida y obtener los datos de cada campeón es el siguiente:</p>
+<p>Based on these endpoints, the process to reach the match detail and obtain the data of each champion is as follows:</p>
 <ol>
-<li>Obtenemos una lista de jugadores de cada liga/division</li>
-<li>Obtenemos una lista de partidas recorriendo esos jugadores</li>
-<li>Recorremos esas partidas y obtenemos el detalle de cada una</li>
+<li>We obtain a list of players from each league/division</li>
+<li>We obtain a list of matches by going through those players</li>
+<li>We go through those matches and get the detail of each one</li>
 </ol>
-<h2>Limitantes de la API</h2>
-<p>La api nos limita a <strong>cierta cantidad de requests por minuto</strong>, sin embargo <strong>este límite aplica por servidor</strong>, es decir, si superamos el límite en el server de Corea, podemos seguir haciendo request de partidas al server de Norteamérica. De aquí surge una estratégia para optimizar las requests que detallaré mas adelante.</p>
-<h2>Plan y arquitectura</h2>
+<h2>API Limitations</h2>
+<p>The api limits us to a certain amount of requests per minute, however, <strong>this limit applies per server</strong>, that is, if we exceed the limit on the Korean server, we can continue making requests from the North American server. From this comes a strategy to optimize requests that I will detail later.</p>
+<h2>Plan and Architecture</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -141,8 +141,8 @@ En esta caso RiotGames <a href="https://developer.riotgames.com/apis">nos dispon
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Arquitectura"
-        title="Arquitectura"
+        alt="Architecture"
+        title="Architecture"
         src="/static/c163e391b3e3ca06eca4fee44b33be79/1c72d/model-architecture.jpg"
         srcset="/static/c163e391b3e3ca06eca4fee44b33be79/a80bd/model-architecture.jpg 148w,
 /static/c163e391b3e3ca06eca4fee44b33be79/1c91a/model-architecture.jpg 295w,
@@ -155,9 +155,9 @@ En esta caso RiotGames <a href="https://developer.riotgames.com/apis">nos dispon
         loading="lazy"
       />
     </span>
-El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stable/">Celery</a> para mantener procesos corriendo que vayan obteniendo datos de partidas, y a su vez actualizando tanto la lista de jugadores como la lista de partidas, descartando las antiguas y quitando de la lista jugadores inactivos de los que no vamos a obtener información.</p>
-<p>De aquí surgen una serie de procesos que van a correr en el servidor para llevar a cabo estas tareas, voy a numerar algunos de los más importantes:</p>
-<h3>1 - Obtención de jugadores</h3>
+The plan is to use the <a href="https://docs.celeryproject.org/en/stable/">Celery</a> library to keep processes running that go obtaining match data, and in turn updating both the list of players and the list of matches, discarding old ones and removing inactive players from the list that we are not going to obtain information from.</p>
+<p>From this a series of processes arise that will run on the server to carry out these tasks, I will number some of the most important:</p>
+<h3>1 - Player Collection</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 466px; "
@@ -175,8 +175,8 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Bloque de codigo 1"
-        title="Bloque de codigo 1"
+        alt="Code block 1"
+        title="Code block 1"
         src="/static/cc32495a2657077401bb5352624f868e/fc1a1/code1.png"
         srcset="/static/cc32495a2657077401bb5352624f868e/12f09/code1.png 148w,
 /static/cc32495a2657077401bb5352624f868e/e4a3f/code1.png 295w,
@@ -187,8 +187,8 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
       />
   </a>
     </span></p>
-<p>Mediante <strong>Celery Beat</strong>, dia por medio se realiza una recorrida por cada server, liga y division disponible,<strong>almacenando la información de todos los jugadores en PostgreSQL</strong>. De cada uno de ellos se almacena el server al que pertenece, su liga, división, nombre y distintos IDS que se requieren luego para hacer otros requests con la api.</p>
-<h3>2 - Obtención de partidas</h3>
+<p>Through <strong>Celery Beat</strong>, every other day a tour is made of each available server, league and division, <strong>storing all player information in PostgreSQL</strong>. From each of them the server they belong to, their league, division, name and various IDS that are later required to make other requests with the api are stored.</p>
+<h3>2 - Game Collection</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 530px; "
@@ -206,8 +206,8 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Bloque de codigo 2"
-        title="Bloque de codigo 2"
+        alt="Code block 2"
+        title="Code block 2"
         src="/static/b70f1b1686e6830287511c387e79bfc0/b6a9b/code2.png"
         srcset="/static/b70f1b1686e6830287511c387e79bfc0/12f09/code2.png 148w,
 /static/b70f1b1686e6830287511c387e79bfc0/e4a3f/code2.png 295w,
@@ -218,10 +218,10 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
       />
   </a>
     </span></p>
-<p>Mediante <a href="http://supervisord.org/running.html">Supervisor</a> se mantienen corriendo un proceso por cada server, cada uno de ellos recorre la lista de jugadores asociados a ese servidor, obteniendo una <strong>lista de partidas recientes</strong>.</p>
-<p>Para cada jugador se obtiene la última fecha en la que este proceso lo revisó, de forma que la siguiente vez que se soliciten sus partidas se haga solo con partidas posteriores a esa fecha. De esta forma se evitan duplicados.</p>
-<p>Una vez obtenidas las partidas de los jugadores de determinada región, estas <strong>se almacenan en una lista de Redis</strong>, donde la key es la región de la partida.</p>
-<h3>3 - Obtención de detalle de partidas</h3>
+<p>Using <a href="http://supervisord.org/running.html">Supervisor</a>, a process is kept running for each server, each of them going through the list of players associated with that server, getting a list of recent matches.</p>
+<p>For each player, the last date on which this process checked it is obtained, so that the next time their matches are requested, it is only done with matches after that date. This way, duplicates are avoided.</p>
+<p>Once the matches of the players in a certain region are obtained, they are stored in a Redis list, where the key is the region of the match.</p>
+<h3>3 - Getting Match Details</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -239,8 +239,8 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Bloque de codigo 3"
-        title="Bloque de codigo 3"
+        alt="Code block 3"
+        title="Code block 3"
         src="/static/d003dcab40f768dba9f07f66bcbb05fb/fcda8/code3.png"
         srcset="/static/d003dcab40f768dba9f07f66bcbb05fb/12f09/code3.png 148w,
 /static/d003dcab40f768dba9f07f66bcbb05fb/e4a3f/code3.png 295w,
@@ -252,10 +252,10 @@ El plan es utilizar la librería <a href="https://docs.celeryproject.org/en/stab
       />
   </a>
     </span>
-Utilizando también supervisor, se va extrayendo de la cola de redis de partidas por procesar un puñado de partidas de cada server (de esta forma evitamos en cierta medida el limite de requests de la API).</p>
-<p>Estas partidas van a una cola de celery worker donde se solicita su detalle, se recorre la información de cada jugador que participó en ella y todo lo relevante a la misma se almacena en PostgreSQL.</p>
-<p>Algunos de los datos que se obtienen de cada partida son: Personajes jugados y bloqueados, asesinatos, muertes y asistencias de cada personaje, objetos y runas de cada personaje, cantidad de minions asesinados por cada jugador, línea de cada personaje, entre otras.</p>
-<h3>4 - Obtención de estadísticas</h3>
+Also using supervisor, a handful of matches are extracted from the Redis queue of matches to be processed from each server (this way we avoid to some extent the API request limit).</p>
+<p>These matches go to a Celery worker queue where their detail is requested, the information of each player who participated in it and everything relevant to it is stored in PostgreSQL.</p>
+<p>Some of the data obtained from each match are: Characters played and blocked, kills, deaths and assists of each character, items and runes of each character, number of minions killed by each player, line of each character, among others.</p>
+<h3>4 - Obtaining Statistics</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 487px; "
@@ -273,8 +273,8 @@ Utilizando también supervisor, se va extrayendo de la cola de redis de partidas
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Bloque de codigo 4"
-        title="Bloque de codigo 4"
+        alt="Code block 4"
+        title="Code block 4"
         src="/static/d65cfcaf751f7d855a7fe460ba9a03da/7b439/code4.png"
         srcset="/static/d65cfcaf751f7d855a7fe460ba9a03da/12f09/code4.png 148w,
 /static/d65cfcaf751f7d855a7fe460ba9a03da/e4a3f/code4.png 295w,
@@ -285,19 +285,19 @@ Utilizando también supervisor, se va extrayendo de la cola de redis de partidas
       />
   </a>
     </span>
-Una vez ya se han obtenido una buena cantidad de partidas (me he manejado con cerca de 100.000), lo que se hace es utilizar pandas para obtener estadisticas de cada personaje. Este proceso se ejecuta mediante Celery Beat cada 24 horas o cuando se detecte un cambio de parche en el juego, para mantener las estadísticas actualizadas.</p>
-<p>En 100.000 partidas, al haber 10 jugadores, hay un muestreo de 1.000.000 de datos totales si lo dividimos por personaje. De esta forma podemos obtener los siguientes datos de cada personaje:</p>
+Once a good number of matches have been obtained (I have managed with about 100,000), what is done is to use pandas to obtain statistics for each character. This process is executed through Celery Beat every 24 hours or when a patch change is detected in the game, to keep the statistics updated.</p>
+<p>In 100,000 matches, with 10 players, there is a sampling of 1,000,000 total data if divided by character. In this way we can obtain the following data for each character:</p>
 <ul>
-<li>Líneas frecuentes en las que se juega</li>
-<li>Ratio de veces que se elige/bloquea</li>
-<li>Ratio de victorias/derrotas</li>
-<li>Objetos y runas con mayor ratio de éxito</li>
-<li>Personajes contra los que se gana/pierde mas </li>
-<li>En que minuto de la partida se gana/pierde más</li>
+<li>Frequent lines in which it is played</li>
+<li>Ratio of times it is chosen/blocked</li>
+<li>Win/loss ratio</li>
+<li>Items and runes with a higher success rate</li>
+<li>Characters against which you win/lose more </li>
+<li>In which minute of the match you win/lose more</li>
 </ul>
-<p>Algunas de esas estadísticas es relevante contrastarlas segun que línea se esté jugando, es decir, el equipamiento de un personaje puede ser muy distinto si se está jugando como Soporte o como Medio. De esta forma podemos obtener <strong>varias builds distintas para cada personaje de acuerdo a la línea asignada.</strong></p>
-<p>Estas estadísticas tienen una estructura considerablemente compleja, y se almacenan en MongoDB.
-El análisis de los datos es demasiado extenso para comentarlo en detalle en este post, pero quizá escriba al respecto más adelante.</p>
-<h1>Comentarios finales</h1>
-<p>En este punto ya obtuvimos las estadísticas de cada personaje en cada línea, por lo que en el siguiente post voy a estar escribiendo sobre como diseñe el frontend, que funcionalidades tiene y que tecnologías usé.</p>
-<p><a href="/frontend-lol-app/">Siguiente post - Frontend de la app</a></p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/frontend-lol-app/">Asistente de League of Legends Parte 2 - Frontend<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/arquitecture-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c0c47ca5c93355474948.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-2334755ca3e485bfe096.js" async=""></script></body></html>
+<p>Some of these statistics are relevant to contrast them according to the line being played, that is, the equipment of a character can be very different if it is being played as Support or Middle. In this way we can obtain <strong>several different builds for each character according to the assigned line.</strong></p>
+<p>These statistics have a considerably complex structure, and are stored in MongoDB.
+The analysis of the data is too extensive to comment on in detail in this post, but perhaps I will write about it later.</p>
+<h1>Final comments</h1>
+<p>At this point we have already obtained the statistics of each character in each line, so in the next post I will be writing about how I designed the frontend, what functionalities it has and what technologies I used.</p>
+<p><a href="/frontend-lol-app/">Next post - App Frontend</a></p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/frontend-lol-app/">League of Legends Assistant Part 2 - Frontend<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> Interested in my work? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> <!-- -->Contact me<!-- --> </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/arquitecture-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-4dab9f9206ceb52bfd5b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d450957caa506d23aefd.js"],"component---src-pages-works-js":["/component---src-pages-works-js-cabb4ce4e66f90b45fb4.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-4d009edbacc3ae12a57e.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-9816c356ca81f51f3748.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-687a9b9ecc2f0bae4722.js" async=""></script></body></html>

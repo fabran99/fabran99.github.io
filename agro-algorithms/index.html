@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Algoritmos para agro | Fabran99</title><meta data-react-helmet="true" name="description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><meta data-react-helmet="true" property="og:title" content="Algoritmos para agro"/><meta data-react-helmet="true" property="og:description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Algoritmos para agro"/><meta data-react-helmet="true" name="twitter:description" content="En este post voy a comentar algunos de los algoritmos que desarrollé para una aplicación real con foco en el agro. Basandome principalmente en información geográfica."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Algorithms for Agriculture | Fabran99</title><meta data-react-helmet="true" name="description" content="In this post, I will discuss some of the algorithms I developed for a real application focused on agriculture. Mainly based on geographical information."/><meta data-react-helmet="true" property="og:title" content="Algorithms for Agriculture"/><meta data-react-helmet="true" property="og:description" content="In this post, I will discuss some of the algorithms I developed for a real application focused on agriculture. Mainly based on geographical information."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Algorithms for Agriculture"/><meta data-react-helmet="true" name="twitter:description" content="In this post, I will discuss some of the algorithms I developed for a real application focused on agriculture. Mainly based on geographical information."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
 @media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
 data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
 .cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
@@ -87,7 +87,7 @@ html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
 .lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
 .error__emoji{width:30vw;}/*!sc*/
 data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
-</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-2334755ca3e485bfe096.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"/><link as="fetch" rel="preload" href="/page-data\agro-algorithms\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Algoritmos para agro</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-687a9b9ecc2f0bae4722.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"/><link as="fetch" rel="preload" href="/page-data\agro-algorithms\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Algorithms for Agriculture</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Posted on : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Reading Time: <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
     >
@@ -104,8 +104,8 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="algoritmos"
-        title="algoritmos"
+        alt="algorithms"
+        title="algorithms"
         src="/static/530fb91f87b79dad7f21c7816bc03d46/1c72d/algoritmo.jpg"
         srcset="/static/530fb91f87b79dad7f21c7816bc03d46/a80bd/algoritmo.jpg 148w,
 /static/530fb91f87b79dad7f21c7816bc03d46/1c91a/algoritmo.jpg 295w,
@@ -117,10 +117,10 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
       />
   </a>
     </span>
-Una de las aplicaciónes reales en las que estoy trabajando utiliza <strong>datos geográficos</strong> del recorrido de máquinas de agro para <strong>obtener una serie de estadísticas relevantes</strong>. Utilizo principalmente las librerías Pandas, GeoPandas y Shapely.</p>
-<p>Voy a comentar algunos de ellos siguiendo el razonamiento que me llevó a resolver los problemas que se fueron planteando.</p>
-<h1>Problemática y recursos disponibles</h1>
-<p>Disponemos de una serie de datos con el recorrido de una máquina, con su posición geográfica y estado (trabajando, no trabajando).
+One of the real applications I am working on uses <strong>geographical data</strong> from the route of agricultural machines to <strong>obtain a series of relevant statistics</strong>. I mainly use the Pandas, GeoPandas, and Shapely libraries.</p>
+<p>I will discuss some of them following the reasoning that led me to solve the problems that arose.</p>
+<h1>Problems and Available Resources</h1>
+<p>We have a series of data on the route of a machine, with its geographical position and status (working, not working).
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -152,16 +152,16 @@ Una de las aplicaciónes reales en las que estoy trabajando utiliza <strong>dato
       />
   </a>
     </span>
-En base a esto necesitamos obtener toda la información relevante que ayude a medir el trabajo realizado.</p>
-<p>Algunas de estas estadísticas son:</p>
+Based on this, we need to obtain all relevant information that helps measure the work done.</p>
+<p>Some of these statistics are:</p>
 <ul>
-<li>Hectáreas trabajadas</li>
-<li>Área solapada</li>
-<li>Distancia entre 2 filas trabajadas</li>
-<li>Detección de cabeceras</li>
+<li>Hectares worked</li>
+<li>Overlapped area</li>
+<li>Distance between 2 worked rows</li>
+<li>Detection of headers</li>
 </ul>
-<p>Para que alguien no familiarizado pueda entender como funcionan estas máquinas, voy a hacer un breve resumen.</p>
-<h2>Máquinas de agro</h2>
+<p>To help someone unfamiliar understand how these machines work, I’ll provide a brief summary.</p>
+<h2>Agriculture Machines</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -179,8 +179,8 @@ En base a esto necesitamos obtener toda la información relevante que ayude a me
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="cosechadora"
-        title="cosechadora"
+        alt="harvester"
+        title="harvester"
         src="/static/c59480fd6d301a2f6e7ce3939f6abee6/1c72d/cosechadora.jpg"
         srcset="/static/c59480fd6d301a2f6e7ce3939f6abee6/a80bd/cosechadora.jpg 148w,
 /static/c59480fd6d301a2f6e7ce3939f6abee6/1c91a/cosechadora.jpg 295w,
@@ -193,9 +193,9 @@ En base a esto necesitamos obtener toda la información relevante que ayude a me
       />
   </a>
     </span>
-Hay principalmente 2 tipos de máquina que monitoreamos, sembradoras y cosechadoras.
-Las sembradoras lo que hacen es colocar las semillas en un campo mientras que las cosechadoras levantan el producto luego de que crezca.</p>
-<p>Lo que tienen en común sobre todo es como se comportan, las máquinas tienen un área que sembrar/cosechar, y van cubriendola en zig zag.
+There are mainly 2 types of machines we monitor, planters and harvesters.
+Planters sow seeds in a field while harvesters pick up the product once it grows.</p>
+<p>What they have in common is how they behave, the machines have an area to sow/harvest, and they cover it in a zigzag pattern.
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -226,17 +226,17 @@ Las sembradoras lo que hacen es colocar las semillas en un campo mientras que la
       />
   </a>
     </span>
-Aquí hay una representación de un recorrido de una máquina.</p>
-<h2>Algoritmo 1 - Detección de cabeceras y líneas de trabajo</h2>
-<p>Un dato no menor, es que al finalizar una línea de trabajo, la máquina levanta el cabezal para poder hacer un giro de 180 grados y avanzar a la siguiente línea. </p>
-<p>Mientras esto ocurre <strong>la máquina no cosecha ni siembra, por lo que esos trozos deberían descartarse.</strong>
-Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separarlos de las propias líneas de trabajo.</p>
-<p>El algorítmo desarrollado, utiliza los cambios en el ángulo del gps para detectar estos giros de 180 grados, y los compara con el tiempo desde el último dato. De esta forma podemos tener un <strong>ratio de variación de ángulo en el tiempo</strong>. Al superar un determinado valor, se estima que la máquina está haciendo un giro lo suficientemente pronunciado como para considerarlo una cabecera.</p>
-<p>Punteo de los pasos para llegar a este resultado:</p>
+Here is a representation of a machine’s route.</p>
+<h2>Algorithm 1 - Detection of Headers and Work Lines</h2>
+<p>An important piece of data is that at the end of a work line, the machine lifts the head to make a 180-degree turn and move on to the next line.</p>
+<p>While this occurs, <strong>the machine does not harvest or sow, so those pieces should be discarded.</strong>
+For this, first of all, we must <strong>detect these cases</strong> and separate them from the work lines themselves.</p>
+<p>The algorithm I developed uses changes in the GPS angle to detect these 180-degree turns, and compares them with the time from the last data point. This way, we can have a <strong>ratio of angle variation over time</strong>. When it exceeds a certain value, it is estimated that the machine is making a turn sharp enough to be considered a header.</p>
+<p>The steps to get to this result are:</p>
 <ol>
-<li>Se calcula la diferencia de angulo entre el dato anterior y el actual, es relevante tomar en cuenta que al pasar de el ángulo 0 al 359 no hay 359 grados de distancia, sino 1.</li>
-<li>Se calcula la diferencia en tiempo desde el dato anterior y el actual.</li>
-<li>Se calcula el ratio entre variación de ángulo y variación de tiempo.
+<li>Calculate the difference in angle between the previous and current data. It is relevant to take into account that when passing from angle 0 to 359 there is not 359 degrees of distance, but 1.</li>
+<li>Calculate the time difference from the previous and current data.</li>
+<li>Calculate the ratio between angle variation and time variation.
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -254,8 +254,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="codigo 1"
-        title="codigo 1"
+        alt="code 1"
+        title="code 1"
         src="/static/b03feb0a97ae57dc743629600378872e/fcda8/code1.png"
         srcset="/static/b03feb0a97ae57dc743629600378872e/12f09/code1.png 148w,
 /static/b03feb0a97ae57dc743629600378872e/e4a3f/code1.png 295w,
@@ -267,10 +267,10 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
       />
   </a>
     </span></li>
-<li>Aquellos datos con un turnrate superior a 12 (numero mágico obtenido a base de prueba y error) se les agrega una flag “turning” = 1, y a los demas datos se les asigna un 0.</li>
-<li>Agrego una columna con la diferencia entre el estado de “turning” del dato anterior y el actual, en aquellos datos donde la diferencia es 0 es que el estado anterior se mantuvo.</li>
+<li>Data with a turnrate higher than 12 (a magic number obtained by trial and error) are given a “turning” flag = 1, and a 0 is assigned to the other data.</li>
+<li>Add a column with the difference between the “turning” state of the previous data and the current one. In those data where the difference is 0, it means that the previous state was maintained.</li>
 </ol>
-<p>De esta forma, si filtro aquellas filas con un cambio de estado de 1 o -1, lo que obtengo son las filas que comienzan un periodo de giro o un periodo de línea.</p>
+<p>In this way, if I filter those rows with a state change of 1 or -1, what I obtain are the rows that begin a period of rotation or a line period.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -301,8 +301,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
       />
   </a>
     </span></p>
-<p>Si separo el dataframe original utilizando las filas del paso anterior, obtengo múltiples segmentos de datos, donde se intercalan líneas de trabajo y cabeceras.</p>
-<p>En las siguientes imagenes se pueden ver los resultados, donde en azul se muestran los puntos que componen las lineas de trabajo y en rojo las cabeceras.
+<p>If I separate the original dataframe using the rows from the previous step, I obtain multiple data segments, where work lines and headers alternate.</p>
+<p>In the following images, you can see the results, where the points that make up the work lines are shown in blue and the headers in red.
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 294px; "
@@ -320,8 +320,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="caso1"
-        title="caso1"
+        alt="case1"
+        title="case1"
         src="/static/3bb6a31723d8f69af842fca7fa9f8ffb/04a86/caso1.png"
         srcset="/static/3bb6a31723d8f69af842fca7fa9f8ffb/12f09/caso1.png 148w,
 /static/3bb6a31723d8f69af842fca7fa9f8ffb/04a86/caso1.png 294w"
@@ -348,8 +348,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="caso2"
-        title="caso2"
+        alt="case2"
+        title="case2"
         src="/static/2de26789cdbbf055387ea985c0957a6f/a3e09/caso2.png"
         srcset="/static/2de26789cdbbf055387ea985c0957a6f/12f09/caso2.png 148w,
 /static/2de26789cdbbf055387ea985c0957a6f/e4a3f/caso2.png 295w,
@@ -360,11 +360,11 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
       />
   </a>
     </span></p>
-<p>Con algunas optimizaciones posteriores el resultado mejora notoriamente.</p>
-<h2>Algoritmo 2 - Detección de entrefila</h2>
-<p>Un dato que resulta relevante para algunos de los clientes, es la distancia entre una línea de trabajo y la siguiente.</p>
-<p>Este algoritmo requiere que el operador trabaje en forma de zig zag, pasando de una linea de trabajo a la siguiente de forma ordenada. </p>
-<p>Las líneas de trabajo son irregulares y estan compuestas por cientos de puntos, por lo que el algorítmo con el que resolví el problema consiste en lo siguiente:</p>
+<p>With some later optimizations, the result improves noticeably.</p>
+<h2>Algorithm 2 - Detection of Interrow Distance</h2>
+<p>A data point that is relevant for some clients is the distance between one work line and the next.</p>
+<p>This algorithm requires the operator to work in a zigzag pattern, moving from one work line to the next in an orderly fashion. </p>
+<p>The work lines are irregular and consist of hundreds of points, so the algorithm with which I solved the problem is as follows:</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 581px; "
@@ -382,8 +382,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="entrefila"
-        title="entrefila"
+        alt="interrow"
+        title="interrow"
         src="/static/10603d0eb5da124685d78ef6f9beddf9/92d15/entrefila.png"
         srcset="/static/10603d0eb5da124685d78ef6f9beddf9/12f09/entrefila.png 148w,
 /static/10603d0eb5da124685d78ef6f9beddf9/e4a3f/entrefila.png 295w,
@@ -395,16 +395,16 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   </a>
     </span></p>
 <ol>
-<li>Se toman una serie de puntos al azar <strong>(desde ahora A)</strong> de una línea y para cada uno de ellos se traza una perpendicular <strong>(desde ahora P)</strong>. </li>
-<li>Estas líneas se <strong>intersectan con la línea de trabajo</strong> siguiente en un punto <strong>(desde ahora B)</strong>.</li>
-<li>Se mide la <strong>distancia entre A y B</strong>.</li>
-<li>Se calcula la mediana de estas distancias.</li>
+<li>Take a series of random points (<strong>from now on A</strong>) from a line and for each of them draw a perpendicular line (<strong>from now on P</strong>). </li>
+<li>These lines are intersected with the next work line at a point (<strong>from now on B</strong>).</li>
+<li>Measure the distance between A and B.</li>
+<li>Calculate the median of these distances.</li>
 </ol>
-<p>Si bien hay bastante aproximación en el algoritmo, con este enfoque <strong>se obtiene una precision incluso mayor</strong> que en las mediciones hechas manualmente en el campo, ya que se pueden obtener decenas de muestras para cada línea de trabajo. </p>
-<h2>Algoritmo 3 - Detección de estado de trabajo mediante Machine Learning</h2>
-<p>Una necesidad que surgió, fue la de detectar el estado de trabajo de una máquina (sembradora o cosechadora), ya que algunas no llevan un sensor que nos indique cuando está trabajando, o en otros casos, el sensor falla. </p>
-<p>Este algoritmo utiliza <strong>datos históricos del recorrido</strong> de cosechadoras y sembradoras mientras estaban trabajando, y datos de periodos en los que no se estaba trabajando, se entrena un modelo de <strong>machine learning</strong> que pueda, visualmente determinar cuando una máquina esta haciendo un recorrido acorde a un estado de trabajo y cuando no.</p>
-<h3>Imagenes de recorridos en estado de trabajo</h3>
+<p>While there is quite an approximation in the algorithm, with this approach, a precision is obtained that is even greater than that of measurements made manually in the field, as dozens of samples can be obtained for each work line.</p>
+<h2>Algorithm 3 - Detection of Work State through Machine Learning</h2>
+<p>A need that arose was to detect the working state of a machine (planter or harvester), as some do not carry a sensor that tells us when it is working, or in other cases, the sensor fails.</p>
+<p>This algorithm uses <strong>historical data of the route</strong> of harvesters and planters while they were working, and data from periods when they were not working, and trains a <strong>machine learning model</strong> that can visually determine when a machine is making a route according to a work state and when it is not.</p>
+<h3>Images of Routes in Work State</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -422,8 +422,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="recorrido1"
-        title="recorrido1"
+        alt="route1"
+        title="route1"
         src="/static/0e6d308a0622c6691455fcc2c2ed7ce9/fcda8/machinelearning1.png"
         srcset="/static/0e6d308a0622c6691455fcc2c2ed7ce9/12f09/machinelearning1.png 148w,
 /static/0e6d308a0622c6691455fcc2c2ed7ce9/e4a3f/machinelearning1.png 295w,
@@ -437,7 +437,7 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
       />
   </a>
     </span></p>
-<h3>Imagenes de recorridos sin estado de trabajo (Se incluyen fallos de gps en esta clasificacion)</h3>
+<h3>Images of Routes Without Work State (GPS Failures Are Included in This Classification)</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -455,8 +455,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="recorrido2"
-        title="recorrido2"
+        alt="route2"
+        title="route2"
         src="/static/915c08102b24300217c2132d9113d3e4/fcda8/machinelearning2.png"
         srcset="/static/915c08102b24300217c2132d9113d3e4/12f09/machinelearning2.png 148w,
 /static/915c08102b24300217c2132d9113d3e4/e4a3f/machinelearning2.png 295w,
@@ -468,7 +468,7 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
       />
   </a>
     </span></p>
-<h3>Se entrena para detectar cual estado corresponde y se generan alertas</h3>
+<h3>Train to Detect Which State Corresponds and Generate Alerts</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -486,8 +486,8 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="entrenamiento"
-        title="entrenamiento"
+        alt="training"
+        title="training"
         src="/static/6f379e74193fb1a9826e23a88e8b6f98/fcda8/img6.png"
         srcset="/static/6f379e74193fb1a9826e23a88e8b6f98/12f09/img6.png 148w,
 /static/6f379e74193fb1a9826e23a88e8b6f98/e4a3f/img6.png 295w,
@@ -500,4 +500,4 @@ Para esto, primero que nada debemos <strong>detectar esos casos</strong> y separ
         loading="lazy"
       />
   </a>
-    </span></p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/frontend-lol-app/">← <!-- -->Asistente de League of Legends Parte 2 - Frontend</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/lol-champ-minimap-detection-part-1/">Detección de personajes de LOL en tiempo real (Parte 1)<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/agro-algorithms/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c0c47ca5c93355474948.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-2334755ca3e485bfe096.js" async=""></script></body></html>
+    </span></p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/frontend-lol-app/">← <!-- -->League of Legends Assistant Part 2 - Frontend</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/lol-champ-minimap-detection-part-1/">Real-time LOL Character Detection (Part 1)<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> Interested in my work? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> <!-- -->Contact me<!-- --> </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/agro-algorithms/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-4dab9f9206ceb52bfd5b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d450957caa506d23aefd.js"],"component---src-pages-works-js":["/component---src-pages-works-js-cabb4ce4e66f90b45fb4.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-4d009edbacc3ae12a57e.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-9816c356ca81f51f3748.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-687a9b9ecc2f0bae4722.js" async=""></script></body></html>

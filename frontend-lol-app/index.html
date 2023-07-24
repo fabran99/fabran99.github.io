@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">Asistente de League of Legends Parte 2 - Frontend | Fabran99</title><meta data-react-helmet="true" name="description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><meta data-react-helmet="true" property="og:title" content="Asistente de League of Legends Parte 2 - Frontend"/><meta data-react-helmet="true" property="og:description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="Asistente de League of Legends Parte 2 - Frontend"/><meta data-react-helmet="true" name="twitter:description" content="Parte 2 sobre la app asistente para League of Legends, en esta parte hablaré del frontend que desarrollé con Electron y ReactJS."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e474a7f82805a6578619.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}@font-face{font-family:GT-Walsheim-Pro-Regular;src:url(/static/GT-Walsheim-Pro-Regular-e20abb51dbda341be34d63751bf7bf65.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Medium;src:url(/static/GT-Walsheim-Pro-Medium-f1f6b3c072088e30d50ce03629bcbdc0.woff2) format("woff2")}@font-face{font-family:GT-Walsheim-Pro-Bold;src:url(/static/GT-Walsheim-Pro-Bold-7eb96f426d03d1736921a3ff2611ca58.woff2) format("woff2")}</style><meta name="generator" content="Gatsby 2.28.2"/><title data-react-helmet="true">League of Legends Assistant Part 2 - Frontend | Fabran99</title><meta data-react-helmet="true" name="description" content="Part 2 on the League of Legends assistant app, in this part I will talk about the frontend I developed with Electron and ReactJS."/><meta data-react-helmet="true" property="og:title" content="League of Legends Assistant Part 2 - Frontend"/><meta data-react-helmet="true" property="og:description" content="Part 2 on the League of Legends assistant app, in this part I will talk about the frontend I developed with Electron and ReactJS."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Facundo Branbate"/><meta data-react-helmet="true" name="twitter:title" content="League of Legends Assistant Part 2 - Frontend"/><meta data-react-helmet="true" name="twitter:description" content="Part 2 on the League of Legends assistant app, in this part I will talk about the frontend I developed with Electron and ReactJS."/><style data-styled="" data-styled-version="5.1.1">.eEhTJc a{color:#000;font-size:2.3rem;font-family:"GT-Walsheim-Pro-Bold";}/*!sc*/
 @media (max-width:850px){.eEhTJc{display:none;}}/*!sc*/
 data-styled.g1[id="style__NavbarLogo-sc-1kk5mj1-0"]{content:"eEhTJc,"}/*!sc*/
 .cvEVjw{display:grid;grid-template-columns:1fr 1fr;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
@@ -87,7 +87,7 @@ html p{font-size:1.125rem;font-weight:200;line-height:1.8;}/*!sc*/
 .lined-link:hover:after,.lined-link.active:after{background-color:#0ec289;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 50%;-ms-transform-origin:0 50%;transform-origin:0 50%;-webkit-transition:-webkit-transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);-webkit-transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);transition:transform 1s cubic-bezier(0.19,1,0.22,1),background-color 0.2s ease-out, -webkit-transform 1s cubic-bezier(0.19,1,0.22,1);}/*!sc*/
 .error__emoji{width:30vw;}/*!sc*/
 data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
-</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-2334755ca3e485bfe096.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"/><link as="fetch" rel="preload" href="/page-data\frontend-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">Asistente de League of Legends Parte 2 - Frontend</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Publicado : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Tiempo de lectura : <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
+</style><link rel="icon" href="/favicon-32x32.png?v=f5ea306e691a14155928ec70686ef280" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f5ea306e691a14155928ec70686ef280"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f5ea306e691a14155928ec70686ef280"/><link as="script" rel="preload" href="/webpack-runtime-687a9b9ecc2f0bae4722.js"/><link as="script" rel="preload" href="/framework-5a1b297d9adac74fe592.js"/><link as="script" rel="preload" href="/app-12ec5df1746cba18d59d.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js"/><link as="script" rel="preload" href="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"/><link as="fetch" rel="preload" href="/page-data\frontend-lol-app\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="mainContent__MainContent-gv3d4z-0 szAWD"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><nav><div class="container"><div class="style__NavbarElement-sc-1kk5mj1-1 cvEVjw"><div class="style__NavbarLogo-sc-1kk5mj1-0 eEhTJc"><h3><a href="/"><span class="align-middle"> <!-- -->Fabran99<!-- --> </span></a></h3></div><div class="main-navigation"><ul class="style__NavbarList-sc-1kk5mj1-2 cXPKA-D"><li><a class="lined-link" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span> About </span> </a></li><li><a class="lined-link" href="/works"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span> Portfolio </span> </a></li><li><a class="lined-link" href="/blog"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg> <span> Blog </span> </a></li></ul></div></div></div></nav></div><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><main><div class="posts__Intro-sc-4d4syh-0 dgAeoZ"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div><article class="posts__ArticlePost-sc-4d4syh-2 bcAOPN"><header><h1 class="posts__Title-sc-4d4syh-1 bxzDDq">League of Legends Assistant Part 2 - Frontend</h1><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="align-middle"> <!-- -->Posted on : <!-- -->October 16, 2021<!-- --> </span></small><small class="posts__SmallText-sc-4d4syh-3 kzUKQC"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="align-middle text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="align-middle"> <!-- -->Reading Time: <!-- -->10<!-- --> mins<!-- --> </span></small></header><div class="posts__ArticleBody-sc-4d4syh-4 lhbrzX"><p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
     >
@@ -97,8 +97,8 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="imagen de la app "
-        title="imagen de la app "
+        alt="app image "
+        title="app image "
         src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
         srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
 /static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
@@ -110,13 +110,13 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
         loading="lazy"
       />
     </span>
-En este post voy a explicar un poco como desarrollé el frontend de la app asistente de League of Legends, hay un <a href="/arquitecture-lol-app">post previo</a>, donde comento la arquitectura del backend. </p>
-<h1>Necesidades de la app</h1>
-<p>En la parte frontend, se requiere una app de escritorio que por un lado muestre las estadísticas de todos los personajes obtenidas desde backend, y a su vez que se pueda conectar al launcher del juego, de forma que segun el feedback que reciba del mismo más las estadísticas, se pueda dar una serie de consejos.</p>
-<h1>Tecnologías utilizadas</h1>
-<p>Como es mi framework de preferencia, utilicé ReactJS para la interfaz, y de paso utilicé también electron para que la app fuera de escritorio. </p>
-<p>Fue mi primera aproximación a electron, y resulta que no se lleva del todo bien con ReactJS (al menos utilizando create-react-app), asi que el setup del proyecto fue relativamente mas complejo de lo esperado. Pero finalmente todo funcionó como correspondía e incluso pude habilitar features realmente útiles como actualizaciones automáticas.</p>
-<h2>El setup de ReactJS + Electron</h2>
+In this post, I will explain a bit about how I developed the frontend of the League of Legends assistant app, there is a <a href="/arquitecture-lol-app">previous post</a>, where I comment on the backend architecture.</p>
+<h1>App needs</h1>
+<p>In the frontend part, a desktop app is required that on one hand shows the statistics of all characters obtained from the backend, and on the other hand, it can connect to the game launcher, so that based on the feedback received from it plus the statistics, it can provide a series of advice.</p>
+<h1>Technologies used</h1>
+<p>As it’s my preferred framework, I used ReactJS for the interface, and I also used Electron to make the app a desktop application.</p>
+<p>It was my first approach to Electron, and it turns out that it doesn’t get along very well with ReactJS (at least using create-react-app), so the project setup was relatively more complex than expected. But eventually everything worked as it should and I even managed to enable really useful features like automatic updates.</p>
+<h2>ReactJS + Electron setup</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -134,8 +134,8 @@ En este post voy a explicar un poco como desarrollé el frontend de la app asist
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="react y electron"
-        title="react y electron"
+        alt="react and electron"
+        title="react and electron"
         src="/static/8bb2eea4a87251c9a17c50c61148dc43/1c72d/react_and_electron.jpg"
         srcset="/static/8bb2eea4a87251c9a17c50c61148dc43/a80bd/react_and_electron.jpg 148w,
 /static/8bb2eea4a87251c9a17c50c61148dc43/1c91a/react_and_electron.jpg 295w,
@@ -149,8 +149,8 @@ En este post voy a explicar un poco como desarrollé el frontend de la app asist
       />
   </a>
     </span></p>
-<p>Por un tema de practicidad siempre utilizo create-react-app al iniciar un proyecto de react. Por la complejidad del manejo del state, en este caso utilicé tambien Redux.</p>
-<p>Electron en este caso no solo va a servir para hacer la aplicacion un ejecutable, sino que tambien se va a encargar de la conexión con el launcher del juego.</p>
+<p>For practicality’s sake, I always use create-react-app when starting a React project. Because of the complexity of state management, in this case, I also used Redux.</p>
+<p>Electron in this case is not only going to serve to make the application executable, but it’s also going to be in charge of connecting to the game launcher.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -168,8 +168,8 @@ En este post voy a explicar un poco como desarrollé el frontend de la app asist
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="setup react y electron"
-        title="setup react y electron"
+        alt="react and electron setup"
+        title="react and electron setup"
         src="/static/618f326ad4b19d895b611fc0e5260e70/fcda8/electron_setup.png"
         srcset="/static/618f326ad4b19d895b611fc0e5260e70/12f09/electron_setup.png 148w,
 /static/618f326ad4b19d895b611fc0e5260e70/e4a3f/electron_setup.png 295w,
@@ -182,10 +182,10 @@ En este post voy a explicar un poco como desarrollé el frontend de la app asist
       />
   </a>
     </span>
-El setup con electron en este caso, se aplica dentro de la carpeta public, donde al ejecutarse electron pasa a cargar el index.html generado por reactjs. A su vez disponibiliza a nivel de la ventana sus funciones, para comunicarse con el lado de react.</p>
-<p>Una vez hecho esto, hay que generar una serie de eventos para disparar desde react, que permitan realizar todas las acciones que solo pueden ejecutarse desde electron.</p>
-<p>En este caso el ipcRenderer va a servir como puente entre react y electron, en la práctica va a funcionar como funciones asíncronas que se llaman o se escuchan desde react.</p>
-<h2>Comunicación con el launcher</h2>
+The setup with Electron in this case is applied inside the public folder, where when Electron is executed it starts loading the index.html generated by ReactJS. At the same time, it provides its functions at the window level to communicate with the React side.</p>
+<p>Once this is done, a series of events have to be generated to be triggered from React, which allow all actions that can only be executed from Electron to be carried out.</p>
+<p>In this case, ipcRenderer will serve as a bridge between React and Electron, in practice it will work as asynchronous functions that are called or listened from React.</p>
+<h2>Communication with the launcher</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -203,8 +203,8 @@ El setup con electron en este caso, se aplica dentro de la carpeta public, donde
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="launcher lol"
-        title="launcher lol"
+        alt="lol launcher"
+        title="lol launcher"
         src="/static/a1f636e8572ba51768619cdb93c75d79/1c72d/launcher.jpg"
         srcset="/static/a1f636e8572ba51768619cdb93c75d79/a80bd/launcher.jpg 148w,
 /static/a1f636e8572ba51768619cdb93c75d79/1c91a/launcher.jpg 295w,
@@ -218,10 +218,10 @@ El setup con electron en este caso, se aplica dentro de la carpeta public, donde
       />
   </a>
     </span>
-El launcher de league of legends utiliza ciertas tecnologias web, y habilita una serie de endpoints y sockets que pueden utilizarse para recibir feedback en tiempo real. </p>
-<p>Para comunicarse con el es necesario chequear un archivo temporal que se genera en la carpeta de instalación del juego y almacena un juego de clave/valor para hacer estas requests. En este caso para no reinventar la rueda, decidí utilizar <a href="https://github.com/Pupix/lcu-connector">una pequeña librería</a> que se encarga de escuchar los cambios en ese archivos y facilitar la conexión.</p>
-<p>Por otro lado, una vez que hay una partida en curso, se habilita un endpoint que permite traer información de la partida en curso, minuto de partida, temporizadores de objetivos, builds actuales de cada jugador, etc.</p>
-<h2>Desarrollando las funcionalidades</h2>
+The League of Legends launcher uses certain web technologies, and enables a series of endpoints and sockets that can be used to receive real-time feedback.</p>
+<p>To communicate with it, it is necessary to check a temporary file that is generated in the game installation folder and stores a set of key/value for making these requests. In this case, to avoid reinventing the wheel, I decided to use <a href="https://github.com/Pupix/lcu-connector">a small library</a> that takes care of listening to changes in that file and facilitating the connection.</p>
+<p>On the other hand, once there is an ongoing match, an endpoint is enabled that allows you to bring information about the ongoing match, minute of the match, timers of objectives, current builds of each player, etc.</p>
+<h2>Developing the functionalities</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -253,19 +253,19 @@ El launcher de league of legends utiliza ciertas tecnologias web, y habilita una
       />
   </a>
     </span>
-El primer paso para que la aplicación funcione, es traer las estadísticas desde nuestro backend y poder visualizarlas, no hay mucho que ampliar aquí. Las funcionalidades básicas son mostrar un listado con estadísticas básicas y múltiples filtros. Al hacer foco en un campeón se pueden ver otros detalles relativos al mismo, como las builds recomendadas.</p>
-<p>Una vez eso está listo, pasamos a la parte de gestión de estado con redux. </p>
-<p>Hay múltiples estados posibles para el launcher:</p>
+The first step for the application to work is to bring the statistics from our backend and be able to visualize them, there is not much to expand on here. The basic functionalities are to show a list with basic statistics and multiple filters. When focusing on a champion, you can see other details related to it, like the recommended builds.</p>
+<p>Once that’s ready, we move on to state management with Redux.</p>
+<p>There are multiple possible states for the launcher:</p>
 <ul>
-<li>Inactivo </li>
-<li>Creando sala / Buscando partida</li>
-<li>En selección de campeón</li>
-<li>Jugando</li>
+<li>Inactive</li>
+<li>Creating lobby / Looking for match</li>
+<li>In champion selection</li>
+<li>Playing</li>
 </ul>
-<p>Según el estado actual, en la pestaña Ingame de la app se debe mostrar una cosa u otra.
-En electron desarollé una serie de listeners que envian mensajes a react, de forma que al recibir estos mensajes react vaya actualizando el state de la aplicación en redux, estas actualizaciones constantes de state permiten que la aplicación le siga el ritmo <strong>(y extrañamente, aveces supere)</strong> al launcher del juego. </p>
-<h3>En sala / Buscando partida</h3>
-<p>En este estado, se debe mostrar a toda la gente que esta en tu sala, y deberías poder chequear también estadísticas de los demás.</p>
+<p>Depending on the current state, in the Ingame tab of the app one thing or another should be shown.
+In Electron, I developed a series of listeners that send messages to React, so that when these messages are received, React will update the application state in Redux, these constant state updates allow the application to keep pace <strong>(and strangely, sometimes surpass)</strong> with the game launcher.</p>
+<h3>In lobby / Looking for match</h3>
+<p>In this state, you should show all the people who are in your lobby, and you should also be able to check statistics of the others as well.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -283,8 +283,8 @@ En electron desarollé una serie de listeners que envian mensajes a react, de fo
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="en sala"
-        title="en sala"
+        alt="in lobby"
+        title="in lobby"
         src="/static/93329b59ac82739c08b22143dafd2177/fcda8/img5.png"
         srcset="/static/93329b59ac82739c08b22143dafd2177/12f09/img5.png 148w,
 /static/93329b59ac82739c08b22143dafd2177/e4a3f/img5.png 295w,
@@ -297,7 +297,7 @@ En electron desarollé una serie de listeners que envian mensajes a react, de fo
       />
   </a>
     </span>
-En ciertas partidas se acostumbra solicitar la línea por chat, donde el primero que la pida “se la queda”, por lo que también agregué una funcionalidad que permita <strong>enviar instantáneamente la línea deseada</strong> al ingresar a la selección de campeón, esto en mi experiencia consigue que <strong>en 9 de cada 10 partidas consigas la linea que quieras.</strong></p>
+In certain matches, it is customary to request the line by chat, where the first one to ask for it “keeps it”, so I also added a feature that allows you to instantly send the desired line when entering the champion selection, this in my experience gets you the line you want in 9 out of 10 matches.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -315,8 +315,8 @@ En ciertas partidas se acostumbra solicitar la línea por chat, donde el primero
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="en sala"
-        title="en sala"
+        alt="in lobby"
+        title="in lobby"
         src="/static/6ee95f696c0e81b424484d7e400783fa/fcda8/img4.png"
         srcset="/static/6ee95f696c0e81b424484d7e400783fa/12f09/img4.png 148w,
 /static/6ee95f696c0e81b424484d7e400783fa/e4a3f/img4.png 295w,
@@ -329,8 +329,8 @@ En ciertas partidas se acostumbra solicitar la línea por chat, donde el primero
       />
   </a>
     </span>
-Por otro lado, otra feature útil es la de <strong>aceptar automáticamente la partida</strong>. Dependiendo de ciertas condiciones, se puede demorar varios minutos en encontrar una partida, por lo que si te distraes y no alcanzas a darle al botón de aceptar se pueden perder varios minutos. </p>
-<h3>En selección de campeón</h3>
+On the other hand, another useful feature is to automatically accept the match. Depending on certain conditions, it can take several minutes to find a match, so if you get distracted and don’t manage to hit the accept button, several minutes can be lost.</p>
+<h3>In champion selection</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -348,8 +348,8 @@ Por otro lado, otra feature útil es la de <strong>aceptar automáticamente la p
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="en seleccion"
-        title="en seleccion"
+        alt="in selection"
+        title="in selection"
         src="/static/22e2b51b08c78cb6a37a9db330abb313/fcda8/img8.png"
         srcset="/static/22e2b51b08c78cb6a37a9db330abb313/12f09/img8.png 148w,
 /static/22e2b51b08c78cb6a37a9db330abb313/e4a3f/img8.png 295w,
@@ -362,7 +362,7 @@ Por otro lado, otra feature útil es la de <strong>aceptar automáticamente la p
       />
   </a>
     </span>
-En este estado, se debe mostrar el estado actual de la selección de campeón, asi como consejos sobre que personajes banear o elegir para poner la balanza a tu favor.</p>
+In this state, the current state of the champion selection should be shown, as well as advice on which characters to ban or choose to tip the balance in your favor.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -380,8 +380,8 @@ En este estado, se debe mostrar el estado actual de la selección de campeón, a
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="en seleccion"
-        title="en seleccion"
+        alt="in selection"
+        title="in selection"
         src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
         srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
 /static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
@@ -394,11 +394,11 @@ En este estado, se debe mostrar el estado actual de la selección de campeón, a
       />
   </a>
     </span>
-Por otro lado, se debería poder <strong>obtener información automáticamente</strong> de los jugadores aliados para <strong>saber que líneas o personajes juegan</strong>, y así facilitar la cooperación y contar con cierta ventaja que al entrar a ciegas no se tiene. Se puede ver también un <strong>historial de partidas de cada jugador</strong> aliado, lo que da un mayor panorama.</p>
-<p>Esta información de jugadores, se trae desde el propio launcher, por lo que <strong>no es necesario utilizar requests mediante la api de Riot</strong> que se utiliza principalmente en backend.</p>
-<p>Una feature fundamental en estos casos, es la de <strong>cargar el equipamiento recomendado</strong> para el campeón actual, la app permite cargarlo automáticamente al seleccionar un campeón, o de forma manual.</p>
-<p>Las runas se cargan utilizando un socket hacia el launcher, mientras que las builds se cargan agregando un archivo JSON a los archivos del juego, de forma que al estar en partida y entrar en la tienda te muestre una lista de objetos recomendados por la app.</p>
-<h3>En partida</h3>
+On the other hand, you should be able to automatically obtain information from allied players to know what lines or characters they play, thus facilitating cooperation and having a certain advantage that you don’t have when entering blind. You can also see a match history of each allied player, which gives a wider panorama.</p>
+<p>This player information is brought from the launcher itself, so it is not necessary to use requests through the Riot API that is mainly used in the backend.</p>
+<p>A key feature in these cases is to load the recommended equipment for the current champion, the app allows you to load it automatically when selecting a champion, or manually.</p>
+<p>The runes are loaded using a socket to the launcher, while the builds are loaded by adding a JSON file to the game files, so that when you are in a match and enter the store, it shows you a list of objects recommended by the app.</p>
+<h3>In match</h3>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -416,8 +416,8 @@ Por otro lado, se debería poder <strong>obtener información automáticamente</
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="en partida"
-        title="en partida"
+        alt="in match"
+        title="in match"
         src="/static/727ae3b906892c5521a8273e03923f83/fcda8/img12.png"
         srcset="/static/727ae3b906892c5521a8273e03923f83/12f09/img12.png 148w,
 /static/727ae3b906892c5521a8273e03923f83/e4a3f/img12.png 295w,
@@ -430,10 +430,10 @@ Por otro lado, se debería poder <strong>obtener información automáticamente</
       />
   </a>
     </span>
-En esta pantalla se van mostrando <strong>datos de la partida en curso</strong>, estan accesibles todas las estadísticas del estado anterior pero esta vez también para los <strong>jugadores rivales</strong>. </p>
-<p>Por otro lado se muestran tambien la <strong>distribución del oro</strong> entre los equipos, los objetos actuales, el minuto de partida, jugadores actualmente vivos o muertos y cuanto tiempo queda para el spawn de los distintos objetivos dentro del juego.</p>
-<h1>Comentarios finales</h1>
-<p>Con esto lo que sería la descripción básica de las funcionalidades del frontend quedan cubiertas, sin haber entrado en mucho detalle. </p>
+In this screen, data from the ongoing match is displayed, all the statistics from the previous state are available but this time also for rival players.</p>
+<p>On the other hand, it also shows the distribution of gold among the teams, the current items, the minute of the match, players currently alive or dead, and how much time is left for the spawn of the different objectives within the game.</p>
+<h1>Final comments</h1>
+<p>With this, the basic description of the frontend functionalities is covered, without having gone into much detail.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 266px; "
@@ -451,8 +451,8 @@ En esta pantalla se van mostrando <strong>datos de la partida en curso</strong>,
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="distribucion de lenguajes"
-        title="distribucion de lenguajes"
+        alt="language distribution"
+        title="language distribution"
         src="/static/a818e9181d2e49652ff1951c933cfe40/b4ffe/distribution.png"
         srcset="/static/a818e9181d2e49652ff1951c933cfe40/12f09/distribution.png 148w,
 /static/a818e9181d2e49652ff1951c933cfe40/b4ffe/distribution.png 266w"
@@ -462,8 +462,8 @@ En esta pantalla se van mostrando <strong>datos de la partida en curso</strong>,
       />
   </a>
     </span>
-El desarrollo de esta parte fue bastante mas largo que el de backend, incluso cuando la arquitectura es más simple.
-El css es casi en su totalidad hecho a mano lo cual supuso una buena parte del tiempo dedicado a eso. </p>
-<p>En cuanto a la interacción con el launcher, <a href="https://lcu.vivide.re/">dejo aquí</a> una web donde pude obtener algo de información acerca de los endpoints que hay disponibles para interactuar con el mismo, de todos ellos realmente muy pocos funcionan, por lo que la web debe estar desactualizada. A base de prueba y error encontré aquellos que necesitaba y siguen funcionando.</p>
-<p>Básicamente <strong>toda acción dentro del launcher puede dispararse desde un endpoint</strong> de estos, asi que las posibilidades son muy amplias.
-Con esto finalizo por el momento la explicación acerca de la app asistente de League of Legends.</p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/arquitecture-lol-app/">← <!-- -->Asistente de League of Legends Parte 1 - Arquitectura</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/agro-algorithms/">Algoritmos para agro<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> ¿Te interesa mi trabajo? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> Contáctame </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/frontend-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6d8adee6e1e6ba8644fe.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c0c47ca5c93355474948.js"],"component---src-pages-works-js":["/component---src-pages-works-js-298c3a677ec8cb762bf7.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-9d96d6d37350dc087282.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-16e6a4f51256cc7fc64a.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-7eede00e11faf37a9e9b.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-b43bcaa498ad88e56879.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-2334755ca3e485bfe096.js" async=""></script></body></html>
+The development of this part was much longer than the backend, even when the architecture is simpler.
+The CSS is almost entirely handmade which took a good part of the time dedicated to it.</p>
+<p>As for the interaction with the launcher, <a href="https://lcu.vivide.re/">I leave here</a> a website where I was able to get some information about the endpoints that are available to interact with it, out of all of them, really very few work, so the website must be outdated. Through trial and error, I found those I needed and are still working.</p>
+<p>Basically, every action within the launcher can be triggered from one of these endpoints, so the possibilities are very wide.
+With this, I conclude for the moment the explanation about the League of Legends assistant app.</p></div></article><nav><ul class="posts__NaviagtionList-sc-4d4syh-5 hHDoRm"><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="prev" href="/arquitecture-lol-app/">← <!-- -->League of Legends Assistant Part 1 - Architecture</a></li><li class="posts__NaviagtionLi-sc-4d4syh-6 GBDKS"><a rel="next" href="/agro-algorithms/">Algorithms for Agriculture<!-- --> →</a></li></ul></nav></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> Interested in my work? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> <!-- -->Contact me<!-- --> </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/frontend-lol-app/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-4dab9f9206ceb52bfd5b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d450957caa506d23aefd.js"],"component---src-pages-works-js":["/component---src-pages-works-js-cabb4ce4e66f90b45fb4.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-4d009edbacc3ae12a57e.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-9816c356ca81f51f3748.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-blogs-post-js-a2c4b4b82d4f878c87e4.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-687a9b9ecc2f0bae4722.js" async=""></script></body></html>
