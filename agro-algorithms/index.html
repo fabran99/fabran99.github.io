@@ -236,37 +236,7 @@ For this, first of all, we must <strong>detect these cases</strong> and separate
 <ol>
 <li>Calculate the difference in angle between the previous and current data. It is relevant to take into account that when passing from angle 0 to 359 there is not 359 degrees of distance, but 1.</li>
 <li>Calculate the time difference from the previous and current data.</li>
-<li>Calculate the ratio between angle variation and time variation.
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/b03feb0a97ae57dc743629600378872e/d67ca/code1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 108.1081081081081%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC70lEQVQ4y41T2ZKiQBDkP8YDBUVO8cBb8RavCTXG3fn/H8mtbMQxjDWch4yi+sjOqiy0qBPB8Rx4gYewESIIAwT1AEVd/0GRKKJUKinospZ9ZyiXyypqo8kQnUELzYaLVstHMwoxHPdgV0y4VgV2VaJjw/c8RURiXU9JdfkuFgtClK4XCgVok/EEvW4P/W4X8WiE0K6h1xCVnouo00QjkEg06qLeh1/30ZWzTd9FvVYVIT6iqAXDNIUwD63T6ajXfSHyBFa1gjAIYFtVOKLQtS14Ti1Vpxd/ypVvwjQNGIYBXVQqwrBVh+WasOwyKpaOsmyalQrKctjgJemNaVZUj3iRMEUNS8zn88jlcipmudbtdVEXE0LfEbjwXUYPbs0S1VWlOpAKXNeFZVmo1WpwHEepJAH7RtwJh8MhWk32ykebLosBUbOBOsml3Ka4H7WaCGUSLKMEs1zCx8fHnSyLd0K+ljokGzfpmYMFdVjizcHU1eJd1SPuhO12W5VTFzWhY6lxqZnST6OM/E1BhtzD9zMytRrJ+HJbekgE4qhj2z+z9oTngX4cbO5rXRmbXq+HxXKJ2XyO6XSKxXwhcYa55LMZ4wKr1UrtRVEEjtoraDy0Xq+wFMLz+YzFYoHT6YSV5PvDAcfjUZEmSYL9fq+GmgJeQRvJ3zGdxqDb6/UazKmMik7ywFpiv99X6pNko1TwIon/By2OY6WGkQpULsTJZoOvry/sdjuMxyO1xv2M8KXCyWSiyh0OR9gICXP2k2r/fn8L4RaDwUCdORx+QZiWPE2JpH9UyPJY9maTyNpcFI4xnaUmve3hUnq03W5V79i3OJ6oiyTfSYlc4x5zqn5LmCRb5SRNITHVLG8ln88X1QaWzPwgrr8tebvd4fPzU5XMprN8khDX6/VmyliNDR9+S0iFByFiwktUQ1NY6vX6R40K95j/ypTD4aiU8MLlclFxfRsbDjoV0qhssN8SxlIiSfg3LG/z+Dysj4Ocfb8i/AfRxcAgTgFlXwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="code 1"
-        title="code 1"
-        src="/static/b03feb0a97ae57dc743629600378872e/fcda8/code1.png"
-        srcset="/static/b03feb0a97ae57dc743629600378872e/12f09/code1.png 148w,
-/static/b03feb0a97ae57dc743629600378872e/e4a3f/code1.png 295w,
-/static/b03feb0a97ae57dc743629600378872e/fcda8/code1.png 590w,
-/static/b03feb0a97ae57dc743629600378872e/d67ca/code1.png 714w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></li>
+<li>Calculate the ratio between angle variation and time variation.</li>
 <li>Data with a turnrate higher than 12 (a magic number obtained by trial and error) are given a “turning” flag = 1, and a 0 is assigned to the other data.</li>
 <li>Add a column with the difference between the “turning” state of the previous data and the current one. In those data where the difference is 0, it means that the previous state was maintained.</li>
 </ol>
