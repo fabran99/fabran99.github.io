@@ -112,13 +112,13 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
       />
   </a>
     </span></p>
-<p>The application is being developed incrementally, and new features are continuously added. I will briefly explain what it entails.</p>
-<p>The aim of the application is to provide a set of <strong>statistics for agricultural producers</strong>. The company has equipment that gathers position and performance information from harvesters and planters.</p>
-<p>The language used is <strong>Python</strong>. Libraries like Pandas, GeoPandas, and Shapely are used for data analysis, and Django for the API.</p>
-<h1>Main Algorithms</h1>
-<p>During the development of the application, I programmed a <strong>series of algorithms which I wrote about</strong> in <a href="/agro-algorithms/">this post</a>, which may be interesting.</p>
-<h1>Main Features I Developed</h1>
-<h2>Progress Reports Updated Every 8 Hours During the Current Harvest Season</h2>
+<p>The application is being developed incrementally, with new features continuously added. Here’s a brief overview:</p>
+<p>The aim of the application is to provide <strong>agricultural producers with comprehensive statistics</strong>. The company uses equipment that gathers position and performance data from harvesters and planters.</p>
+<p>The application is built using <strong>Python</strong>, with libraries like Pandas, GeoPandas, and Shapely for data analysis, and Django for the API.</p>
+<h2>Main Algorithms</h2>
+<p>Throughout the development process, I implemented a <strong>series of algorithms</strong> that I detailed in <a href="/agro-algorithms/">this post</a>, which you might find interesting.</p>
+<h1>Key Features I Developed</h1>
+<h2>Real-Time Progress Reports, Updated Every 8 Hours During the Harvest Season</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -150,22 +150,21 @@ data-styled.g40[id="sc-global-ksVVVH1"]{content:"sc-global-ksVVVH1,"}/*!sc*/
         loading="lazy"
       />
   </a>
-    </span>
-These reports detail:</p>
-<ul>
-<li>Area worked by the machines</li>
-<li>Overlapped area</li>
-<li>Percentage harvested in each farm</li>
-<li>Yield map of each farm</li>
-<li>Average yield of each farm</li>
-<li>Average humidity of each farm</li>
-<li>Detection of low yield areas in the farms</li>
-<li>Error detection in the equipment</li>
-<li>Machines used in each farm</li>
-<li>Progress polygon with harvested area of each farm</li>
-<li>Start and end date of harvest or planting for each farm</li>
-</ul>
-<p>The calculation results can be viewed from a web platform or exported in various formats, such as: PDF, Excel, CSV, PNG, GeoJSON, etc.
+    </span></p>
+<p>These dynamic reports offer a comprehensive overview of the harvest season, updated every 8 hours. They provide critical insights, including:</p>
+<ol>
+<li>Total area covered by each machine</li>
+<li>Areas of overlap during operation</li>
+<li>Harvest percentage completed on each farm</li>
+<li>Yield maps for every farm</li>
+<li>Average yield and humidity levels per farm</li>
+<li>Identification of low-yield zones within farms</li>
+<li>Detection of equipment errors</li>
+<li>List of machines deployed on each farm</li>
+<li>Visual progress polygons showing the harvested areas</li>
+<li>Start and end dates for harvesting or planting on each farm</li>
+</ol>
+<p>These results can be accessed via a web platform or exported in multiple formats, such as PDF, Excel, CSV, PNG, GeoJSON, and more, ensuring flexibility and ease of use for agricultural producers.
 <span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -198,7 +197,7 @@ These reports detail:</p>
       />
   </a>
     </span></p>
-<h2>API for Frontend Use</h2>
+<h2>API for Frontend Integration</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -231,15 +230,17 @@ These reports detail:</p>
       />
   </a>
     </span></p>
-<ul>
-<li>Information grouping by company</li>
-<li>Detection of events requiring field team action</li>
-<li>Management of machines and farms associated with each harvest season</li>
-<li>Detection of farms from planting progress polygons</li>
-<li>Uploading farm polygons from GeoJSON</li>
-<li>Export in multiple formats</li>
-<li>Availability of satellite images with various vegetation indices for each farm (NDVI, ReCL)</li>
-</ul>
+<p>This API was designed to seamlessly integrate with the frontend, providing powerful features to enhance user interaction and data management. Key functionalities include:</p>
+<ol>
+<li>Grouping and organizing information by company</li>
+<li>Automatic detection of events that require field team intervention</li>
+<li>Management of machines and farms for each harvest season</li>
+<li>Identification of farms using planting progress polygons</li>
+<li>Upload and management of farm polygons via GeoJSON</li>
+<li>Export capabilities in multiple formats</li>
+<li>Access to satellite imagery with various vegetation indices for each farm, including NDVI and ReCL</li>
+</ol>
+<p>These features ensure a robust and responsive frontend experience, allowing users to efficiently manage and analyze agricultural data.</p>
 <h2>Work Status Detection Using Artificial Intelligence</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -272,10 +273,10 @@ These reports detail:</p>
         loading="lazy"
       />
   </a>
-    </span>
-A Machine Learning model was trained using the <strong>FastAI</strong> library to detect when a machine is working or not. Thanks to this, <strong>operational costs and work are saved</strong> as it only requires planters to have a GPS installed instead of one or more sensors.</p>
-<p>This functionality also allows us to <strong>automatically detect problems in machines</strong>, such as disconnected, faulty, or misconfigured sensors, and send alerts to solve them.</p>
-<h2>Spatial Indices Using Earth Engine and Other Data Sources</h2>
+    </span></p>
+<p>Using the <strong>FastAI</strong> library, I trained a Machine Learning model to accurately detect when a machine is in operation. This innovation significantly reduces <strong>operational costs and workload</strong> by eliminating the need for multiple sensors, requiring only a GPS on planters.</p>
+<p>Additionally, this functionality enables the <strong>automatic detection of machine issues</strong>, such as disconnected, faulty, or misconfigured sensors, and sends alerts.</p>
+<h2>Spatial Indices Integration Using Earth Engine and Other Data Sources</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -307,9 +308,9 @@ A Machine Learning model was trained using the <strong>FastAI</strong> library t
         loading="lazy"
       />
   </a>
-    </span>
-I developed an integration with Google Earth Engine, enabling the retrieval of various vegetation indices such as NDVI for each field. This allows for a comparison of these data over time, helping to <strong>explain subsequent crop behavior</strong> and increasing the information available during analysis.</p>
-<h2>Complex Sensor Calibration System for Yield/Humidity</h2>
+    </span></p>
+<p>I integrated Google Earth Engine into the application, allowing the retrieval of various vegetation indices, such as NDVI, for each field. This integration enables time-based comparisons of these indices, providing valuable insights that help <strong>explain crop behavior over time</strong> and enrich the data available for analysis.</p>
+<h2>Advanced Sensor Calibration System for Yield and Humidity</h2>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
@@ -340,7 +341,7 @@ I developed an integration with Google Earth Engine, enabling the retrieval of v
         loading="lazy"
       />
   </a>
-    </span>
-Develop a complex server-side system to calibrate the yield and humidity data from harvesters over time. Real data measured in the field using scales and humidity sensors is used as the baseline, and the data from this measurement is loaded into the system, <strong>allowing for retroactive calibration of the data</strong>, and generating a calibration curve that is used to <strong>correct the data from the harvesters</strong>. This allows the yield and humidity data to be more accurate, being able to adjust each individual harvester.</p>
+    </span></p>
+<p>I developed a sophisticated server-side system to calibrate yield and humidity data from harvesters over time. The system uses real field measurements as a baseline, allowing for <strong>retroactive calibration</strong> of the data. By generating a calibration curve, the system can <strong>correct and fine-tune data from each individual harvester</strong>, ensuring more accurate yield and humidity readings.</p>
 <h1>Final Comments</h1>
-<p>The solution provides the producer with a series of statistics that help optimize field usage, <strong>improving productivity</strong>, allowing them to prioritize those fields with better performance and identify problematic areas in the fields.</p></div></article></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> Interested in my work? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> <!-- -->Contact me<!-- --> </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/portfolio-work-2/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-4dab9f9206ceb52bfd5b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-49b76d924d58c48a3a97.js"],"component---src-pages-works-js":["/component---src-pages-works-js-cabb4ce4e66f90b45fb4.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-4d009edbacc3ae12a57e.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-fa861135b4d9e34f030d.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-965eab0e30a7d571e3d1.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-works-work-js-965eab0e30a7d571e3d1.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-364e205f9291f535a4ab.js" async=""></script></body></html>
+<p>This solution equips producers with valuable statistics that help optimize field usage, <strong>enhance productivity</strong>, prioritize high-performing fields, and identify problematic areas that need attention.</p></div></article></div></div></div></main></div></div><footer class="style__FooterStyle-l15n7d-0 qSPLr"><div class="containerLayout__ContainerLayout-sc-25l7nr-0 eBKkTK"><div class="style__FooterBody-l15n7d-4 gPWzTY"><div><p class="text-primary quote"> Interested in my work? </p><a href="mailto:fabran99@gmail.com" class="buttons__ButtonDefault-sc-5x08bx-0 cgHyiV"> <!-- -->Contact me<!-- --> </a></div></div><div class="style__FooterLinks-l15n7d-1 rqPHC"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> <strong>Github:</strong> <a href="https://github.com/fabran99">github.com/fabran99</a></div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <strong>Email:</strong> fabran99@gmail.com</div></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/portfolio-work-2/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1fb7205eafb5a87ecdae.js"],"app":["/app-12ec5df1746cba18d59d.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"],"component---src-pages-404-js":["/component---src-pages-404-js-754bd783cb5b05f7732c.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-4dab9f9206ceb52bfd5b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-49b76d924d58c48a3a97.js"],"component---src-pages-works-js":["/component---src-pages-works-js-cabb4ce4e66f90b45fb4.js"],"component---src-templates-blogs-categories-js":["/component---src-templates-blogs-categories-js-4d009edbacc3ae12a57e.js"],"component---src-templates-blogs-post-js":["/component---src-templates-blogs-post-js-fa861135b4d9e34f030d.js"],"component---src-templates-works-work-js":["/component---src-templates-works-work-js-965eab0e30a7d571e3d1.js"]};/*]]>*/</script><script src="/polyfill-1fb7205eafb5a87ecdae.js" nomodule=""></script><script src="/component---src-templates-works-work-js-965eab0e30a7d571e3d1.js" async=""></script><script src="/c3dcc320ef5b70ede98e4eda7dbf6c3a19a74729-9b0d79212828325b659b.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-12ec5df1746cba18d59d.js" async=""></script><script src="/framework-5a1b297d9adac74fe592.js" async=""></script><script src="/webpack-runtime-364e205f9291f535a4ab.js" async=""></script></body></html>
